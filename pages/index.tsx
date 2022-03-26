@@ -4,6 +4,7 @@ import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import Link from "next/link";
 import Post from "../types/post";
+import { App } from "../components/bubbles/App";
 
 type Props = {
   allPosts: Post[];
@@ -17,6 +18,7 @@ const Index = ({ allPosts }: Props) => {
           <title>Andrew Ho</title>
         </Head>
         <Link href="/posts">Posts</Link>
+        <App />
       </Layout>
     </>
   );
