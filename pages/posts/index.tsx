@@ -1,9 +1,8 @@
-import Container from "../components/container";
-import Layout from "../components/layout";
-import { getAllPosts } from "../lib/api";
+import Layout from "../../components/layout";
+import { getAllPosts } from "../../lib/api";
 import Head from "next/head";
 import Link from "next/link";
-import Post from "../types/post";
+import Post from "../../types/post";
 
 type Props = {
   allPosts: Post[];
@@ -16,7 +15,15 @@ const Index = ({ allPosts }: Props) => {
         <Head>
           <title>Andrew Ho</title>
         </Head>
-        <Link href="/posts">Posts</Link>
+        <ul>
+          {allPosts.map(({ title, slug }, i) => (
+            <li key={i}>
+              <Link as={`/posts/${slug}`} href="/posts/[slug]">
+                <a className="hover:underline">{title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Layout>
     </>
   );

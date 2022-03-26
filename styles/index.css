@@ -1,3 +1,1 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url(https://cdn.jsdelivr.net/gh/andrewh0/okcss@1/dist/ok.min.css);
