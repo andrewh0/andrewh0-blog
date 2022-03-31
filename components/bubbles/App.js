@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import Scene from "./Scene";
 
 const LCanvas = dynamic(() => import("./Scene"), {
   ssr: false,

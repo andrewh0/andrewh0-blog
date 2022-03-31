@@ -7,6 +7,8 @@ import { Canvas } from "@react-three/fiber";
 import {
   // Stats,
   OrbitControls,
+  Preload,
+  AdaptiveDpr,
 } from "@react-three/drei";
 import { A11yUserPreferences } from "@react-three/a11y";
 
@@ -40,6 +42,8 @@ const Scene = () => {
             {/* <Stats /> */}
             <OrbitControls enabled={false} />
           </A11yUserPreferences>
+          <Preload all />
+          <AdaptiveDpr pixelated />
         </Canvas>
       </Suspense>
       {/* </div> */}
