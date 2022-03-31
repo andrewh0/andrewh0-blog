@@ -11,6 +11,7 @@ import {
   AdaptiveDpr,
 } from "@react-three/drei";
 import { A11yUserPreferences } from "@react-three/a11y";
+import styled from "styled-components";
 
 import ClumpGroup from "./ClumpGroup";
 import Pointer from "./Pointer";
@@ -19,14 +20,32 @@ import Lights from "./Lights";
 import WrappedPhysics from "./WrappedPhysics";
 import WrappedEnvironment from "./WrappedEnvironment";
 
+const CanvasContainer = styled.div`
+  padding: 40px;
+  height: 100%;
+  user-select: none;
+  touch-action: none;
+`;
+
+const StyledCanvas = styled(Canvas)`
+  border-radius: 16px;
+  box-shadow: 0px 0.5px 0.6px hsl(var(--shadow-color) / 0.36),
+    0px 1.6px 1.8px -0.8px hsl(var(--shadow-color) / 0.36),
+    0px 4px 4.5px -1.7px hsl(var(--shadow-color) / 0.36),
+    0px 9.8px 11px -2.5px hsl(var(--shadow-color) / 0.36);
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: none;
+  }
+`;
+
 const Scene = () => {
   return (
-    <>
-      {/* <div className="canvas-container"> */}
+    <CanvasContainer>
       <Suspense fallback={null}>
-        <Canvas
+        <StyledCanvas
           shadows
-          dpr={[1, 2]}
+          dpr={0.8}
           camera={{ position: [0, 0, 15], fov: 35, near: 1, far: 50 }}
           mode="concurrent"
         >
@@ -44,10 +63,9 @@ const Scene = () => {
           </A11yUserPreferences>
           <Preload all />
           <AdaptiveDpr pixelated />
-        </Canvas>
+        </StyledCanvas>
       </Suspense>
-      {/* </div> */}
-    </>
+    </CanvasContainer>
   );
 };
 

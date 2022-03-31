@@ -1,4 +1,3 @@
-import Container from "../components/container";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
@@ -17,7 +16,7 @@ const Index = ({ allPosts }: Props) => {
         <Head>
           <title>Andrew Ho</title>
         </Head>
-        <Link href="/posts">Posts</Link>
+        {/* <Link href="/posts">Posts</Link> */}
         <App />
       </Layout>
     </>
