@@ -31,14 +31,14 @@ const Scene = () => {
           <A11yUserPreferences>
             <Lights />
             <WrappedPhysics gravity={[0, 0, 0]} iterations={7} broadphase="SAP">
-              {/* <Pointer /> */}
+              <Pointer />
               <ClumpGroup />
             </WrappedPhysics>
             <WrappedEnvironment />
             {/* This allows the ball depth to be calculated in the right order. */}
             <Effects />
             {/* <Stats /> */}
-            <OrbitControls enabled={true} />
+            <OrbitControls enabled={false} />
           </A11yUserPreferences>
         </Canvas>
       </Suspense>

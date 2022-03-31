@@ -18,15 +18,12 @@ function ClumpGroup() {
   });
   return (
     <group ref={clumpRef}>
-      <Clump size={sizes[0]} color={colors[0]} />
+      {sizes.map((size) =>
+        colors.map((color) => (
+          <Clump key={`${size}${color}`} size={size} color={color} />
+        ))
+      )}
     </group>
-    // <group ref={clumpRef}>
-    //   {sizes.map((size) =>
-    //     colors.map((color) => (
-    //       <Clump key={`${size}${color}`} size={size} color={color} />
-    //     ))
-    //   )}
-    // </group>
   );
 }
 
