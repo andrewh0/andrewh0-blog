@@ -19,12 +19,17 @@ import Effects from "./Effects";
 import Lights from "./Lights";
 import WrappedPhysics from "./WrappedPhysics";
 import WrappedEnvironment from "./WrappedEnvironment";
+import { useDarkModeEnabled } from "./hooks";
 
 const CanvasContainer = styled.div`
   padding: 40px;
   height: 100%;
   user-select: none;
   touch-action: none;
+
+  @media screen and (max-width: 568px) {
+    padding: 16px;
+  }
 `;
 
 const StyledCanvas = styled(Canvas)`
@@ -34,12 +39,16 @@ const StyledCanvas = styled(Canvas)`
     0px 4px 4.5px -1.7px hsl(var(--shadow-color) / 0.36),
     0px 9.8px 11px -2.5px hsl(var(--shadow-color) / 0.36);
 
+  background-image: ${(props) =>
+    props.isDarkModeEnabled ? `url("/bg-purple.jpg")` : `url("/bg-blue.jpg")`};
+
   @media (prefers-color-scheme: dark) {
     box-shadow: none;
   }
 `;
 
 const Scene = () => {
+  const isDarkModeEnabled = useDarkModeEnabled();
   return (
     <CanvasContainer>
       <Suspense fallback={null}>
@@ -48,6 +57,7 @@ const Scene = () => {
           dpr={0.8}
           camera={{ position: [0, 0, 15], fov: 35, near: 1, far: 50 }}
           mode="concurrent"
+          isDarkModeEnabled={isDarkModeEnabled}
         >
           <A11yUserPreferences>
             <Lights />

@@ -10,6 +10,8 @@ const AppContainer = styled.div`
   height: 100%;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  overscroll-behavior-y: none;
 `;
 
 const Content = styled.div`
@@ -26,6 +28,10 @@ const Header = styled.div`
   padding: 40px;
   position: absolute;
   bottom: 0;
+
+  @media screen and (max-width: 568px) {
+    padding: 16px;
+  }
 `;
 
 const Name = styled.div`
@@ -36,12 +42,23 @@ const Name = styled.div`
   padding: 40px;
 
   color: white;
+
+  @media screen and (max-width: 568px) {
+    font-size: 24px;
+    letter-spacing: 0;
+    padding: 24px;
+  }
 `;
 
 const Description = styled.div`
   font-size: 24px;
   font-weight: 400;
   letter-spacing: -0.02em;
+
+  @media screen and (max-width: 568px) {
+    font-size: 16px;
+    letter-spacing: 0;
+  }
 `;
 
 export const App = () => {
