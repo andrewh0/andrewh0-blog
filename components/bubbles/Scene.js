@@ -2,8 +2,8 @@
 // https://codesandbox.io/s/lamina-environment-maps-mih0lx
 // https://codesandbox.io/s/building-live-envmaps-lwo219
 
-import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Suspense, useEffect, useState } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
 import {
   // Stats,
   OrbitControls,
@@ -41,14 +41,46 @@ const StyledCanvas = styled(Canvas)`
 
   background-image: ${(props) =>
     props.isDarkModeEnabled ? `url("/bg-purple.jpg")` : `url("/bg-blue.jpg")`};
+  background-size: cover;
 
   @media (prefers-color-scheme: dark) {
     box-shadow: none;
   }
 `;
 
+function takeScreenshot(gl) {
+  gl.domElement.toBlob(
+    (blob) => {
+      const anchorEl = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+      anchorEl.href = url;
+      anchorEl.download = "canvas.jpg";
+      anchorEl.click();
+    },
+    "image/jpg",
+    1.0
+  );
+}
+
+// Set gl on the state so that it can be used to
+// take a screenshot.
+// Based on https://github.com/pmndrs/react-three-fiber/discussions/592
+export const SceneExposer = ({ onGlChange }) => {
+  const { gl } = useThree();
+  useEffect(() => {
+    onGlChange(gl);
+  }, [gl]);
+
+  return null;
+};
+
 const Scene = () => {
   const isDarkModeEnabled = useDarkModeEnabled();
+  const [gl, setGl] = useState(null);
+  const handleClick = (e) => {
+    e.preventDefault();
+    takeScreenshot(gl);
+  };
   return (
     <CanvasContainer>
       <Suspense fallback={null}>
@@ -58,6 +90,13 @@ const Scene = () => {
           camera={{ position: [0, 0, 15], fov: 35, near: 1, far: 50 }}
           mode="concurrent"
           isDarkModeEnabled={isDarkModeEnabled}
+          gl={{
+            antialias: false,
+            stencil: false,
+            depth: false,
+            // Needed to be able to capture screenshots
+            // preserveDrawingBuffer: true,
+          }}
         >
           <A11yUserPreferences>
             <Lights />
@@ -73,8 +112,10 @@ const Scene = () => {
           </A11yUserPreferences>
           <Preload all />
           <AdaptiveDpr pixelated />
+          {/* <SceneExposer onGlChange={(gl) => setGl(gl)} /> */}
         </StyledCanvas>
       </Suspense>
+      {/* <button onClick={handleClick}>Download</button> */}
     </CanvasContainer>
   );
 };
