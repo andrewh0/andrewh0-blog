@@ -69,7 +69,7 @@ export const SceneExposer = ({ onGlChange }) => {
   const { gl } = useThree();
   useEffect(() => {
     onGlChange(gl);
-  }, [gl]);
+  }, [gl, onGlChange]);
 
   return null;
 };
