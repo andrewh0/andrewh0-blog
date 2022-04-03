@@ -22,14 +22,13 @@ import WrappedEnvironment from "./WrappedEnvironment";
 import { useDarkModeEnabled } from "./hooks";
 
 const CanvasContainer = styled.div`
-  padding: 40px;
-  height: 100%;
   user-select: none;
   touch-action: none;
-
-  @media screen and (max-width: 568px) {
-    padding: 16px;
-  }
+  // This is weird. Not sure why this needs to be < 100%;
+  // For canvas to resize vertically correctly.
+  height: 50%;
+  width: 100%;
+  flex: 1;
 `;
 
 const StyledCanvas = styled(Canvas)`

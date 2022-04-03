@@ -1,9 +1,16 @@
+import dynamic from "next/dynamic";
+import Head from "next/head";
+
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
-import Head from "next/head";
-import Link from "next/link";
 import Post from "../types/post";
-import { App } from "../components/bubbles/App";
+import Navigation from "../components/navigation";
+import ContentContainer from "../components/contentContainer";
+import Footer from "../components/footer";
+
+const BubbleArt = dynamic(() => import("../components/bubbles/Scene"), {
+  ssr: false,
+});
 
 type Props = {
   allPosts: Post[];
@@ -16,8 +23,11 @@ const Index = ({ allPosts }: Props) => {
         <Head>
           <title>Andrew Ho</title>
         </Head>
-        {/* <Link href="/posts">Posts</Link> */}
-        <App />
+        <ContentContainer>
+          <Navigation />
+          <BubbleArt />
+          <Footer />
+        </ContentContainer>
       </Layout>
     </>
   );
