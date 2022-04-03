@@ -17,19 +17,17 @@ const StyledLink = ({
 
 const Footer = () => {
   return (
-    <Flex as="nav" mt={3} sx={{ flexWrap: "wrap" }}>
-      <StyledLink href="mailto:hello@andrewho.me" p={2}>
+    <Flex as="footer" mt={3} sx={{ flexWrap: "wrap" }}>
+      <StyledLink href="mailto:hello@andrewho.me" mr={3}>
         Email↗
       </StyledLink>
-      <StyledLink href="/" p={2}>
+      <StyledLink href="https://github.com/andrewh0" mr={3}>
         GitHub↗
       </StyledLink>
-      <StyledLink href="/" p={2}>
+      <StyledLink href="https://twitter.com/andrewlho_codes" mr={3}>
         Twitter↗
       </StyledLink>
-      <StyledLink href="/" p={2}>
-        LinkedIn↗
-      </StyledLink>
+      <StyledLink href="https://linkedin.com/in/andrewh0">LinkedIn↗</StyledLink>
     </Flex>
   );
 };

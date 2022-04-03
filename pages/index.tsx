@@ -18,18 +18,16 @@ type Props = {
 
 const Index = ({ allPosts }: Props) => {
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>Andrew Ho</title>
-        </Head>
-        <ContentContainer>
-          <Navigation />
-          <BubbleArt />
-          <Footer />
-        </ContentContainer>
-      </Layout>
-    </>
+    <Layout>
+      <Head>
+        <title>Andrew Ho</title>
+      </Head>
+      <ContentContainer>
+        <Navigation />
+        <BubbleArt />
+        <Footer />
+      </ContentContainer>
+    </Layout>
   );
 };
 

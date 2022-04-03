@@ -26,7 +26,10 @@ const Navigation = () => {
         color: "text",
       }}
     >
-      <NavLink href="/" sx={{ fontSize: 4 }}>
+      <NavLink
+        href="/"
+        sx={{ fontSize: 4, fontWeight: 500, letterSpacing: "-0.03em" }}
+      >
         Andrew Ho
       </NavLink>
       <Flex
