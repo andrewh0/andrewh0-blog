@@ -59,9 +59,3 @@ canvas {
   touch-action: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html,
-  body {
-    background: #000;
-  }
-}

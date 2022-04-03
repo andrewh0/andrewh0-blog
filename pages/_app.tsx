@@ -1,9 +1,14 @@
-/** @jsxImportSource theme-ui */
-
+import { ThemeProvider } from "theme-ui";
 import { AppProps } from "next/app";
+
+import theme from "../components/theme";
 import "../styles/normalize.css";
 import "../styles/global.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }

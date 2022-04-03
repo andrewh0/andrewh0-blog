@@ -20,19 +20,28 @@ const Navigation = () => {
     <Flex
       as="nav"
       mb={3}
-      sx={{ justifyContent: "space-between", flexWrap: "wrap" }}
+      sx={{
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        color: "text",
+      }}
     >
-      <NavLink href="/" p={2}>
+      <NavLink href="/" sx={{ fontSize: 4 }}>
         Andrew Ho
       </NavLink>
-      <Flex>
-        <StyledNavLink href="/about" p={2} mr={2}>
+      <Flex
+        sx={{
+          color: "text",
+          alignItems: "center",
+        }}
+      >
+        <StyledNavLink href="/about" mr={3} sx={{ fontWeight: "body" }}>
           About
         </StyledNavLink>
-        <StyledNavLink href="/posts" p={2} mr={2}>
+        <StyledNavLink href="/posts" mr={3} sx={{ fontWeight: "body" }}>
           Writing
         </StyledNavLink>
-        <StyledNavLink href="/projects" p={2}>
+        <StyledNavLink href="/projects" sx={{ fontWeight: "body" }}>
           Projects
         </StyledNavLink>
       </Flex>
