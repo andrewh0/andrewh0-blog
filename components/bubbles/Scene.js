@@ -11,7 +11,8 @@ import {
   AdaptiveDpr,
 } from "@react-three/drei";
 import { A11yUserPreferences } from "@react-three/a11y";
-import styled from "styled-components";
+import { Box } from "theme-ui";
+import styled from "@emotion/styled";
 
 import ClumpGroup from "./ClumpGroup";
 import Pointer from "./Pointer";
@@ -20,16 +21,6 @@ import Lights from "./Lights";
 import WrappedPhysics from "./WrappedPhysics";
 import WrappedEnvironment from "./WrappedEnvironment";
 import { useDarkModeEnabled } from "./hooks";
-
-const CanvasContainer = styled.div`
-  user-select: none;
-  touch-action: none;
-  // This is weird. Not sure why this needs to be < 100%;
-  // For canvas to resize vertically correctly.
-  height: 50%;
-  width: 100%;
-  flex: 1;
-`;
 
 const StyledCanvas = styled(Canvas)`
   border-radius: 16px;
@@ -81,7 +72,17 @@ const Scene = () => {
     takeScreenshot(gl);
   };
   return (
-    <CanvasContainer>
+    <Box
+      css={`
+        user-select: none;
+        touch-action: none;
+        // This is weird. Not sure why this needs to be < 100%;
+        // For canvas to resize vertically correctly.
+        height: 50%;
+        width: 100%;
+        flex: 1;
+      `}
+    >
       <Suspense fallback={null}>
         <StyledCanvas
           shadows
@@ -115,7 +116,7 @@ const Scene = () => {
         </StyledCanvas>
       </Suspense>
       {/* <button onClick={handleClick}>Download</button> */}
-    </CanvasContainer>
+    </Box>
   );
 };
 
