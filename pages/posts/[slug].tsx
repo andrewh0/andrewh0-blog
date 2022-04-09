@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Container from "../../components/container";
 import PostBody from "../../components/post-body";
-import Header from "../../components/header";
 import PostHeader from "../../components/post-header";
 import Layout from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
@@ -11,6 +9,8 @@ import Head from "next/head";
 import markdownToHtml from "../../lib/markdownToHtml";
 import PostType from "../../types/post";
 import ContentContainer from "../../components/contentContainer";
+import Navigation from "../../components/navigation";
+import Footer from "../../components/footer";
 
 type Props = {
   post: PostType;
@@ -25,16 +25,17 @@ const Post = ({ post }: Props) => {
   return (
     <Layout>
       <ContentContainer>
-        {/* <Header /> */}
+        <Navigation />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
+            <article sx={{ height: "100%" }}>
               <Head>
                 <title>{post.title} | Andrew Ho</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
+
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
@@ -45,6 +46,7 @@ const Post = ({ post }: Props) => {
             </article>
           </>
         )}
+        <Footer />
       </ContentContainer>
     </Layout>
   );

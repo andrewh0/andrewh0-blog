@@ -17,7 +17,7 @@ const StyledLink = ({
 
 const Footer = () => {
   return (
-    <Flex as="footer" mt={3} sx={{ flexWrap: "wrap" }}>
+    <Flex as="footer" mt={3} sx={{ flexWrap: "wrap", fontSize: 1 }}>
       <StyledLink href="mailto:hello@andrewho.me" mr={3}>
         Email↗
       </StyledLink>

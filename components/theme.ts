@@ -90,6 +90,7 @@ const theme: Theme = {
       fontFamily: "body",
       fontWeight: "body",
       lineHeight: "body",
+      mb: 3,
     },
     a: {
       color: "text",

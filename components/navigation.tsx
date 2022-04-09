@@ -19,7 +19,7 @@ const Navigation = () => {
   return (
     <Flex
       as="nav"
-      mb={3}
+      mb={5}
       sx={{
         justifyContent: "space-between",
         flexWrap: "wrap",
