@@ -10,6 +10,7 @@ import PostTitle from "../../components/post-title";
 import Head from "next/head";
 import markdownToHtml from "../../lib/markdownToHtml";
 import PostType from "../../types/post";
+import ContentContainer from "../../components/contentContainer";
 
 type Props = {
   post: PostType;
@@ -23,15 +24,15 @@ const Post = ({ post }: Props) => {
   }
   return (
     <Layout>
-      <Container>
-        <Header />
+      <ContentContainer>
+        {/* <Header /> */}
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
             <article className="mb-32">
               <Head>
-                <title>{post.title} | Next.js Blog Example with Markdown</title>
+                <title>{post.title} | Andrew Ho</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader
@@ -44,7 +45,7 @@ const Post = ({ post }: Props) => {
             </article>
           </>
         )}
-      </Container>
+      </ContentContainer>
     </Layout>
   );
 };

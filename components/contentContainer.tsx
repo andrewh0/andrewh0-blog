@@ -6,7 +6,7 @@ const ContentContainer = (props: BoxProps) => {
       css={`
         display: flex;
         flex-direction: column;
-        max-width: 800px;
+        max-width: 640px;
         height: 100%;
         overflow: hidden;
         overscroll-behavior-y: none;
