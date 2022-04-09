@@ -32,6 +32,8 @@ const Navigation = () => (
       Andrew Ho
     </NavLink>
     <Flex
+      as="nav"
+      mb={5}
       sx={{
         color: "text",
         alignItems: "center",
