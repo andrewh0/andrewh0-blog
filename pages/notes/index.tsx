@@ -2,14 +2,14 @@ import Head from "next/head";
 import Link from "next/link";
 
 import Layout from "components/Layout";
-import { getAllPosts } from "lib/api";
-import Post from "types/post";
+import { getAllNotes } from "lib/api";
+import Note from "types/note";
 
 type Props = {
-  allPosts: Post[];
+  allNotes: Note[];
 };
 
-const Index = ({ allPosts }: Props) => {
+const Index = ({ allNotes }: Props) => {
   return (
     <>
       <Layout>
@@ -17,9 +17,9 @@ const Index = ({ allPosts }: Props) => {
           <title>Andrew Ho</title>
         </Head>
         <ul>
-          {allPosts.map(({ title, slug }, i) => (
+          {allNotes.map(({ title, slug }, i) => (
             <li key={i}>
-              <Link as={`/posts/${slug}`} href="/posts/[slug]">
+              <Link as={`/notes/${slug}`} href="/notes/[slug]">
                 <a className="hover:underline">{title}</a>
               </Link>
             </li>
@@ -33,7 +33,7 @@ const Index = ({ allPosts }: Props) => {
 export default Index;
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
+  const allNotes = getAllNotes([
     "title",
     "date",
     "slug",
@@ -43,6 +43,6 @@ export const getStaticProps = async () => {
   ]);
 
   return {
-    props: { allPosts },
+    props: { allNotes },
   };
 };

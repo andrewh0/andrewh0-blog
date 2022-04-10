@@ -40,7 +40,7 @@ const Navigation = () => (
       <StyledNavLink href="/about" mr={3} sx={{ fontWeight: "body" }}>
         About
       </StyledNavLink>
-      <StyledNavLink href="/posts" mr={3} sx={{ fontWeight: "body" }}>
+      <StyledNavLink href="/notes" mr={3} sx={{ fontWeight: "body" }}>
         Notes
       </StyledNavLink>
       <StyledNavLink href="/projects" sx={{ fontWeight: "body" }}>

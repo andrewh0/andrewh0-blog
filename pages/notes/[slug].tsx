@@ -3,20 +3,18 @@ import ErrorPage from "next/error";
 import PostBody from "components/PostBody";
 import PostHeader from "components/PostHeader";
 import Layout from "components/Layout";
-import { getPostBySlug, getAllPosts } from "lib/api";
+import { getNoteBySlug, getAllNotes } from "lib/api";
 import PostTitle from "components/PostTitle";
 import Head from "next/head";
-import markdownToHtml from "lib/markdownToHtml";
-import PostType from "types/post";
+import NoteType from "types/note";
 
 type Props = {
-  post: PostType;
-  morePosts: PostType[];
+  note: NoteType;
 };
 
-const Post = ({ post }: Props) => {
+const Note = ({ note }: Props) => {
   const router = useRouter();
-  if (!router.isFallback && !post?.slug) {
+  if (!router.isFallback && !note?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
@@ -27,17 +25,17 @@ const Post = ({ post }: Props) => {
         <>
           <article sx={{ height: "100%" }}>
             <Head>
-              <title>{post.title} | Andrew Ho</title>
-              <meta property="og:image" content={post.ogImage.url} />
+              <title>{note.title} | Andrew Ho</title>
+              {/* <meta property="og:image" content={note.ogImage.url} /> */}
             </Head>
 
             <PostHeader
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              author={post.author}
+              title={note.title}
+              coverImage={note.coverImage}
+              date={note.date}
+              author={note.author}
             />
-            <PostBody content={post.content} />
+            <PostBody content={note.content} />
           </article>
         </>
       )}
@@ -45,7 +43,7 @@ const Post = ({ post }: Props) => {
   );
 };
 
-export default Post;
+export default Note;
 
 type Params = {
   params: {
@@ -54,7 +52,7 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
+  const note = getNoteBySlug(params.slug, [
     "title",
     "date",
     "slug",
@@ -63,26 +61,22 @@ export async function getStaticProps({ params }: Params) {
     "ogImage",
     "coverImage",
   ]);
-  const content = await markdownToHtml(post.content || "");
 
   return {
     props: {
-      post: {
-        ...post,
-        content,
-      },
+      note,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(["slug"]);
+  const notes = getAllNotes(["slug"]);
 
   return {
-    paths: posts.map((post) => {
+    paths: notes.map((note) => {
       return {
         params: {
-          slug: post.slug,
+          slug: note.slug,
         },
       };
     }),

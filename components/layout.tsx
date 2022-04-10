@@ -16,7 +16,7 @@ const Layout = ({ children }: Props) => (
         flex-direction: column;
         max-width: 640px;
         height: 100%;
-        minheight: 100vh;
+        min-height: 100vh;
         overflow: hidden;
         overscroll-behavior-y: none;
         margin: auto;
