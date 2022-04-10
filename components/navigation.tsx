@@ -42,7 +42,7 @@ const Navigation = () => {
           About
         </StyledNavLink>
         <StyledNavLink href="/posts" mr={3} sx={{ fontWeight: "body" }}>
-          Writing
+          Notes
         </StyledNavLink>
         <StyledNavLink href="/projects" sx={{ fontWeight: "body" }}>
           Projects
