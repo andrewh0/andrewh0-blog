@@ -1,8 +1,9 @@
-import Layout from "../../components/layout";
-import { getAllPosts } from "../../lib/api";
 import Head from "next/head";
 import Link from "next/link";
-import Post from "../../types/post";
+
+import Layout from "components/Layout";
+import { getAllPosts } from "lib/api";
+import Post from "types/post";
 
 type Props = {
   allPosts: Post[];

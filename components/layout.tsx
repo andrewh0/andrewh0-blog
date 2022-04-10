@@ -1,8 +1,7 @@
 import { Box } from "theme-ui";
-import ContentContainer from "components/contentContainer";
-import Footer from "components/footer";
-import Meta from "components/meta";
-import Navigation from "components/navigation";
+import Footer from "components/Footer";
+import Meta from "components/Meta";
+import Navigation from "components/Navigation";
 
 type Props = {
   children: React.ReactNode;
@@ -11,7 +10,19 @@ type Props = {
 const Layout = ({ children }: Props) => (
   <>
     <Meta />
-    <ContentContainer>
+    <Box
+      css={`
+        display: flex;
+        flex-direction: column;
+        max-width: 640px;
+        height: 100%;
+        minheight: 100vh;
+        overflow: hidden;
+        overscroll-behavior-y: none;
+        margin: auto;
+      `}
+      p={3}
+    >
       <Navigation />
       <Box
         css={`
@@ -21,7 +32,7 @@ const Layout = ({ children }: Props) => (
         {children}
       </Box>
       <Footer />
-    </ContentContainer>
+    </Box>
   </>
 );
 

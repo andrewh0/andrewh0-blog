@@ -1,16 +1,13 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import PostBody from "../../components/post-body";
-import PostHeader from "../../components/post-header";
-import Layout from "../../components/layout";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
-import PostTitle from "../../components/post-title";
+import PostBody from "components/PostBody";
+import PostHeader from "components/PostHeader";
+import Layout from "components/Layout";
+import { getPostBySlug, getAllPosts } from "lib/api";
+import PostTitle from "components/PostTitle";
 import Head from "next/head";
-import markdownToHtml from "../../lib/markdownToHtml";
-import PostType from "../../types/post";
-import ContentContainer from "../../components/contentContainer";
-import Navigation from "../../components/navigation";
-import Footer from "../../components/footer";
+import markdownToHtml from "lib/markdownToHtml";
+import PostType from "types/post";
 
 type Props = {
   post: PostType;
@@ -24,30 +21,26 @@ const Post = ({ post }: Props) => {
   }
   return (
     <Layout>
-      <ContentContainer>
-        <Navigation />
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article sx={{ height: "100%" }}>
-              <Head>
-                <title>{post.title} | Andrew Ho</title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
+      {router.isFallback ? (
+        <PostTitle>Loading…</PostTitle>
+      ) : (
+        <>
+          <article sx={{ height: "100%" }}>
+            <Head>
+              <title>{post.title} | Andrew Ho</title>
+              <meta property="og:image" content={post.ogImage.url} />
+            </Head>
 
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-            </article>
-          </>
-        )}
-        <Footer />
-      </ContentContainer>
+            <PostHeader
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              author={post.author}
+            />
+            <PostBody content={post.content} />
+          </article>
+        </>
+      )}
     </Layout>
   );
 };

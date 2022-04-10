@@ -15,41 +15,39 @@ const StyledNavLink = ({
   );
 };
 
-const Navigation = () => {
-  return (
+const Navigation = () => (
+  <Flex
+    as="nav"
+    mb={5}
+    sx={{
+      justifyContent: "space-between",
+      flexWrap: "wrap",
+      color: "text",
+    }}
+  >
+    <NavLink
+      href="/"
+      sx={{ fontSize: 4, fontWeight: 500, letterSpacing: "-0.03em" }}
+    >
+      Andrew Ho
+    </NavLink>
     <Flex
-      as="nav"
-      mb={5}
       sx={{
-        justifyContent: "space-between",
-        flexWrap: "wrap",
         color: "text",
+        alignItems: "center",
       }}
     >
-      <NavLink
-        href="/"
-        sx={{ fontSize: 4, fontWeight: 500, letterSpacing: "-0.03em" }}
-      >
-        Andrew Ho
-      </NavLink>
-      <Flex
-        sx={{
-          color: "text",
-          alignItems: "center",
-        }}
-      >
-        <StyledNavLink href="/about" mr={3} sx={{ fontWeight: "body" }}>
-          About
-        </StyledNavLink>
-        <StyledNavLink href="/posts" mr={3} sx={{ fontWeight: "body" }}>
-          Notes
-        </StyledNavLink>
-        <StyledNavLink href="/projects" sx={{ fontWeight: "body" }}>
-          Projects
-        </StyledNavLink>
-      </Flex>
+      <StyledNavLink href="/about" mr={3} sx={{ fontWeight: "body" }}>
+        About
+      </StyledNavLink>
+      <StyledNavLink href="/posts" mr={3} sx={{ fontWeight: "body" }}>
+        Notes
+      </StyledNavLink>
+      <StyledNavLink href="/projects" sx={{ fontWeight: "body" }}>
+        Projects
+      </StyledNavLink>
     </Flex>
-  );
-};
+  </Flex>
+);
 
 export default Navigation;
