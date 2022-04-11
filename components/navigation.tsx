@@ -18,7 +18,6 @@ const StyledNavLink = ({
 const Navigation = () => (
   <Flex
     as="nav"
-    mb={5}
     sx={{
       justifyContent: "space-between",
       flexWrap: "wrap",

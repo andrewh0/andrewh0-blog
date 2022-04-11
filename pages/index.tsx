@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
-import Layout from "components/layout";
+import Layout from "components/Layout";
 
 const BubbleArt = dynamic(() => import("../components/bubbles/Scene"), {
   ssr: false,
