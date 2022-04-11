@@ -1,5 +1,5 @@
 // import PostTitle from "./postTitle";
-import Author from "../types/author";
+import Author from "../../types/author";
 
 type Props = {
   title: string;

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import Layout from "../../components/layout";
 import { getAllNotes } from "../../lib/api";
-import Note from "../../types/note";
+import Note from "../../../types/note";
 
 type Props = {
   allNotes: Note[];
