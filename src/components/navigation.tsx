@@ -23,6 +23,7 @@ const Navigation = () => (
       flexWrap: "wrap",
       color: "text",
     }}
+    mb={5}
   >
     <NavLink
       href="/"
@@ -32,7 +33,6 @@ const Navigation = () => (
     </NavLink>
     <Flex
       as="nav"
-      mb={5}
       sx={{
         color: "text",
         alignItems: "center",
