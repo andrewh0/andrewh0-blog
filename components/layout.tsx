@@ -19,7 +19,7 @@ const Layout = ({ children }: Props) => (
         min-height: 100vh;
         overflow: hidden;
         overscroll-behavior-y: none;
-        margin: auto;
+        margin: auto 0;
       `}
       p={3}
     >

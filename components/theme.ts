@@ -49,6 +49,8 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 5,
+      mt: 0,
+      mb: 3,
     },
     h2: {
       color: "text",
@@ -56,6 +58,8 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 4,
+      mt: 4,
+      mb: 3,
     },
     h3: {
       color: "text",
@@ -63,6 +67,8 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 3,
+      mt: 4,
+      mb: 3,
     },
     h4: {
       color: "text",
@@ -70,6 +76,8 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 2,
+      mt: 4,
+      mb: 3,
     },
     h5: {
       color: "text",
@@ -77,6 +85,8 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 1,
+      mt: 4,
+      mb: 3,
     },
     h6: {
       color: "text",
@@ -84,6 +94,8 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 0,
+      mt: 4,
+      mb: 3,
     },
     p: {
       color: "text",

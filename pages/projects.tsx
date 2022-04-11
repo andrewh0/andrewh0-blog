@@ -1,6 +1,7 @@
+import { Box } from "theme-ui";
 import Head from "next/head";
-
 import Layout from "components/Layout";
+import ProjectMarkdown from "markdown/projects.mdx";
 
 const Projects = () => {
   return (
@@ -8,7 +9,13 @@ const Projects = () => {
       <Head>
         <title>Projects | Andrew Ho</title>
       </Head>
-      Projects
+      <Box
+        css={`
+          height: 100%;
+        `}
+      >
+        <ProjectMarkdown />
+      </Box>
     </Layout>
   );
 };
