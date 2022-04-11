@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import PostBody from "components/postBody";
-import PostHeader from "components/postHeader";
-import Layout from "components/layout";
-import { getNoteBySlug, getAllNotes } from "lib/api";
-import PostTitle from "components/postTitle";
 import Head from "next/head";
-import NoteType from "types/note";
+import PostBody from "../../components/postBody";
+import PostHeader from "../../components/postHeader";
+import Layout from "../../components/layout";
+import { getNoteBySlug, getAllNotes } from "../../lib/api";
+import PostTitle from "../../components/postTitle";
+import NoteType from "../../types/note";
 
 type Props = {
   note: NoteType;
