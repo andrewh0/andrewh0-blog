@@ -1,5 +1,5 @@
-import DateFormatter from "./DateFormatter";
-import PostTitle from "./PostTitle";
+import DateFormatter from "./dateFormatter";
+import PostTitle from "./postTitle";
 import Author from "../types/author";
 
 type Props = {

@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import PostBody from "components/PostBody";
-import PostHeader from "components/PostHeader";
-import Layout from "components/Layout";
+import PostBody from "components/postBody";
+import PostHeader from "components/postHeader";
+import Layout from "components/layout";
 import { getNoteBySlug, getAllNotes } from "lib/api";
-import PostTitle from "components/PostTitle";
+import PostTitle from "components/postTitle";
 import Head from "next/head";
 import NoteType from "types/note";
 
