@@ -10,7 +10,9 @@ const About = () => (
     </Head>
     <Box
       css={`
-        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
       `}
     >
       <AboutMarkdown />

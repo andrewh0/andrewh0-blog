@@ -8,7 +8,7 @@ const BubbleArt = dynamic(() => import("../components/bubbles/Scene"), {
 });
 
 const Index = () => (
-  <Layout>
+  <Layout isHomePage>
     <Head>
       <title>Andrew Ho</title>
     </Head>

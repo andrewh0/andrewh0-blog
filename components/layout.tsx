@@ -4,10 +4,11 @@ import Meta from "components/Meta";
 import Navigation from "components/Navigation";
 
 type Props = {
+  isHomePage?: boolean;
   children: React.ReactNode;
 };
 
-const Layout = ({ children }: Props) => (
+const Layout = ({ children, isHomePage = false }: Props) => (
   <>
     <Meta />
     <Box
@@ -15,18 +16,22 @@ const Layout = ({ children }: Props) => (
         display: flex;
         flex-direction: column;
         max-width: 640px;
-        height: 100%;
         min-height: 100vh;
         overflow: hidden;
         overscroll-behavior-y: none;
-        margin: auto 0;
+        margin: 0 auto;
       `}
+      sx={{
+        height: isHomePage ? "100%" : "auto",
+      }}
       p={3}
     >
       <Navigation />
       <Box
         css={`
-          height: 100%;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
         `}
       >
         {children}
