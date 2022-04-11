@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
-import Layout from "../components/layout";
+import Layout from "components/layout";
 
-const BubbleArt = dynamic(() => import("../components/bubbles/Scene"), {
+const BubbleArt = dynamic(() => import("components/bubbles/Scene"), {
   ssr: false,
 });
 

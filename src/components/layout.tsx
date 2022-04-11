@@ -1,7 +1,7 @@
 import { Box } from "theme-ui";
-import Footer from "./footer";
-import Meta from "./meta";
-import Navigation from "./navigation";
+import Footer from "components/footer";
+import Meta from "components/meta";
+import Navigation from "components/navigation";
 
 type Props = {
   isHomePage?: boolean;

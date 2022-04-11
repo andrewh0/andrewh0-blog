@@ -1,7 +1,7 @@
 import { Box } from "theme-ui";
 import Head from "next/head";
-import Layout from "../components/layout";
-import AboutMarkdown from "../markdown/about.mdx";
+import Layout from "components/layout";
+import AboutMarkdown from "markdown/about.mdx";
 
 const About = () => (
   <Layout>

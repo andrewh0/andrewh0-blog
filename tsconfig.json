@@ -14,7 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "jsxImportSource": "theme-ui"
+    "jsxImportSource": "theme-ui",
+    "baseUrl": "./src"
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]

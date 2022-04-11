@@ -1,7 +1,7 @@
 import { ThemeProvider } from "theme-ui";
 import { AppProps } from "next/app";
 
-import theme from "../components/theme";
+import theme from "components/theme";
 import "../styles/normalize.css";
 import "../styles/global.css";
 
