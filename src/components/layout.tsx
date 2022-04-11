@@ -17,6 +17,8 @@ const Layout = ({ children, isHomePage = false }: Props) => (
         flex-direction: column;
         max-width: 640px;
         min-height: 100vh;
+        // https://twitter.com/jensimmons/status/1499576041857290244
+        min-height: 100dvh;
         overflow: hidden;
         overscroll-behavior-y: none;
         margin: 0 auto;
