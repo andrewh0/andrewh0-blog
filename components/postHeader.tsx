@@ -1,4 +1,3 @@
-import DateFormatter from "./dateFormatter";
 import PostTitle from "./postTitle";
 import Author from "../types/author";
 
