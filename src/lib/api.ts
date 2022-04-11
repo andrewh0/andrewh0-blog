@@ -2,7 +2,7 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 
-const notesDirectory = join(process.cwd(), "markdown/notes");
+const notesDirectory = join(process.cwd(), "src/markdown/notes");
 
 export function getNoteSlugs() {
   return fs.readdirSync(notesDirectory);
