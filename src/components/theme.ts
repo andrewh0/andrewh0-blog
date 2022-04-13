@@ -11,7 +11,7 @@ const theme: Theme = {
     monospace:
       '"SFMono-Regular, Menlo, Monaco, Consolas, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace"',
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
+  fontSizes: [14, 16, 20, 24, 32, 40, 64, 96],
   fontWeights: {
     body: 400,
     heading: 700,
@@ -48,17 +48,17 @@ const theme: Theme = {
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
-      fontSize: 5,
-      mt: 0,
-      mb: 3,
+      fontSize: [3, 4],
+      mt: 5,
+      mb: 4,
     },
     h2: {
       color: "text",
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
-      fontSize: 4,
-      mt: 4,
+      fontSize: [2, 3],
+      mt: 5,
       mb: 3,
     },
     h3: {
@@ -67,7 +67,7 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 3,
-      mt: 4,
+      mt: 5,
       mb: 3,
     },
     h4: {
@@ -76,7 +76,7 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 2,
-      mt: 4,
+      mt: 5,
       mb: 3,
     },
     h5: {
@@ -85,7 +85,7 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 1,
-      mt: 4,
+      mt: 5,
       mb: 3,
     },
     h6: {
@@ -94,7 +94,7 @@ const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
       fontSize: 0,
-      mt: 4,
+      mt: 5,
       mb: 3,
     },
     p: {

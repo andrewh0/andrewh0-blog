@@ -9,11 +9,9 @@ const About = () => (
       <title>About | Andrew Ho</title>
     </Head>
     <Box
-      css={`
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-      `}
+      sx={{
+        mt: -5,
+      }}
     >
       <AboutMarkdown />
     </Box>

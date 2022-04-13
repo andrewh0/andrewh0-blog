@@ -9,13 +9,7 @@ const Projects = () => {
       <Head>
         <title>Projects | Andrew Ho</title>
       </Head>
-      <Box
-        css={`
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-        `}
-      >
+      <Box sx={{ mt: -5 }}>
         <ProjectMarkdown />
       </Box>
     </Layout>

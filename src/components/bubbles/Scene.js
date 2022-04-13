@@ -82,9 +82,6 @@ const Scene = () => {
         width: 100%;
         flex: 1;
       `}
-      sx={{
-        mb: 5,
-      }}
     >
       <Suspense fallback={null}>
         <StyledCanvas
