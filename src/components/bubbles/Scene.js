@@ -29,13 +29,15 @@ const StyledCanvas = styled(Canvas)`
     0px 4px 4.5px -1.7px hsl(var(--shadow-color) / 0.36),
     0px 9.8px 11px -2.5px hsl(var(--shadow-color) / 0.36);
 
-  background-image: ${(props) =>
-    props.isDarkModeEnabled ? `url("/bg-purple.jpg")` : `url("/bg-blue.jpg")`};
-  background-size: cover;
+  background-color: #4ba2cb;
 
   @media (prefers-color-scheme: dark) {
     box-shadow: none;
+    background-color: #201c31;
   }
+  background-image: ${(props) =>
+    props.isDarkModeEnabled ? `url("/bg-purple.jpg")` : `url("/bg-blue.jpg")`};
+  background-size: cover;
 `;
 
 function takeScreenshot(gl) {
