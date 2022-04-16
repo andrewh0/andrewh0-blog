@@ -20,11 +20,17 @@ const StyledLink = ({
   return (
     <>
       <Link href={href} passHref>
-        <ThemeLink {...isExternalProps} {...rest}>
+        <ThemeLink
+          {...isExternalProps}
+          sx={{
+            color: "muted",
+          }}
+          {...rest}
+        >
           {children}
         </ThemeLink>
       </Link>
-      {isExternal ? " ↗" : ""}
+      {isExternal ? <span sx={{ color: "muted" }}> ↗</span> : ""}
     </>
   );
 };
@@ -46,9 +52,11 @@ const Footer = () => (
         Twitter
       </StyledLink>
     </span>
-    <StyledLink href="https://linkedin.com/in/andrewh0" isExternal>
-      LinkedIn
-    </StyledLink>
+    <span>
+      <StyledLink href="https://linkedin.com/in/andrewh0" isExternal>
+        LinkedIn
+      </StyledLink>
+    </span>
   </Flex>
 );
 

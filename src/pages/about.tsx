@@ -6,7 +6,7 @@ import AboutMarkdown from "markdown/about.mdx";
 const About = () => (
   <Layout>
     <Head>
-      <title>About | Andrew Ho</title>
+      <title>About &middot; Andrew Ho</title>
     </Head>
     <Box
       sx={{

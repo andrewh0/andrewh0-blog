@@ -1,4 +1,45 @@
 import { Theme } from "theme-ui";
+import {
+  gray,
+  grayDark,
+  blue,
+  blueDark,
+  crimson,
+  crimsonDark,
+} from "@radix-ui/colors";
+
+// More presets available here: https://theme-ui.com/packages/presets
+
+/*
+Radix colors are described here:
+https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale
+
+Each color has 12 steps:
+1  App background
+2  Subtle background
+3  UI element background
+4  Hovered UI element background
+5  Active / Selected UI element background
+6  Subtle borders and separators
+7  UI element border and focus rings
+8  Hovered UI element border
+9  Solid backgrounds
+10 Hovered solid backgrounds
+11 Low-contrast text
+12 High-contrast text
+*/
+
+const codeStyle = {
+  fontFamily: "monospace",
+  fontSize: 1,
+  backgroundColor: "codeBackground",
+  color: "snippet",
+  padding: "0.05em 0.2em",
+  borderRadius: "4px",
+  borderWidth: "1px",
+  borderStyle: "solid",
+  borderColor: "codeBorderColor",
+};
 
 const theme: Theme = {
   config: {
@@ -22,18 +63,26 @@ const theme: Theme = {
     heading: 1.25,
   },
   colors: {
-    text: "#000",
-    background: "#fff",
-    primary: "#848484",
-    secondary: "#30c",
-    muted: "#848484",
+    text: gray.gray12,
+    background: gray.gray1,
+    primary: blue.blue11,
+    secondary: blue.blue11,
+    muted: gray.gray11,
+    link: blue.blue11,
+    snippet: crimson.crimson11,
+    codeBackground: gray.gray3,
+    codeBorderColor: gray.gray6,
     modes: {
       dark: {
-        text: "#fff",
-        background: "#000000",
-        primary: "#5c9aff",
-        secondary: "#30c",
-        muted: "#929292",
+        text: grayDark.gray12,
+        background: grayDark.gray1,
+        primary: blueDark.blue11,
+        secondary: blueDark.blue11,
+        muted: grayDark.gray11,
+        link: blueDark.blue11,
+        snippet: crimsonDark.crimson11,
+        codeBackground: grayDark.gray3,
+        codeBorderColor: grayDark.gray6,
       },
     },
   },
@@ -51,6 +100,7 @@ const theme: Theme = {
       fontSize: [3, 4],
       mt: 5,
       mb: 4,
+      letterSpacing: "-0.03em",
     },
     h2: {
       color: "text",
@@ -60,6 +110,7 @@ const theme: Theme = {
       fontSize: [2, 3],
       mt: 5,
       mb: 3,
+      letterSpacing: "-0.03em",
     },
     h3: {
       color: "text",
@@ -69,6 +120,7 @@ const theme: Theme = {
       fontSize: 3,
       mt: 5,
       mb: 3,
+      letterSpacing: "-0.03em",
     },
     h4: {
       color: "text",
@@ -103,9 +155,14 @@ const theme: Theme = {
       fontWeight: "body",
       lineHeight: "body",
       mb: 3,
+      code: codeStyle,
     },
     a: {
-      color: "text",
+      color: "link",
+      textDecoration: "none",
+      "&:hover": {
+        textDecoration: "underline",
+      },
     },
     pre: {
       fontFamily: "monospace",
@@ -114,14 +171,12 @@ const theme: Theme = {
         color: "inherit",
       },
     },
-    code: {
-      fontFamily: "monospace",
-      fontSize: "inherit",
-    },
+    code: codeStyle,
     table: {
       width: "100%",
       borderCollapse: "separate",
       borderSpacing: 0,
+      mb: 3,
     },
     th: {
       textAlign: "left",
@@ -133,6 +188,19 @@ const theme: Theme = {
     },
     img: {
       maxWidth: "100%",
+    },
+    ul: {
+      pl: "20px",
+      ml: 0,
+      mb: 3,
+    },
+    ol: {
+      pl: "20px",
+      mb: 3,
+    },
+    li: {
+      mb: 2,
+      code: codeStyle,
     },
   },
 };

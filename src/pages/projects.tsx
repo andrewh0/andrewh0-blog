@@ -7,7 +7,7 @@ const Projects = () => {
   return (
     <Layout>
       <Head>
-        <title>Projects | Andrew Ho</title>
+        <title>Projects &middot; Andrew Ho</title>
       </Head>
       <Box sx={{ mt: -5 }}>
         <ProjectMarkdown />

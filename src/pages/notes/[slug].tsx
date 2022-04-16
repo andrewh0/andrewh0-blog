@@ -25,7 +25,7 @@ const Note = ({ note }: Props) => {
         <>
           <article sx={{ height: "100%" }}>
             <Head>
-              <title>{note.title} | Andrew Ho</title>
+              <title>{note.title} &middot; Andrew Ho</title>
               {/* <meta property="og:image" content={note.ogImage.url} /> */}
             </Head>
 

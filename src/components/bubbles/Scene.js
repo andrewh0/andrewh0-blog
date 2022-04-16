@@ -88,7 +88,7 @@ const Scene = () => {
       <Suspense fallback={null}>
         <StyledCanvas
           shadows
-          dpr={0.8}
+          dpr={1}
           camera={{ position: [0, 0, 15], fov: 35, near: 1, far: 50 }}
           mode="concurrent"
           isDarkModeEnabled={isDarkModeEnabled}
