@@ -1,3 +1,5 @@
+import Stack from "components/Stack";
+
 # Projects
 
 I learn by doing, and my side projects let me explore technologies outside of work. Most of the projects below are over-engineered, messy, or incomplete.
@@ -7,7 +9,18 @@ They're always fun to work on though, and each one has taught me something diffe
 
 The third major iteration of this website, updated with a new technology stack to support a personal blog.
 
-**Stack** — React, Next.js, Theme UI, MDX, React Three Fiber, Three.js, TypeScript, Vercel
+<Stack
+  technologies={[
+    "React",
+    "Theme UI",
+    "MDX",
+    "React Three Fiber",
+    "Three.js",
+    "TypeScript",
+    "Next.js",
+    "Vercel",
+  ]}
+/>
 
 ## [Redacted] Discord bot (2022)
 
@@ -15,7 +28,7 @@ I created a custom Discord bot for the private server I hang out in with some of
 
 So far, it has a Message Command that helps people format text and a Slash Command that makes sharing gifs more convenient.
 
-**Stack** — Node, discord.js, Airtable, Fly.io
+<Stack technologies={["Node", "Express", "Fly.io", "discord.js", "Airtable"]} />
 
 ## Digestif (2020)
 
@@ -23,9 +36,17 @@ Digestif shows me the most-liked Tweets from people I follow. It makes it easy t
 It started as a web app hosted from my Raspberry Pi, accessible only on my home network.
 Later, I built an integration that posts the best Tweets to Discord once a day.
 
-**Stack** — Django, Celery, React, Next.js, Raspberry Pi
-
-**External APIs** — Twitter, Discord
+<Stack
+  technologies={[
+    "React",
+    "Django",
+    "Celery",
+    "Next.js",
+    "Raspberry Pi",
+    "Twitter",
+    "Discord",
+  ]}
+/>
 
 ## OK.css (2020)
 
@@ -33,13 +54,15 @@ Later, I built an integration that posts the best Tweets to Discord once a day.
 
 OK.css is a classless CSS framework that adds sensible styling defaults to your web page. It's featured in [this collection](https://github.com/dohliam/dropin-minimal-css) of minimal stylesheets.
 
+<Stack technologies={["CSS", "Gulp"]} />
+
 ## Untitled Chinese Flashcard App (2020)
 
 I've been learning Chinese, but wanted a more efficient way to review new vocabulary words.
 I [shared a small prototype](https://twitter.com/andrewlho_codes/status/1279829618598412288) of what the frontend could look like in SwiftUI, and made some progress building a cross-platform client with React Native.
 As part of this project, I also researched spaced-repetition algorithms and local-first apps.
 
-**Stack** — React Native, Expo, SwiftUI, sqlite
+<Stack technologies={["React Native", "Expo", "SwiftUI", "sqlite"]} />
 
 ## YouTube Silence Skipper (2019)
 
@@ -48,7 +71,7 @@ As part of this project, I also researched spaced-repetition algorithms and loca
 This is an experimental Chrome extension that shortens silences on YouTube, inspired by a similar feature in popular podcast apps.
 It works by sampling the loudness of the video and increasing the playback rate when the loudness drops under a pre-defined threshold.
 
-**Stack** — Chrome Extension, JavaScript
+<Stack technologies={["JavaScript", "Chrome Extension"]} />
 
 ## Tech Talks (2019)
 
@@ -58,7 +81,17 @@ Tech Talks was a place to discover and watch conference talks about web developm
 I had collected thousands of talks from a number of JavaScript conferences from 2017 through 2019 by looking up their associated conference playlists on YouTube.
 This project is no longer being actively developed.
 
-**Stack** — React, Emotion, TypeScript, Firebase, Algolia, Heroku, Netlify
+<Stack
+  technologies={[
+    "React",
+    "Emotion",
+    "TypeScript",
+    "Firebase",
+    "Heroku",
+    "Netlify",
+    "Algolia",
+  ]}
+/>
 
 ## Raspberry Pi Kiosk (2017)
 
@@ -67,7 +100,16 @@ This project is no longer being actively developed.
 The Raspberry Pi powers a display that shows the current time, news,
 stocks, and weather. [I posted about it on Twitter.](https://twitter.com/andrewlho_codes/status/1068685640118689792)
 
-**Stack** — React, Styled Components, TypeScript, Node, Express, Raspberry Pi
+<Stack
+  technologies={[
+    "React",
+    "Styled Components",
+    "TypeScript",
+    "Node",
+    "Express",
+    "Raspberry Pi",
+  ]}
+/>
 
 ## Aurora (2017)
 
@@ -79,6 +121,17 @@ I wanted to make exploring audio synthesis accessible and fun!
 
 **Stack** — React, Redux, Styled Components, Web MIDI API, Tone.js, Flow
 
+<Stack
+  technologies={[
+    "React",
+    "Redux",
+    "Flow",
+    "Styled Components",
+    "Web MIDI API",
+    "Tone.js",
+  ]}
+/>
+
 ## LED Lamp (2015)
 
 [Video](https://vimeo.com/113175895)
@@ -87,11 +140,13 @@ Inspired by the Philips Hue and the LIFX bulbs, I created a lighting solution th
 
 It's made from a [Spark Core](https://docs.particle.io/datasheets/discontinued/core-datasheet/), [IKEA Vidja lamp](https://www.ikea.com/us/en/p/vidja-floor-lamp-with-led-bulb-white-30416149/), and [Neopixel light strip](https://learn.adafruit.com/adafruit-neopixel-uberguide/).
 
-**Stack** — HTML, CSS, jQuery, Python, Flask, Heroku, C++
+<Stack
+  technologies={["HTML", "CSS", "jQuery", "Python", "Flask", "Heroku", "C++"]}
+/>
 
 ## Algorithmic Music Generator (2012)
 
 My first attempt at implementing a program that generates music was during my Computers and Music class I took in 2012.
 I had been interested in algorithmic music composition for a while and I wanted the program to create something structured and pleasing to the ear.
 
-**Stack** — Max MSP, JavaScript
+<Stack technologies={["JavaScript", "Max MSP"]} />

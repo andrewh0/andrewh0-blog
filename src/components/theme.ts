@@ -1,11 +1,21 @@
 import { Theme } from "theme-ui";
 import {
+  red,
+  redDark,
+  indigo,
+  indigoDark,
   gray,
   grayDark,
   blue,
   blueDark,
   crimson,
   crimsonDark,
+  orange,
+  orangeDark,
+  cyan,
+  cyanDark,
+  plum,
+  plumDark,
 } from "@radix-ui/colors";
 
 // More presets available here: https://theme-ui.com/packages/presets
@@ -28,6 +38,24 @@ Each color has 12 steps:
 11 Low-contrast text
 12 High-contrast text
 */
+
+const colors = {
+  ...cyan,
+  ...gray,
+  ...indigo,
+  ...orange,
+  ...plum,
+  ...red,
+};
+
+const colorsDark = {
+  ...cyanDark,
+  ...grayDark,
+  ...indigoDark,
+  ...orangeDark,
+  ...plumDark,
+  ...redDark,
+};
 
 const codeStyle = {
   fontFamily: "monospace",
@@ -52,7 +80,7 @@ const theme: Theme = {
     monospace:
       '"SFMono-Regular, Menlo, Monaco, Consolas, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace"',
   },
-  fontSizes: [14, 16, 20, 24, 32, 40, 64, 96],
+  fontSizes: [12, 14, 16, 20, 24, 32, 40, 64, 96],
   fontWeights: {
     body: 400,
     heading: 700,
@@ -72,6 +100,7 @@ const theme: Theme = {
     codeText: crimson.crimson11,
     codeBackground: gray.gray3,
     codeBorderColor: gray.gray6,
+    ...colors,
     modes: {
       dark: {
         text: grayDark.gray12,
@@ -83,6 +112,7 @@ const theme: Theme = {
         codeText: crimsonDark.crimson11,
         codeBackground: grayDark.gray3,
         codeBorderColor: grayDark.gray6,
+        ...colorsDark,
       },
     },
   },
