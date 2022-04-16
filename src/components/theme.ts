@@ -100,7 +100,7 @@ const theme: Theme = {
       fontSize: [3, 4],
       mt: 5,
       mb: 4,
-      letterSpacing: "-0.03em",
+      letterSpacing: [0, "-0.03em"],
     },
     h2: {
       color: "text",
@@ -110,7 +110,7 @@ const theme: Theme = {
       fontSize: [2, 3],
       mt: 5,
       mb: 3,
-      letterSpacing: "-0.03em",
+      letterSpacing: [0, "-0.03em"],
     },
     h3: {
       color: "text",
@@ -201,6 +201,15 @@ const theme: Theme = {
     li: {
       mb: 2,
       code: codeStyle,
+    },
+    hr: {
+      my: 5,
+      mx: "auto",
+      borderWidth: "1px",
+      borderColor: gray.gray6,
+      borderStyle: "solid",
+      borderTop: "none",
+      width: "33.333333%",
     },
   },
 };
