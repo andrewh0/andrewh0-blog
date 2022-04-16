@@ -17,6 +17,9 @@ const frontend = [
   "Gulp",
   "Flow",
   "jQuery",
+  "React Native",
+  "Expo",
+  "SwiftUI",
 ];
 
 const backend = [
