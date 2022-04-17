@@ -2,7 +2,6 @@ import { Box } from "theme-ui";
 import Head from "next/head";
 import Layout from "components/layout";
 import ProjectMarkdown from "markdown/projects.mdx";
-import Lozenge from "components/lozenge";
 
 const Projects = () => {
   return (
@@ -10,7 +9,7 @@ const Projects = () => {
       <Head>
         <title>Projects &middot; Andrew Ho</title>
       </Head>
-      <Box sx={{ mt: -5 }}>
+      <Box>
         <ProjectMarkdown />
       </Box>
     </Layout>

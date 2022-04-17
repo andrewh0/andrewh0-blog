@@ -38,22 +38,38 @@ const StyledLink = ({
 const Footer = () => (
   <Flex as="footer" mt={5} sx={{ flexWrap: "wrap", fontSize: 0 }}>
     <span sx={{ mr: 3 }}>
-      <StyledLink href="mailto:hello@andrewho.me" isExternal>
+      <StyledLink
+        href="mailto:hello@andrewho.me"
+        isExternal
+        title="hello@andrewho.me"
+      >
         Email
       </StyledLink>
     </span>
     <span sx={{ mr: 3 }}>
-      <StyledLink href="https://github.com/andrewh0" isExternal>
+      <StyledLink
+        href="https://github.com/andrewh0"
+        isExternal
+        title="andrewh0 on GitHub"
+      >
         GitHub
       </StyledLink>
     </span>
     <span sx={{ mr: 3 }}>
-      <StyledLink href="https://twitter.com/andrewlho_codes" isExternal>
+      <StyledLink
+        href="https://twitter.com/andrewlho_codes"
+        isExternal
+        title="andrewlho_codes on Twitter"
+      >
         Twitter
       </StyledLink>
     </span>
     <span>
-      <StyledLink href="https://linkedin.com/in/andrewh0" isExternal>
+      <StyledLink
+        href="https://linkedin.com/in/andrewh0"
+        isExternal
+        title="andrewh0 on LinkedIn"
+      >
         LinkedIn
       </StyledLink>
     </span>

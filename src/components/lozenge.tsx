@@ -11,7 +11,7 @@ const Lozenge = ({ color = "gray", sx = {}, ...props }) => (
       py: "0.05em",
       px: 2,
       mr: 1,
-      mb: 1,
+      mb: 2,
       borderRadius: 16,
       fontSize: 0,
       fontWeight: 500,

@@ -1,6 +1,8 @@
 // Forked from https://codesandbox.io/s/object-clump-ssbdsw
 // https://codesandbox.io/s/lamina-environment-maps-mih0lx
 // https://codesandbox.io/s/building-live-envmaps-lwo219
+// Original: https://dribbble.com/shots/5708399-Christmas-Collisions
+// By: 𝔅𝔢𝔰𝔱𝔖𝔢𝔯𝔳𝔢𝔡𝔅𝔬𝔩𝔡 @bstsrvdbld
 
 import { Suspense, useEffect, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";

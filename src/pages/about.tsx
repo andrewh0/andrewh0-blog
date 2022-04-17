@@ -8,11 +8,7 @@ const About = () => (
     <Head>
       <title>About &middot; Andrew Ho</title>
     </Head>
-    <Box
-      sx={{
-        mt: -5,
-      }}
-    >
+    <Box>
       <AboutMarkdown />
     </Box>
   </Layout>

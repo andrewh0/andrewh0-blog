@@ -218,6 +218,8 @@ const theme: Theme = {
     },
     img: {
       maxWidth: "100%",
+      mb: 4,
+      borderRadius: 16,
     },
     ul: {
       pl: "20px",
