@@ -45,7 +45,7 @@ const Navigation = () => (
     <StyledNavLink
       href="/"
       sx={{
-        fontSize: 2,
+        fontSize: 3,
         fontWeight: 500,
         letterSpacing: "-0.03em",
       }}
