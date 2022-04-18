@@ -1,18 +1,12 @@
-import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useSphere } from "@react-three/cannon";
+import { Matrix4, Vector3, MathUtils } from "three";
 import { useDarkModeEnabled } from "./hooks";
 
-const rfs = THREE.MathUtils.randFloatSpread;
-
+const rfs = MathUtils.randFloatSpread;
 const ballCount = 1;
 
-function Clump({
-  mat = new THREE.Matrix4(),
-  vec = new THREE.Vector3(),
-  size,
-  color,
-}) {
+function Clump({ mat = new Matrix4(), vec = new Vector3(), size, color }) {
   const darkModeEnabled = useDarkModeEnabled();
 
   const [ref, api] = useSphere(() => ({
@@ -22,22 +16,6 @@ function Clump({
     linearDamping: 0.65,
     position: [rfs(20), -(rfs(20) + 17.5), rfs(20)],
   }));
-
-  const sphereGeometry = new THREE.SphereGeometry(size, 32, 32);
-
-  const baubleMaterial = darkModeEnabled
-    ? new THREE.MeshStandardMaterial({
-        color,
-        envMapIntensity: 0.25,
-        metalness: 0.16,
-      })
-    : new THREE.MeshStandardMaterial({
-        color,
-        roughness: 0.43,
-        envMapIntensity: 0.25,
-        metalness: 0.16,
-        emissive: "black",
-      });
 
   useFrame((_state) => {
     for (let i = 0; i < ballCount; i++) {
@@ -62,9 +40,24 @@ function Clump({
       castShadow={!darkModeEnabled}
       receiveShadow={!darkModeEnabled}
       args={[null, null, ballCount]}
-      geometry={sphereGeometry}
-      material={baubleMaterial}
-    />
+    >
+      <sphereGeometry args={[size, 32, 32]} />
+      {darkModeEnabled ? (
+        <meshStandardMaterial
+          color={color}
+          envMapIntensity={0.25}
+          emissive="black"
+        />
+      ) : (
+        <meshStandardMaterial
+          color={color}
+          envMapIntensity={0.25}
+          metalness={0.16}
+          emissive="black"
+          roughness={0.43}
+        />
+      )}
+    </instancedMesh>
   );
 }
 
