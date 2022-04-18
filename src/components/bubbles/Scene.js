@@ -6,12 +6,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
-import {
-  // Stats,
-  OrbitControls,
-  Preload,
-  AdaptiveDpr,
-} from "@react-three/drei";
+import { AdaptiveDpr } from "@react-three/drei";
 import { A11yUserPreferences } from "@react-three/a11y";
 import { Box } from "theme-ui";
 import styled from "@emotion/styled";
@@ -24,7 +19,9 @@ import WrappedPhysics from "./WrappedPhysics";
 import WrappedEnvironment from "./WrappedEnvironment";
 import { useDarkModeEnabled } from "./hooks";
 
-const StyledCanvas = styled(Canvas)`
+const StyledCanvas = styled(Canvas, {
+  shouldForwardProp: (prop) => !["isDarkModeEnabled"].includes(prop),
+})`
   border-radius: 16px;
   box-shadow: 0px 0.5px 0.6px hsl(var(--shadow-color) / 0.36),
     0px 1.6px 1.8px -0.8px hsl(var(--shadow-color) / 0.36),
@@ -92,8 +89,11 @@ const Scene = () => {
           shadows
           dpr={1}
           camera={{ position: [0, 0, 15], fov: 35, near: 1, far: 50 }}
-          mode="concurrent"
           isDarkModeEnabled={isDarkModeEnabled}
+          performance={{
+            min: 0.7,
+            debounce: 200,
+          }}
           gl={{
             antialias: false,
             stencil: false,
@@ -112,9 +112,7 @@ const Scene = () => {
             {/* This allows the ball depth to be calculated in the right order. */}
             <Effects />
             {/* <Stats /> */}
-            <OrbitControls enabled={false} />
           </A11yUserPreferences>
-          <Preload all />
           <AdaptiveDpr pixelated />
           {/* <SceneExposer onGlChange={(gl) => setGl(gl)} /> */}
         </StyledCanvas>

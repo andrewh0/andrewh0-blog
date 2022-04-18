@@ -1,30 +1,12 @@
-import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useSphere } from "@react-three/cannon";
-import { useControls, folder } from "leva";
+import { Matrix4, Vector3, MathUtils } from "three";
 import { useDarkModeEnabled } from "./hooks";
 
-const rfs = THREE.MathUtils.randFloatSpread;
-
+const rfs = MathUtils.randFloatSpread;
 const ballCount = 1;
 
-function Clump({
-  mat = new THREE.Matrix4(),
-  vec = new THREE.Vector3(),
-  size,
-  color,
-}) {
-  const { isAttracting, attractInward, roughness, metalness, envMapIntensity } =
-    useControls({
-      balls: folder({
-        isAttracting: true,
-        attractInward: true,
-        roughness: { value: 0.43, min: 0, max: 1, step: 0.01 },
-        metalness: { value: 0.16, min: 0, max: 1, step: 0.01 },
-        envMapIntensity: { value: 0.25, min: 0, max: 1, step: 0.01 },
-      }),
-    });
-
+function Clump({ mat = new Matrix4(), vec = new Vector3(), size, color }) {
   const darkModeEnabled = useDarkModeEnabled();
 
   const [ref, api] = useSphere(() => ({
@@ -35,38 +17,20 @@ function Clump({
     position: [rfs(20), -(rfs(20) + 17.5), rfs(20)],
   }));
 
-  const sphereGeometry = new THREE.SphereGeometry(size, 32, 32);
-
-  const baubleMaterial = darkModeEnabled
-    ? new THREE.MeshStandardMaterial({
-        color,
-        envMapIntensity,
-        metalness,
-      })
-    : new THREE.MeshStandardMaterial({
-        color,
-        roughness,
-        envMapIntensity,
-        metalness,
-        emissive: "black",
-      });
-
   useFrame((_state) => {
-    if (isAttracting) {
-      for (let i = 0; i < ballCount; i++) {
-        // Get current whereabouts of the instanced sphere
-        ref.current.getMatrixAt(i, mat);
-        // Normalize the position and multiply by a negative force.
-        // This is enough to drive it towards the center-point.
-        api.at(i).applyForce(
-          vec
-            .setFromMatrixPosition(mat)
-            .normalize()
-            .multiplyScalar(50 * (attractInward ? -0.5 : 2) * size)
-            .toArray(),
-          [0, 0, 0]
-        );
-      }
+    for (let i = 0; i < ballCount; i++) {
+      // Get current whereabouts of the instanced sphere
+      ref.current.getMatrixAt(i, mat);
+      // Normalize the position and multiply by a negative force.
+      // This is enough to drive it towards the center-point.
+      api.at(i).applyForce(
+        vec
+          .setFromMatrixPosition(mat)
+          .normalize()
+          .multiplyScalar(-25 * size)
+          .toArray(),
+        [0, 0, 0]
+      );
     }
   });
 
@@ -76,9 +40,24 @@ function Clump({
       castShadow={!darkModeEnabled}
       receiveShadow={!darkModeEnabled}
       args={[null, null, ballCount]}
-      geometry={sphereGeometry}
-      material={baubleMaterial}
-    />
+    >
+      <sphereGeometry args={[size, 32, 32]} />
+      {darkModeEnabled ? (
+        <meshStandardMaterial
+          color={color}
+          envMapIntensity={0.25}
+          emissive="black"
+        />
+      ) : (
+        <meshStandardMaterial
+          color={color}
+          envMapIntensity={0.25}
+          metalness={0.16}
+          emissive="black"
+          roughness={0.43}
+        />
+      )}
+    </instancedMesh>
   );
 }
 
