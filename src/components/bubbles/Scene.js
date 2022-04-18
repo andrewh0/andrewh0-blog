@@ -6,7 +6,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
-import { Stats } from "@react-three/drei";
+import { AdaptiveDpr } from "@react-three/drei";
 import { A11yUserPreferences } from "@react-three/a11y";
 import { Box } from "theme-ui";
 import styled from "@emotion/styled";
@@ -90,6 +90,10 @@ const Scene = () => {
           dpr={1}
           camera={{ position: [0, 0, 15], fov: 35, near: 1, far: 50 }}
           isDarkModeEnabled={isDarkModeEnabled}
+          performance={{
+            min: 0.7,
+            debounce: 200,
+          }}
           gl={{
             antialias: false,
             stencil: false,
@@ -109,6 +113,7 @@ const Scene = () => {
             <Effects />
             {/* <Stats /> */}
           </A11yUserPreferences>
+          <AdaptiveDpr pixelated />
           {/* <SceneExposer onGlChange={(gl) => setGl(gl)} /> */}
         </StyledCanvas>
       </Suspense>
