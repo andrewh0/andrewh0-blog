@@ -38,8 +38,8 @@ const WrappedEnvironment = () => {
               <Color color="#2f84c0" alpha={1} mode="normal" />
               <Depth
                 colorA="#fff"
-                colorB="#000"
-                alpha={0.3}
+                colorB="#ddd"
+                alpha={0.05}
                 mode="normal"
                 near={0}
                 far={300}

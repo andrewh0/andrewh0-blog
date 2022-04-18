@@ -69,7 +69,7 @@ function Effects(props) {
         blendFunction={BlendFunction.SCREEN} // blend mode
         opacity={0.5} // noise opacity
       />
-      <ChromaticAberration offset={[0.001, 0.001]} />
+      <ChromaticAberration offset={[0.0025, 0.0025]} />
       <Vignette eskil={false} offset={0.4} darkness={0.3} />
     </EffectComposer>
   );
