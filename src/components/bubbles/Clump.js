@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useSphere } from "@react-three/cannon";
-import { useControls, folder } from "leva";
 import { useDarkModeEnabled } from "./hooks";
 
 const rfs = THREE.MathUtils.randFloatSpread;
@@ -14,17 +13,6 @@ function Clump({
   size,
   color,
 }) {
-  const { isAttracting, attractInward, roughness, metalness, envMapIntensity } =
-    useControls({
-      balls: folder({
-        isAttracting: true,
-        attractInward: true,
-        roughness: { value: 0.43, min: 0, max: 1, step: 0.01 },
-        metalness: { value: 0.16, min: 0, max: 1, step: 0.01 },
-        envMapIntensity: { value: 0.25, min: 0, max: 1, step: 0.01 },
-      }),
-    });
-
   const darkModeEnabled = useDarkModeEnabled();
 
   const [ref, api] = useSphere(() => ({
@@ -40,33 +28,31 @@ function Clump({
   const baubleMaterial = darkModeEnabled
     ? new THREE.MeshStandardMaterial({
         color,
-        envMapIntensity,
-        metalness,
+        envMapIntensity: 0.25,
+        metalness: 0.16,
       })
     : new THREE.MeshStandardMaterial({
         color,
-        roughness,
-        envMapIntensity,
-        metalness,
+        roughness: 0.43,
+        envMapIntensity: 0.25,
+        metalness: 0.16,
         emissive: "black",
       });
 
   useFrame((_state) => {
-    if (isAttracting) {
-      for (let i = 0; i < ballCount; i++) {
-        // Get current whereabouts of the instanced sphere
-        ref.current.getMatrixAt(i, mat);
-        // Normalize the position and multiply by a negative force.
-        // This is enough to drive it towards the center-point.
-        api.at(i).applyForce(
-          vec
-            .setFromMatrixPosition(mat)
-            .normalize()
-            .multiplyScalar(50 * (attractInward ? -0.5 : 2) * size)
-            .toArray(),
-          [0, 0, 0]
-        );
-      }
+    for (let i = 0; i < ballCount; i++) {
+      // Get current whereabouts of the instanced sphere
+      ref.current.getMatrixAt(i, mat);
+      // Normalize the position and multiply by a negative force.
+      // This is enough to drive it towards the center-point.
+      api.at(i).applyForce(
+        vec
+          .setFromMatrixPosition(mat)
+          .normalize()
+          .multiplyScalar(-25 * size)
+          .toArray(),
+        [0, 0, 0]
+      );
     }
   });
 
