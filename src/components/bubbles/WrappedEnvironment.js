@@ -9,13 +9,13 @@ const WrappedEnvironment = () => {
     <Environment background resolution={32}>
       {darkModeEnabled ? (
         <mesh scale={100}>
-          <sphereGeometry args={[1, 32, 32]} />
+          <sphereGeometry args={[1, 16, 16]} />
           <LayerMaterial side={BackSide}>
             <Color color="#34006f" alpha={1} mode="normal" />
             <Depth
-              colorA="#777"
-              colorB="#333"
-              alpha={0.9}
+              colorA="#787878"
+              colorB="#150422"
+              alpha={1}
               mode="normal"
               near={0}
               far={270}
@@ -33,7 +33,7 @@ const WrappedEnvironment = () => {
             target={[0, 0, 0]}
           />
           <mesh scale={100}>
-            <sphereGeometry args={[1, 32, 32]} />
+            <sphereGeometry args={[1, 16, 16]} />
             <LayerMaterial side={BackSide}>
               <Color color="#2f84c0" alpha={1} mode="normal" />
               <Depth

@@ -92,7 +92,6 @@ const Scene = () => {
           shadows
           dpr={1}
           camera={{ position: [0, 0, 15], fov: 35, near: 1, far: 50 }}
-          mode="concurrent"
           isDarkModeEnabled={isDarkModeEnabled}
           gl={{
             antialias: false,
