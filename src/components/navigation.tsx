@@ -21,7 +21,6 @@ const StyledNavLink = ({
           },
           "&:focus": {
             color: "text",
-            textDecoration: "underline",
           },
           ...sx,
         }}
