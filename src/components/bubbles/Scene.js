@@ -19,6 +19,20 @@ import WrappedPhysics from "./WrappedPhysics";
 import WrappedEnvironment from "./WrappedEnvironment";
 import { useDarkModeEnabled } from "./hooks";
 
+/*
+I've tried different ways to make the canvas load less jarring,
+but using a background and loading a placeholder image is the best
+I can do so far.
+
+Also tried
+- using Suspense fallbacks
+- adding a shimmer effect
+
+Firefox seems fine, but Chrome and Safari show a blank screen for a
+long time while waiting for the canvas to render.
+
+*/
+
 const StyledCanvas = styled(Canvas, {
   shouldForwardProp: (prop) => !["isDarkModeEnabled"].includes(prop),
 })`
