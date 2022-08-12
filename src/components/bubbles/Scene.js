@@ -95,6 +95,7 @@ const Scene = () => {
         // For canvas to resize vertically correctly.
         height: 50%;
         width: 100%;
+        max-height: 800px;
         flex: 1;
       `}
     >

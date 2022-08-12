@@ -36,7 +36,7 @@ const StyledLink = ({
 };
 
 const Footer = () => (
-  <Flex as="footer" mt={5} sx={{ flexWrap: "wrap", fontSize: 0 }}>
+  <Flex as="footer" mt={5} mb={2} sx={{ flexWrap: "wrap", fontSize: 0 }}>
     <span sx={{ mr: 3 }}>
       <StyledLink
         href="mailto:hello@andrewho.me"
