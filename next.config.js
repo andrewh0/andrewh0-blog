@@ -16,7 +16,6 @@ const nextConfig = {
     }
     return config;
   },
-  providerImportSource: "@mdx-js/react",
 };
 
 module.exports = withMDX(nextConfig);
