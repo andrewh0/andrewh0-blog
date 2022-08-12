@@ -39,6 +39,7 @@ const Navigation = () => (
       flexWrap: "wrap",
       color: "text",
     }}
+    mt={2}
     mb={5}
   >
     <StyledNavLink
