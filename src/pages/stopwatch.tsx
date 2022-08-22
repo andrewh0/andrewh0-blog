@@ -186,78 +186,97 @@ const StopwatchPage = () => {
 
   return (
     <Box
+      css={`
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        // https://twitter.com/jensimmons/status/1499576041857290244
+        min-height: 100dvh;
+        overflow: hidden;
+        overscroll-behavior-y: none;
+        margin: 0 auto;
+      `}
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        p: 4,
+        height: "100%",
       }}
+      p={3}
     >
-      <Head>
-        <title>{formatTimeElapsed(timeElapsedParts, true)} | Stopwatch</title>
-      </Head>
       <Box
         sx={{
-          mb: 2,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          p: 4,
+          height: "100%",
         }}
       >
+        <Head>
+          <title>{formatTimeElapsed(timeElapsedParts, true)} | Stopwatch</title>
+        </Head>
         <Box
           sx={{
-            cursor: "pointer",
+            mb: 2,
           }}
-          onClick={handleStartStopClick}
         >
+          <Box
+            sx={{
+              cursor: "pointer",
+            }}
+            onClick={handleStartStopClick}
+          >
+            <Text
+              sx={{
+                fontFamily: "body",
+                fontSize: [7, 8],
+                display: "block",
+              }}
+              css={`
+                font-feature-settings: "tnum";
+              `}
+            >
+              {formatTimeElapsed(timeElapsedParts, false)}
+            </Text>
+          </Box>
+        </Box>
+        <Box mb={4}>
+          <Button
+            type="button"
+            variant={isRunning ? "danger" : "success"}
+            sx={{
+              width: "96px",
+              mr: 2,
+            }}
+            onClick={handleStartStopClick}
+            onKeyDown={handleStartStopKeyDown}
+          >
+            {isRunning ? "Stop" : "Start"}
+          </Button>
+          <Button
+            type="button"
+            sx={{
+              width: "96px",
+            }}
+            disabled={isRunning || !elapsedMs}
+            onClick={handleReset}
+            onKeyDown={handleResetKeyDown}
+          >
+            Reset
+          </Button>
+        </Box>
+        <Box>
           <Text
             sx={{
-              fontFamily: "body",
-              fontSize: [7, 8],
+              fontSize: 1,
+              color: "muted",
               display: "block",
+              textAlign: "center",
             }}
-            css={`
-              font-feature-settings: "tnum";
-            `}
           >
-            {formatTimeElapsed(timeElapsedParts, false)}
+            <b>[Space]</b> or <b>s</b> to start/stop. <b>[Esc]</b> or <b>r</b>{" "}
+            to reset.
           </Text>
         </Box>
-      </Box>
-      <Box mb={4}>
-        <Button
-          type="button"
-          variant={isRunning ? "danger" : "success"}
-          sx={{
-            width: "96px",
-            mr: 2,
-          }}
-          onClick={handleStartStopClick}
-          onKeyDown={handleStartStopKeyDown}
-        >
-          {isRunning ? "Stop" : "Start"}
-        </Button>
-        <Button
-          type="button"
-          sx={{
-            width: "96px",
-          }}
-          disabled={isRunning || !elapsedMs}
-          onClick={handleReset}
-          onKeyDown={handleResetKeyDown}
-        >
-          Reset
-        </Button>
-      </Box>
-      <Box>
-        <Text
-          sx={{
-            fontSize: 1,
-            color: "muted",
-            display: "block",
-            textAlign: "center",
-          }}
-        >
-          <b>[Space]</b> or <b>s</b> to start/stop. <b>[Esc]</b> or <b>r</b> to
-          reset.
-        </Text>
       </Box>
     </Box>
   );
