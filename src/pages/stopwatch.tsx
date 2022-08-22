@@ -224,11 +224,10 @@ const StopwatchPage = () => {
       <Box mb={4}>
         <Button
           type="button"
-          variant="default"
+          variant={isRunning ? "danger" : "success"}
           sx={{
             width: "96px",
             mr: 2,
-            variant: isRunning ? "destructive" : "success",
           }}
           onClick={handleStartStopClick}
           onKeyDown={handleStartStopKeyDown}
