@@ -229,6 +229,7 @@ const StopwatchPage = () => {
                 fontFamily: "body",
                 fontSize: [7, 8],
                 display: "block",
+                letterSpacing: "-0.03em",
               }}
               css={`
                 font-feature-settings: "tnum";
