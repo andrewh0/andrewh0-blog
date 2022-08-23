@@ -1,11 +1,17 @@
 import { ThemeUICSSObject } from "theme-ui";
 
+// Target desktops only for hover
+// https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c
+const MEDIA_QUERY_DESKTOP_HOVER = "@media(hover: hover) and (pointer: fine)";
+
 const variants: { [s: string]: ThemeUICSSObject } = {
   default: {
     color: "text",
     bg: "gray6",
-    "&:hover": {
-      bg: "gray5",
+    [MEDIA_QUERY_DESKTOP_HOVER]: {
+      "&:hover": {
+        bg: "gray5",
+      },
     },
     "&:disabled": {
       color: "muted",
@@ -16,8 +22,10 @@ const variants: { [s: string]: ThemeUICSSObject } = {
   success: {
     color: "green12",
     bg: "green6",
-    "&:hover": {
-      bg: "green5",
+    [MEDIA_QUERY_DESKTOP_HOVER]: {
+      "&:hover": {
+        bg: "green5",
+      },
     },
     "&:disabled": {
       color: "green11",
@@ -28,8 +36,10 @@ const variants: { [s: string]: ThemeUICSSObject } = {
   danger: {
     color: "red12",
     bg: "red6",
-    "&:hover": {
-      bg: "red5",
+    [MEDIA_QUERY_DESKTOP_HOVER]: {
+      "&:hover": {
+        bg: "red5",
+      },
     },
     "&:disabled": {
       color: "red11",
