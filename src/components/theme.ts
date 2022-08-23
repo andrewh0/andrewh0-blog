@@ -6,6 +6,8 @@ import {
   indigoDark,
   gray,
   grayDark,
+  green,
+  greenDark,
   blue,
   blueDark,
   crimson,
@@ -46,6 +48,7 @@ const colors = {
   ...orange,
   ...plum,
   ...red,
+  ...green,
 };
 
 const colorsDark = {
@@ -55,6 +58,7 @@ const colorsDark = {
   ...orangeDark,
   ...plumDark,
   ...redDark,
+  ...greenDark,
 };
 
 const codeStyle = {

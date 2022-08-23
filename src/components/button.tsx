@@ -1,40 +1,39 @@
-import { gray, green, red } from "@radix-ui/colors";
 import { ThemeUICSSObject } from "theme-ui";
 
 const variants: { [s: string]: ThemeUICSSObject } = {
   default: {
     color: "text",
-    bg: gray.gray6,
+    bg: "gray6",
     "&:hover": {
-      bg: gray.gray5,
+      bg: "gray5",
     },
     "&:disabled": {
       color: "muted",
-      bg: gray.gray4,
+      bg: "gray4",
       cursor: "not-allowed",
     },
   },
   success: {
-    color: green.green12,
-    bg: green.green6,
+    color: "green12",
+    bg: "green6",
     "&:hover": {
-      bg: green.green5,
+      bg: "green5",
     },
     "&:disabled": {
-      color: green.green11,
-      bg: green.green4,
+      color: "green11",
+      bg: "green4",
       cursor: "not-allowed",
     },
   },
   danger: {
-    color: red.red12,
-    bg: red.red6,
+    color: "red12",
+    bg: "red6",
     "&:hover": {
-      bg: red.red5,
+      bg: "red5",
     },
     "&:disabled": {
-      color: red.red11,
-      bg: red.red4,
+      color: "red11",
+      bg: "red4",
       cursor: "not-allowed",
     },
   },
