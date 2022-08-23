@@ -60,14 +60,15 @@ const Button = ({ variant = "default", ...props }) => {
         textAlign: "center",
         lineHeight: "inherit",
         textDecoration: "none",
-        fontSize: "inherit",
+        fontSize: 3,
         fontWeight: "bold",
         cursor: "pointer",
         m: 0,
-        px: 3,
-        py: 2,
+        px: 4,
+        py: 3,
         border: 0,
         borderRadius: 4,
+        userSelect: "none",
         // Theme UI docs recommend using a variant prop (as with the following), but I prefer
         // colocating the variant with the button definition.
         // variant: `buttons.${variant}`,
