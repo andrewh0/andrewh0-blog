@@ -138,11 +138,9 @@ const StopwatchPage = () => {
       switch (e.key) {
         case " ":
         case "Enter":
-        case "s":
           toggleRunning();
           break;
         case "Escape":
-        case "r":
           resetTimer();
           break;
         default:
@@ -222,6 +220,7 @@ const StopwatchPage = () => {
           <Box
             sx={{
               cursor: "pointer",
+              userSelect: "none",
             }}
             onClick={handleStartStopClick}
           >
@@ -273,8 +272,8 @@ const StopwatchPage = () => {
               textAlign: "center",
             }}
           >
-            <b>[Space]</b> or <b>s</b> to start/stop. <b>[Esc]</b> or <b>r</b>{" "}
-            to reset.
+            <b>[Space]</b> or <b>[Enter]</b> to start/stop. <b>[Esc]</b> to
+            reset.
           </Text>
         </Box>
       </Box>
