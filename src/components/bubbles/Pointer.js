@@ -6,6 +6,7 @@ import { useUserPreferences } from "@react-three/a11y";
 import { BallCollider, RigidBody } from "@react-three/rapier";
 
 const initialPointerPosition = [-10, -10, -10];
+const initialPositionVec = new THREE.Vector3(...initialPointerPosition);
 const POINTER_SIZE = 2;
 
 function Pointer({ vec = new THREE.Vector3() }) {
@@ -27,10 +28,9 @@ function Pointer({ vec = new THREE.Vector3() }) {
           0.1
         );
         ref.current.setNextKinematicTranslation(nextVec);
-      } else {
-        const initialPoint = new THREE.Vector3(...initialPointerPosition);
-        ref.current.setNextKinematicTranslation(initialPoint);
+        return;
       }
+      ref.current.setTranslation(initialPositionVec);
     },
     { pointerEvents: true }
   );
