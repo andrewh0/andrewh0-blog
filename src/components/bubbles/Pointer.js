@@ -1,32 +1,35 @@
+import { useRef } from "react";
 import { useThree } from "@react-three/fiber";
-import { useSphere } from "@react-three/cannon";
+import * as THREE from "three";
 import { useDrag } from "@use-gesture/react";
 import { useUserPreferences } from "@react-three/a11y";
+import { BallCollider, RigidBody } from "@react-three/rapier";
 
 const initialPointerPosition = [-10, -10, -10];
+const POINTER_SIZE = 2;
 
-function Pointer() {
+function Pointer({ vec = new THREE.Vector3() }) {
   const { a11yPrefersState } = useUserPreferences();
   const { viewport, mouse } = useThree();
-  const [, api] = useSphere(() => ({
-    type: "Kinematic",
-    args: [2],
-    position: initialPointerPosition,
-  }));
-
+  const ref = useRef();
   const bind = useDrag(
     ({ active }) => {
       if (a11yPrefersState.prefersReducedMotion) {
         return;
       }
       if (active) {
-        api.position.set(
-          (mouse.x * viewport.width) / 2,
-          (mouse.y * viewport.height) / 2,
-          0
+        const nextVec = vec.lerp(
+          {
+            x: (mouse.x * viewport.width) / 2,
+            y: (mouse.y * viewport.height) / 2,
+            z: 0,
+          },
+          0.1
         );
+        ref.current.setNextKinematicTranslation(nextVec);
       } else {
-        api.position.set(...initialPointerPosition);
+        const initialPoint = new THREE.Vector3(...initialPointerPosition);
+        ref.current.setNextKinematicTranslation(initialPoint);
       }
     },
     { pointerEvents: true }
@@ -34,16 +37,24 @@ function Pointer() {
 
   return (
     <>
-      {/* Use a transparent wall to detect events. */}
+      {/* Use a transparent wall to detect drag events. */}
       <mesh {...bind()} position={[0, 0, 0]}>
-        <planeBufferGeometry args={[10, 10]} rotation={[Math.PI / 2, 0, 0]} />
+        <planeGeometry args={[10, 10]} rotation={[Math.PI / 2, 0, 0]} />
         <meshStandardMaterial opacity={0} alphaTest={1} />
       </mesh>
-      {/* Debug */}
-      {/* <mesh ref={ref}>
-        <sphereBufferGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial color="red" />
-      </mesh> */}
+      <RigidBody
+        position={initialPointerPosition}
+        type="kinematicPosition"
+        colliders={false}
+        ref={ref}
+      >
+        {/* Uncomment to debug */}
+        {/* <mesh ref={ref} scale={POINTER_SIZE}>
+          <sphereBufferGeometry args={[1, 32, 32]} />
+          <meshStandardMaterial color="red" />
+        </mesh> */}
+        <BallCollider args={[POINTER_SIZE]} />
+      </RigidBody>
     </>
   );
 }

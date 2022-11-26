@@ -1,4 +1,6 @@
 // Forked from https://codesandbox.io/s/object-clump-ssbdsw
+// See also:
+// https://codesandbox.io/s/bestservedbold-christmas-baubles-zxpv7?file=/src/App.js
 // https://codesandbox.io/s/lamina-environment-maps-mih0lx
 // https://codesandbox.io/s/building-live-envmaps-lwo219
 // Original: https://dribbble.com/shots/5708399-Christmas-Collisions
@@ -119,7 +121,7 @@ const Scene = () => {
         >
           <A11yUserPreferences>
             <Lights />
-            <WrappedPhysics gravity={[0, 0, 0]} iterations={7} broadphase="SAP">
+            <WrappedPhysics gravity={[0, 0, 0]}>
               <Pointer />
               <ClumpGroup />
             </WrappedPhysics>

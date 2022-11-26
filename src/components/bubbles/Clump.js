@@ -1,63 +1,57 @@
+import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useSphere } from "@react-three/cannon";
-import { Matrix4, Vector3, MathUtils } from "three";
+import { Vector3, MathUtils } from "three";
 import { useDarkModeEnabled } from "./hooks";
+import { BallCollider, RigidBody } from "@react-three/rapier";
 
 const rfs = MathUtils.randFloatSpread;
-const ballCount = 1;
 
-function Clump({ mat = new Matrix4(), vec = new Vector3(), size, color }) {
+function Clump({ vec = new Vector3(), size, color }) {
   const darkModeEnabled = useDarkModeEnabled();
 
-  const [ref, api] = useSphere(() => ({
-    args: [size],
-    mass: size,
-    angularDamping: 0.1,
-    linearDamping: 0.65,
-    position: [rfs(20), -(rfs(20) + 17.5), rfs(20)],
-  }));
-
-  useFrame((_state) => {
-    for (let i = 0; i < ballCount; i++) {
-      // Get current whereabouts of the instanced sphere
-      ref.current.getMatrixAt(i, mat);
-      // Normalize the position and multiply by a negative force.
-      // This is enough to drive it towards the center-point.
-      api.at(i).applyForce(
-        vec
-          .setFromMatrixPosition(mat)
-          .normalize()
-          .multiplyScalar(-25 * size)
-          .toArray(),
-        [0, 0, 0]
-      );
-    }
+  const api = useRef();
+  useFrame((_state, delta) => {
+    delta = Math.min(0.01, delta);
+    const multiplier = -150 * size * size * delta;
+    api.current.applyImpulse(
+      vec.copy(api.current.translation()).normalize().multiply({
+        x: multiplier,
+        y: multiplier,
+        z: multiplier,
+      })
+    );
   });
 
   return (
-    <instancedMesh
-      ref={ref}
-      castShadow={!darkModeEnabled}
-      receiveShadow={!darkModeEnabled}
-      args={[null, null, ballCount]}
+    <RigidBody
+      angularDamping={0.8}
+      linearDamping={1}
+      friction={0.8}
+      position={[rfs(20), -(rfs(20) + 17.5), rfs(20)]}
+      ref={api}
+      colliders={false}
+      dispose={null}
     >
-      <sphereGeometry args={[size, 32, 32]} />
-      {darkModeEnabled ? (
-        <meshStandardMaterial
-          color={color}
-          envMapIntensity={0.25}
-          emissive="black"
-        />
-      ) : (
-        <meshStandardMaterial
-          color={color}
-          envMapIntensity={0.25}
-          metalness={0.16}
-          emissive="black"
-          roughness={0.43}
-        />
-      )}
-    </instancedMesh>
+      <BallCollider args={[size]} />
+      <mesh castShadow={!darkModeEnabled} receiveShadow={!darkModeEnabled}>
+        <sphereGeometry args={[size, 32, 32]} />
+        {darkModeEnabled ? (
+          <meshStandardMaterial
+            color={color}
+            envMapIntensity={0.25}
+            emissive="black"
+          />
+        ) : (
+          <meshStandardMaterial
+            color={color}
+            envMapIntensity={0.25}
+            metalness={0.16}
+            emissive="black"
+            roughness={0.43}
+          />
+        )}
+      </mesh>
+    </RigidBody>
   );
 }
 
