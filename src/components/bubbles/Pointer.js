@@ -30,6 +30,8 @@ function Pointer({ vec = new THREE.Vector3() }) {
         ref.current.setNextKinematicTranslation(nextVec);
         return;
       }
+      // Move the pointer ball out of the way on mouse up.
+      // (Not using setNextKinematicTranslation to avoid applying force to balls.)
       ref.current.setTranslation(initialPositionVec);
     },
     { pointerEvents: true }
