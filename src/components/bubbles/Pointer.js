@@ -9,7 +9,7 @@ const initialPointerPosition = [-10, -10, -10];
 const initialPositionVec = new THREE.Vector3(...initialPointerPosition);
 const POINTER_SIZE = 2;
 
-function Pointer({ vec = new THREE.Vector3() }) {
+function Pointer() {
   const { a11yPrefersState } = useUserPreferences();
   const { viewport, mouse } = useThree();
   const ref = useRef();
@@ -19,15 +19,14 @@ function Pointer({ vec = new THREE.Vector3() }) {
         return;
       }
       if (active) {
-        const nextVec = vec.lerp(
-          {
-            x: (mouse.x * viewport.width) / 2,
-            y: (mouse.y * viewport.height) / 2,
-            z: 0,
-          },
-          0.1
+        const vec = new THREE.Vector3(
+          (mouse.x * viewport.width) / 2,
+          (mouse.y * viewport.height) / 2,
+          0
         );
-        ref.current.setNextKinematicTranslation(nextVec);
+        // Using setNextKinematicTranslation with a lerp'd vector
+        // was causing simulation to drop frames.
+        ref.current.setTranslation(vec);
         return;
       }
       // Move the pointer ball out of the way on mouse up.
