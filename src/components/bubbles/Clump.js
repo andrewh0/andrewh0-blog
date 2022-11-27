@@ -12,7 +12,7 @@ function Clump({ vec = new Vector3(), size, color }) {
   const api = useRef();
   useFrame((_state, delta) => {
     delta = Math.min(0.01, delta);
-    const multiplier = -150 * size * size * delta;
+    const multiplier = -100 * size * size * delta;
     api.current.applyImpulse(
       vec.copy(api.current.translation()).normalize().multiply({
         x: multiplier,
@@ -24,9 +24,10 @@ function Clump({ vec = new Vector3(), size, color }) {
 
   return (
     <RigidBody
-      angularDamping={0.8}
-      linearDamping={1}
-      friction={0.8}
+      angularDamping={0.5}
+      linearDamping={0.8}
+      friction={0.2}
+      restitution={0.5}
       position={[rfs(20), -(rfs(20) + 17.5), rfs(20)]}
       ref={api}
       colliders={false}
