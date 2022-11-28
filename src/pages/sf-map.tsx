@@ -1,4 +1,4 @@
-import { Box } from "theme-ui";
+import { Box, Text } from "theme-ui";
 import Head from "next/head";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -18,8 +18,26 @@ const sfMapPage = () => {
       <Box
         sx={{
           height: "100%",
+          display: "relative",
         }}
       >
+        <Text
+          as="h1"
+          sx={{
+            color: "text",
+            fontFamily: "heading",
+            lineHeight: "heading",
+            fontWeight: "heading",
+            fontSize: [3, 4],
+            letterSpacing: [0, "-0.03em"],
+            position: "absolute",
+            top: 0,
+            zIndex: 1,
+            padding: 4,
+          }}
+        >
+          San Francisco Food and Fun
+        </Text>
         <Map
           initialViewState={{
             longitude: -122.45,
