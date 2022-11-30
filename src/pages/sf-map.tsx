@@ -11,6 +11,7 @@ import Map, {
 } from "react-map-gl";
 import { blue, gray } from "@radix-ui/colors";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { MapboxEvent } from "mapbox-gl";
 
 type PlaceType =
   | "activity"
@@ -31,7 +32,7 @@ type Record = {
     url: string;
     lat: number;
     lon: number;
-    price: string;
+    price?: string;
   };
 };
 
@@ -56,6 +57,8 @@ const pinMap = {
   bakery: "🥖",
   other: "📍",
 };
+
+const shadow = "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)";
 
 async function listPlaces(offset?: string) {
   const res = await fetch(
@@ -92,13 +95,51 @@ const Pin = ({
         padding: "2px",
         width: "24px",
         height: "24px",
-        boxShadow:
-          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        boxShadow: shadow,
         border: isSelected ? `2px solid ${blue.blue7}` : "none",
       }}
     >
       {emoji}
     </Box>
+  );
+};
+
+const CustomMarker = ({
+  record,
+  onSelect,
+  isSelected,
+}: {
+  record: Record;
+  onSelect: (record: Record) => void;
+  isSelected: boolean;
+}) => {
+  const mapRef = useMap();
+  const handleClick = (mapboxEvent: MapboxEvent<MouseEvent>) => {
+    // If we let the click event propagate to the map, it will immediately close the popup.
+    mapboxEvent.originalEvent.stopPropagation();
+    onSelect(record);
+    if (mapRef?.current) {
+      mapRef.current.flyTo({
+        center: [record.fields.lon, record.fields.lat],
+        duration: 1000,
+        essential: true,
+      });
+    }
+  };
+
+  return (
+    <Marker
+      key={`marker-${record.id}`}
+      longitude={record.fields.lon}
+      latitude={record.fields.lat}
+      anchor="bottom"
+      onClick={handleClick}
+      style={{
+        zIndex: isSelected ? 1 : "auto",
+      }}
+    >
+      <Pin type={record.fields.type} isSelected={isSelected} />
+    </Marker>
   );
 };
 
@@ -109,15 +150,14 @@ const Popup = ({ selectedPlace }: { selectedPlace: Record }) => (
       bg: "white",
       p: 3,
       borderRadius: "16px",
-      boxShadow:
-        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+      boxShadow: shadow,
       pointerEvents: "auto",
     }}
   >
     <Text
       as="p"
       sx={{
-        color: "text",
+        color: gray.gray12,
         fontFamily: "heading",
         lineHeight: "heading",
         fontWeight: "heading",
@@ -130,7 +170,7 @@ const Popup = ({ selectedPlace }: { selectedPlace: Record }) => (
     <Text
       as="p"
       sx={{
-        color: "muted",
+        color: gray.gray11,
         fontFamily: "body",
         lineHeight: "body",
         fontWeight: "body",
@@ -142,9 +182,63 @@ const Popup = ({ selectedPlace }: { selectedPlace: Record }) => (
   </Box>
 );
 
+const MapHeading = ({ selectedPlace }: { selectedPlace: Record | null }) => (
+  <Box
+    sx={{
+      position: "absolute",
+      top: 0,
+      zIndex: 9,
+      padding: 4,
+      pointerEvents: "none",
+    }}
+  >
+    <Text
+      as="h1"
+      sx={{
+        display: "block",
+        color: gray.gray12,
+        fontFamily: "heading",
+        lineHeight: "heading",
+        fontWeight: "heading",
+        fontSize: [3, 4],
+        letterSpacing: [0, "-0.03em"],
+        mb: 1,
+        pointerEvents: "auto",
+      }}
+    >
+      San Francisco Food and Fun
+    </Text>
+    <Text
+      as="p"
+      sx={{
+        color: gray.gray11,
+        fontFamily: "body",
+        lineHeight: "heading",
+        fontWeight: 500,
+        fontSize: [2, 3],
+        letterSpacing: [0, "-0.03em"],
+        mb: 4,
+        pointerEvents: "auto",
+      }}
+    >
+      made by{" "}
+      <Link href="/" passHref>
+        <ThemeLink
+          sx={{
+            color: gray.gray11,
+          }}
+        >
+          Andrew
+        </ThemeLink>
+      </Link>
+    </Text>
+    {selectedPlace && <Popup selectedPlace={selectedPlace} />}
+  </Box>
+);
+
 export const getServerSideProps: GetServerSideProps = async (_context) => {
   let locations: Record[] = [];
-  let offset = undefined;
+  let offset;
 
   do {
     const { records, nextOffset }: { records: Record[]; nextOffset?: string } =
@@ -158,39 +252,27 @@ export const getServerSideProps: GetServerSideProps = async (_context) => {
 
 const SfMapPage = ({ data }: { data: Record[] }) => {
   const [selectedPlace, setSelectedPlace] = useState<Record | null>(null);
-  const mapRef = useMap();
+
+  const handleSelect = (record: Record) => {
+    setSelectedPlace(record);
+  };
 
   const pins = useMemo(
     () =>
       data.map((record) => {
         const isSelected = record.id === selectedPlace?.id;
         return (
-          <Marker
+          <CustomMarker
             key={`marker-${record.id}`}
-            longitude={record.fields.lon}
-            latitude={record.fields.lat}
-            anchor="bottom"
-            onClick={(mapboxEvent) => {
-              // If we let the click event propagate to the map, it will immediately close the popup.
-              mapboxEvent.originalEvent.stopPropagation();
-              setSelectedPlace(record);
-              if (mapRef?.current) {
-                mapRef.current.flyTo({
-                  center: [record.fields.lon, record.fields.lat],
-                  essential: true,
-                });
-              }
-            }}
-            style={{
-              zIndex: isSelected ? 1 : "auto",
-            }}
-          >
-            <Pin type={record.fields.type} isSelected={isSelected} />
-          </Marker>
+            record={record}
+            onSelect={handleSelect}
+            isSelected={isSelected}
+          />
         );
       }),
-    [data, mapRef, selectedPlace]
+    [data, selectedPlace]
   );
+
   return (
     <Box
       sx={{
@@ -206,57 +288,7 @@ const SfMapPage = ({ data }: { data: Record[] }) => {
           display: "relative",
         }}
       >
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            zIndex: 9,
-            padding: 4,
-            pointerEvents: "none",
-          }}
-        >
-          <Text
-            as="h1"
-            sx={{
-              display: "block",
-              color: gray.gray12,
-              fontFamily: "heading",
-              lineHeight: "heading",
-              fontWeight: "heading",
-              fontSize: [3, 4],
-              letterSpacing: [0, "-0.03em"],
-              mb: 1,
-              pointerEvents: "auto",
-            }}
-          >
-            San Francisco Food and Fun
-          </Text>
-          <Text
-            as="p"
-            sx={{
-              color: "muted",
-              fontFamily: "body",
-              lineHeight: "heading",
-              fontWeight: 500,
-              fontSize: [2, 3],
-              letterSpacing: [0, "-0.03em"],
-              mb: 4,
-              pointerEvents: "auto",
-            }}
-          >
-            made by{" "}
-            <Link href="/" passHref>
-              <ThemeLink
-                sx={{
-                  color: "muted",
-                }}
-              >
-                Andrew
-              </ThemeLink>
-            </Link>
-          </Text>
-          {selectedPlace && <Popup selectedPlace={selectedPlace} />}
-        </Box>
+        <MapHeading selectedPlace={selectedPlace} />
         <Map
           initialViewState={mapInitialViewState}
           style={{ width: "100%", height: "100%" }}
