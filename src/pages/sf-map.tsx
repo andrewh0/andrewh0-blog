@@ -257,6 +257,10 @@ const SfMapPage = ({ data }: { data: Record[] }) => {
     setSelectedPlace(record);
   };
 
+  const handleMapClick = (_mapboxEvent: MapboxEvent<MouseEvent>) => {
+    setSelectedPlace(null);
+  };
+
   const pins = useMemo(
     () =>
       data.map((record) => {
@@ -294,9 +298,7 @@ const SfMapPage = ({ data }: { data: Record[] }) => {
           style={{ width: "100%", height: "100%" }}
           mapStyle="mapbox://styles/andrewlho/clb18xxcn000214pc9hcuirrp"
           mapboxAccessToken={MAPBOX_TOKEN}
-          onClick={() => {
-            setSelectedPlace(null);
-          }}
+          onClick={handleMapClick}
         >
           <GeolocateControl position="bottom-right" />
           <NavigationControl showCompass={false} position="bottom-right" />
