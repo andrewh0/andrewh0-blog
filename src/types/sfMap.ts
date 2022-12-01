@@ -14,7 +14,6 @@ export type Record = {
     name: string;
     starred: boolean;
     type: PlaceType;
-    url: string;
     lat: number;
     lon: number;
     price?: string;
