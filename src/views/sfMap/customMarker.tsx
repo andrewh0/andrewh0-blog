@@ -34,10 +34,14 @@ const CustomMarker = ({
       anchor="bottom"
       onClick={handleClick}
       style={{
-        zIndex: isSelected ? 1 : "auto",
+        zIndex: isSelected ? 2 : record.fields.starred ? 1 : "auto",
       }}
     >
-      <Pin type={record.fields.type} isSelected={isSelected} />
+      <Pin
+        type={record.fields.type}
+        isSelected={isSelected}
+        isStarred={record.fields.starred}
+      />
     </Marker>
   );
 };
