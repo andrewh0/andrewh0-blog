@@ -9,7 +9,9 @@ const frontend = [
   "JavaScript",
   "Emotion",
   "Styled Components",
+  "Stitches",
   "Theme UI",
+  "Radix UI",
   "MDX",
   "React Three Fiber",
   "Three.js",
@@ -29,8 +31,10 @@ const backend = [
   "Next.js",
   "Express",
   "Firebase",
+  "Supabase",
   "Python",
   "Flask",
+  "Prisma",
   "sqlite",
 ];
 
