@@ -15,7 +15,7 @@ const Layout = ({ children, isHomePage = false }: Props) => (
       css={`
         display: flex;
         flex-direction: column;
-        max-width: 640px;
+        max-width: 672px;
         min-height: 100vh;
         // https://twitter.com/jensimmons/status/1499576041857290244
         min-height: 100dvh;
