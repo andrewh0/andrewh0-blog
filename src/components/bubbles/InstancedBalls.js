@@ -5,7 +5,7 @@ import { Vector3, MathUtils } from "three";
 
 import { useDarkModeEnabled } from "./hooks";
 
-const COUNT = 5;
+const COUNT = 8;
 const rfs = MathUtils.randFloatSpread;
 
 const getRandomIndex = (arr) => {
