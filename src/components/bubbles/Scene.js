@@ -13,7 +13,7 @@ import { A11yUserPreferences } from "@react-three/a11y";
 import { Box } from "theme-ui";
 import styled from "@emotion/styled";
 
-import ClumpGroup from "./ClumpGroup";
+import BallGroup from "./BallGroup";
 import Pointer from "./Pointer";
 import Effects from "./Effects";
 import Lights from "./Lights";
@@ -123,7 +123,7 @@ const Scene = () => {
             <Lights />
             <WrappedPhysics gravity={[0, 0, 0]}>
               <Pointer />
-              <ClumpGroup />
+              <BallGroup />
             </WrappedPhysics>
             <WrappedEnvironment />
             {/* This allows the ball depth to be calculated in the right order. */}
