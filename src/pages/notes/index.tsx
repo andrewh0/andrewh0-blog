@@ -9,7 +9,7 @@ type Props = {
   allNotes: Note[];
 };
 
-const Index = ({ allNotes }: Props) => {
+const Index = ({ allNotes = [] }: Props) => {
   return (
     <>
       <Layout>
@@ -32,17 +32,17 @@ const Index = ({ allNotes }: Props) => {
 
 export default Index;
 
-export const getStaticProps = async () => {
-  const allNotes = getAllNotes([
-    "title",
-    "date",
-    "slug",
-    "author",
-    "coverImage",
-    "excerpt",
-  ]);
+// export const getStaticProps = async () => {
+//   const allNotes = getAllNotes([
+//     "title",
+//     "date",
+//     "slug",
+//     "author",
+//     "coverImage",
+//     "excerpt",
+//   ]);
 
-  return {
-    props: { allNotes },
-  };
-};
+//   return {
+//     props: { allNotes },
+//   };
+// };

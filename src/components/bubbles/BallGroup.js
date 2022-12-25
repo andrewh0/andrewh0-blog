@@ -1,12 +1,11 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useUserPreferences } from "@react-three/a11y";
-import Clump from "./Clump";
+import InstancedBalls from "./InstancedBalls";
 
 const colors = ["#C2A6E3", "#E7D9A7", "#DEA4A3", "#A0E2E9", "#C0E4AA"];
-const sizes = [0.75, 0.5, 0.25];
 
-function ClumpGroup() {
+function BallGroup() {
   const clumpRef = useRef();
   const { a11yPrefersState } = useUserPreferences();
 
@@ -18,13 +17,11 @@ function ClumpGroup() {
   });
   return (
     <group ref={clumpRef}>
-      {sizes.map((size) =>
-        colors.map((color) => (
-          <Clump key={`${size}${color}`} size={size} color={color} />
-        ))
-      )}
+      {colors.map((c) => (
+        <InstancedBalls key={c} color={c} />
+      ))}
     </group>
   );
 }
 
-export default ClumpGroup;
+export default BallGroup;

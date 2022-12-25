@@ -203,7 +203,12 @@ const theme: Theme = {
       overflowX: "auto",
       code: {
         color: "inherit",
+        border: "none",
       },
+      borderRadius: 8,
+      bg: "codeBackground",
+      mb: 3,
+      p: 3,
     },
     code: codeStyle,
     table: {
