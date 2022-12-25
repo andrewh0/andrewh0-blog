@@ -3,22 +3,28 @@ import Head from "next/head";
 
 import Layout from "components/layout";
 import { Box } from "theme-ui";
+import { useIsClientDarkMode } from "hooks";
 
-const Placeholder = () => (
-  <Box
-    css={`
-      position: relative;
-      display: flex;
-      height: 100%;
-      width: 100%;
-      max-height: 800px;
-      border-radius: 16px;
+const Placeholder = () => {
+  // Prevent flash in dark mode
+  const isDarkMode = useIsClientDarkMode();
 
-      background-color: black;
-      opacity: 0.1;
-    `}
-  />
-);
+  return (
+    <Box
+      css={`
+        position: relative;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        max-height: 800px;
+        border-radius: 16px;
+      `}
+      sx={{
+        bg: isDarkMode === null ? "none" : "gray2",
+      }}
+    />
+  );
+};
 
 const BubbleArt = dynamic(() => import("components/bubbles/Container"), {
   ssr: false,
