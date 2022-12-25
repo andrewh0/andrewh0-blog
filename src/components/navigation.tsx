@@ -1,5 +1,5 @@
 import Link, { LinkProps } from "next/link";
-import { Flex, NavLink, NavLinkProps } from "theme-ui";
+import { Flex, NavLink, NavLinkProps, Text } from "theme-ui";
 
 const StyledNavLink = ({
   href,
@@ -14,13 +14,13 @@ const StyledNavLink = ({
       <NavLink
         {...rest}
         sx={{
-          color: "text",
+          color: "muted",
           "&:hover": {
-            color: "text",
+            color: "muted",
             textDecoration: "underline",
           },
           "&:focus": {
-            color: "text",
+            color: "muted",
           },
           ...sx,
         }}
@@ -42,8 +42,7 @@ const Navigation = () => (
     mt={2}
     mb={5}
   >
-    <StyledNavLink
-      href="/"
+    <Text
       sx={{
         fontSize: 3,
         fontWeight: 500,
@@ -51,7 +50,7 @@ const Navigation = () => (
       }}
     >
       Andrew Ho
-    </StyledNavLink>
+    </Text>
     <Flex
       sx={{
         color: "text",
@@ -63,14 +62,22 @@ const Navigation = () => (
         mr={3}
         sx={{
           fontWeight: "body",
+          color: "gray11",
         }}
       >
         About
       </StyledNavLink>
-      {/* <StyledNavLink href="/notes" mr={3} sx={{ fontWeight: "body" }}>
+      {/* <StyledNavLink
+        href="/notes"
+        mr={3}
+        sx={{ fontWeight: "body", color: "gray11" }}
+      >
         Notes
       </StyledNavLink> */}
-      <StyledNavLink href="/projects" sx={{ fontWeight: "body" }}>
+      <StyledNavLink
+        href="/projects"
+        sx={{ fontWeight: "body", color: "gray11" }}
+      >
         Projects
       </StyledNavLink>
     </Flex>

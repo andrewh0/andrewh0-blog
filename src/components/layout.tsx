@@ -28,7 +28,7 @@ const Layout = ({ children, isHomePage = false }: Props) => (
       }}
       p={3}
     >
-      <Navigation />
+      {isHomePage && <Navigation />}
       <Box
         css={`
           display: flex;
