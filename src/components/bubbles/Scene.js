@@ -19,7 +19,6 @@ import Effects from "./Effects";
 import Lights from "./Lights";
 import WrappedPhysics from "./WrappedPhysics";
 import WrappedEnvironment from "./WrappedEnvironment";
-import { useDarkModeEnabled } from "./hooks";
 
 /*
 I've tried different ways to make the canvas load less jarring,
@@ -35,24 +34,13 @@ long time while waiting for the canvas to render.
 
 */
 
-const StyledCanvas = styled(Canvas, {
-  shouldForwardProp: (prop) => !["isDarkModeEnabled"].includes(prop),
-})`
-  border-radius: 16px;
-  box-shadow: 0px 0.5px 0.6px hsl(var(--shadow-color) / 0.36),
-    0px 1.6px 1.8px -0.8px hsl(var(--shadow-color) / 0.36),
-    0px 4px 4.5px -1.7px hsl(var(--shadow-color) / 0.36),
-    0px 9.8px 11px -2.5px hsl(var(--shadow-color) / 0.36);
-
+const StyledCanvas = styled(Canvas)`
   background-color: #4ba2cb;
 
   @media (prefers-color-scheme: dark) {
     box-shadow: none;
     background-color: #201c31;
   }
-  background-image: ${(props) =>
-    props.isDarkModeEnabled ? `url("/bg-purple.jpg")` : `url("/bg-blue.jpg")`};
-  background-size: cover;
 `;
 
 function takeScreenshot(gl) {
@@ -81,8 +69,7 @@ export const SceneExposer = ({ onGlChange }) => {
   return null;
 };
 
-const Scene = () => {
-  const isDarkModeEnabled = useDarkModeEnabled();
+const Scene = ({ onCreated, transitionIn }) => {
   const [gl, setGl] = useState(null);
   const handleClick = (e) => {
     e.preventDefault();
@@ -91,14 +78,13 @@ const Scene = () => {
   return (
     <Box
       css={`
+        position: absolute;
         user-select: none;
         touch-action: none;
-        // This is weird. Not sure why this needs to be < 100%;
-        // For canvas to resize vertically correctly.
-        height: 50%;
+        height: 100%;
         width: 100%;
-        max-height: 800px;
-        flex: 1;
+        transition: opacity 300ms ease-in-out;
+        opacity: ${transitionIn ? 1 : 0};
       `}
     >
       <Suspense fallback={null}>
@@ -106,7 +92,6 @@ const Scene = () => {
           shadows
           dpr={1}
           camera={{ position: [0, 0, 15], fov: 35, near: 1, far: 50 }}
-          isDarkModeEnabled={isDarkModeEnabled}
           performance={{
             min: 0.7,
             debounce: 200,
@@ -118,6 +103,7 @@ const Scene = () => {
             // Needed to be able to capture screenshots
             // preserveDrawingBuffer: true,
           }}
+          onCreated={onCreated}
         >
           <A11yUserPreferences>
             <Lights />
