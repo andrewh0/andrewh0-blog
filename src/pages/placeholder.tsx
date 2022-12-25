@@ -9,10 +9,10 @@ import PostTitle from "components/postTitle";
 import NoteType from "types/note";
 
 type Props = {
-  note: NoteType;
+  note: any;
 };
 
-const Note = ({ note }: Props) => {
+const Note = ({ note = {} }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !note?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -51,35 +51,35 @@ type Params = {
   };
 };
 
-export async function getStaticProps({ params }: Params) {
-  const note = getNoteBySlug(params.slug, [
-    "title",
-    "date",
-    "slug",
-    "author",
-    "content",
-    "ogImage",
-    "coverImage",
-  ]);
+// export async function getStaticProps({ params }: Params) {
+//   const note = getNoteBySlug(params.slug, [
+//     "title",
+//     "date",
+//     "slug",
+//     "author",
+//     "content",
+//     "ogImage",
+//     "coverImage",
+//   ]);
 
-  return {
-    props: {
-      note,
-    },
-  };
-}
+//   return {
+//     props: {
+//       note,
+//     },
+//   };
+// }
 
-export async function getStaticPaths() {
-  const notes = getAllNotes(["slug"]);
+// export async function getStaticPaths() {
+//   const notes = getAllNotes(["slug"]);
 
-  return {
-    paths: notes.map((note) => {
-      return {
-        params: {
-          slug: note.slug,
-        },
-      };
-    }),
-    fallback: false,
-  };
-}
+//   return {
+//     paths: notes.map((note) => {
+//       return {
+//         params: {
+//           slug: note.slug,
+//         },
+//       };
+//     }),
+//     fallback: false,
+//   };
+// }
