@@ -38,7 +38,7 @@ const listPosts = async () => {
       createdAt: createdAt.created_time,
       status: status.status.name,
       updatedAt: updatedAt.last_edited_time,
-      tagline: tagline.rich_text[0].plain_text ?? null,
+      tagline: tagline?.rich_text?.[0]?.plain_text ?? null,
       title: title.title[0].plain_text,
     };
   });
