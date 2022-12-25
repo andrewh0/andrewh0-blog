@@ -35,6 +35,7 @@ long time while waiting for the canvas to render.
 */
 
 const StyledCanvas = styled(Canvas)`
+  border-radius: 16px;
   background-color: #4ba2cb;
 
   @media (prefers-color-scheme: dark) {
