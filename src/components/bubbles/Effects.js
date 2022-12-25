@@ -36,8 +36,8 @@ function Effects(props) {
         <>
           <Bloom
             kernelSize={3}
-            luminanceThreshold={0}
-            luminanceSmoothing={0.4}
+            luminanceThreshold={0.2}
+            luminanceSmoothing={0.5}
             intensity={1}
           />
           <Bloom
