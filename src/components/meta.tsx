@@ -1,4 +1,5 @@
 import Head from "next/head";
+import theme from "components/theme";
 
 const Meta = () => (
   <Head>
@@ -28,7 +29,22 @@ const Meta = () => (
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-    <meta name="theme-color" content="#000" />
+    <meta
+      name="theme-color"
+      content={(theme?.colors?.background as string | undefined) ?? "white"}
+      media="(prefers-color-scheme: light)"
+      // Needed so that next/head doesn't delete one of these "theme-color" declarations
+      key="theme-color-light"
+    />
+    <meta
+      name="theme-color"
+      content={
+        (theme?.colors?.modes?.dark.background as string | undefined) ?? "black"
+      }
+      media="(prefers-color-scheme: dark)"
+      // Needed so that next/head doesn't delete one of these "theme-color" declarations
+      key="theme-color-dark"
+    />
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     <meta name="description" content="This is the site description." />
     {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
