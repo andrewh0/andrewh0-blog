@@ -1,5 +1,6 @@
 import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 import Link, { LinkProps } from "next/link";
+import React from "react";
 import { Flex, Link as ThemeLink, LinkProps as ThemeLinkProps } from "theme-ui";
 
 type CustomLinkProps = LinkProps &
@@ -72,9 +73,23 @@ const StyledLink = ({
   );
 };
 
+const LinkContainer = ({ children }: { children: React.ReactNode }) => (
+  <span
+    sx={{
+      mr: 3,
+      mb: 1,
+      "&:last-child": {
+        mr: 0,
+      },
+    }}
+  >
+    {children}
+  </span>
+);
+
 const Footer = () => (
   <Flex as="footer" mt={5} mb={3} px={2} sx={{ flexWrap: "wrap", fontSize: 0 }}>
-    <span sx={{ mr: 3 }}>
+    <LinkContainer>
       <StyledLink
         href="mailto:hello@andrewho.me"
         isExternal
@@ -82,8 +97,8 @@ const Footer = () => (
       >
         Email
       </StyledLink>
-    </span>
-    <span sx={{ mr: 3 }}>
+    </LinkContainer>
+    <LinkContainer>
       <StyledLink
         href="https://github.com/andrewh0"
         isExternal
@@ -91,8 +106,8 @@ const Footer = () => (
       >
         GitHub
       </StyledLink>
-    </span>
-    <span sx={{ mr: 3 }}>
+    </LinkContainer>
+    <LinkContainer>
       <StyledLink
         href="https://twitter.com/andrewlho_codes"
         isExternal
@@ -100,8 +115,18 @@ const Footer = () => (
       >
         Twitter
       </StyledLink>
-    </span>
-    <span>
+    </LinkContainer>
+    <LinkContainer>
+      <StyledLink
+        rel="me"
+        href="https://mastodon.social/@andrewh0"
+        isExternal
+        title="andrewh0 on Mastodon"
+      >
+        Mastodon
+      </StyledLink>
+    </LinkContainer>
+    <LinkContainer>
       <StyledLink
         href="https://linkedin.com/in/andrewh0"
         isExternal
@@ -109,7 +134,7 @@ const Footer = () => (
       >
         LinkedIn
       </StyledLink>
-    </span>
+    </LinkContainer>
   </Flex>
 );
 
