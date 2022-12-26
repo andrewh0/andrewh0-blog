@@ -10,6 +10,7 @@ import { Suspense, useEffect, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { AdaptiveDpr } from "@react-three/drei";
 import { A11yUserPreferences } from "@react-three/a11y";
+import { Physics } from "@react-three/rapier";
 import { Box } from "theme-ui";
 
 import { useIsClientDarkMode } from "hooks";
@@ -17,7 +18,6 @@ import BallGroup from "./BallGroup";
 import Pointer from "./Pointer";
 import Effects from "./Effects";
 import Lights from "./Lights";
-import WrappedPhysics from "./WrappedPhysics";
 import WrappedEnvironment from "./WrappedEnvironment";
 
 function takeScreenshot(gl) {
@@ -92,10 +92,10 @@ const Scene = ({ onCreated, isSceneReady }) => {
         >
           <A11yUserPreferences>
             <Lights />
-            <WrappedPhysics gravity={[0, 0, 0]}>
+            <Physics gravity={[0, 0, 0]}>
               <Pointer />
               <BallGroup />
-            </WrappedPhysics>
+            </Physics>
             <WrappedEnvironment />
             {/* This allows the ball depth to be calculated in the right order. */}
             <Effects />

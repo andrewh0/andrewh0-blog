@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useDrag } from "@use-gesture/react";
-import { useUserPreferences } from "@react-three/a11y";
 import { BallCollider, RigidBody } from "@react-three/rapier";
 
 const initialPointerPosition = [-10, -10, -10];
@@ -10,14 +9,10 @@ const initialPositionVec = new THREE.Vector3(...initialPointerPosition);
 const POINTER_SIZE = 2;
 
 function Pointer() {
-  const { a11yPrefersState } = useUserPreferences();
   const { viewport, mouse } = useThree();
   const ref = useRef();
   const bind = useDrag(
     ({ active }) => {
-      if (a11yPrefersState.prefersReducedMotion) {
-        return;
-      }
       if (active) {
         const vec = new THREE.Vector3(
           (mouse.x * viewport.width) / 2,
