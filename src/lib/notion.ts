@@ -27,14 +27,15 @@ const listPosts = async () => {
   });
 
   return posts.results.filter(isFullPage).map(({ properties, id }) => {
-    const { publishedAt, createdAt, status, updatedAt, tagline, title } =
+    const { publishedAt, slug, createdAt, status, updatedAt, tagline, title } =
       // Don't understand why typing is failing here. Maybe this blog post can help later.
       // https://www.alanjohn.dev/blog/Building-a-Developer-Portfolio-Creating-a-NextJS-blog-in-typescript-using-Notion-API
       properties as any;
 
     return {
       id,
-      publishedAt: publishedAt.date,
+      slug: slug?.rich_text?.[0]?.plain_text ?? id,
+      publishedAt: publishedAt.date.start,
       createdAt: createdAt.created_time,
       status: status.status.name,
       updatedAt: updatedAt.last_edited_time,
