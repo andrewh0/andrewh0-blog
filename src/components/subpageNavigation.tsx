@@ -15,7 +15,29 @@ const SubpageNavigation = ({
     }}
   >
     {previousPagePath ? (
-      <NavLink href={previousPagePath}>← {previousPageLabel}</NavLink>
+      <NavLink
+        href={previousPagePath}
+        sx={{
+          position: "relative",
+        }}
+      >
+        <span
+          sx={{
+            position: "absolute",
+            transition: "transform 150ms ease-in-out",
+            width: "100%",
+            top: 0,
+            left: 0,
+            display: "block",
+            "&:hover": {
+              transform: "translateX(-2px)",
+            },
+          }}
+        >
+          ←
+        </span>
+        <span sx={{ ml: "1.25em" }}>{previousPageLabel}</span>
+      </NavLink>
     ) : null}
   </Box>
 );

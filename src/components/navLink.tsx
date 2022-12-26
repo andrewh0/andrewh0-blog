@@ -14,6 +14,7 @@ const StyledNavLink = ({
       <NavLink
         {...rest}
         sx={{
+          transition: "color 150ms ease-in-out",
           color: "muted",
           fontWeight: "body",
           textDecoration: "none",

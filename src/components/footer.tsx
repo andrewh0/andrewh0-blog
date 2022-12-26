@@ -23,16 +23,38 @@ const StyledLink = ({
         <ThemeLink
           {...isExternalProps}
           sx={{
+            transition: "color 150ms ease-in-out",
             color: "muted",
             "&:hover": {
               textDecoration: "none",
               color: "text",
             },
+            position: "relative",
+            mr: "1.25em",
           }}
           {...rest}
         >
           {children}
-          {isExternal ? <span> ↗</span> : ""}
+          {isExternal ? (
+            <span
+              sx={{
+                position: "absolute",
+                transition: "transform 150ms ease-in-out",
+                width: "calc(100% + 1em)",
+                top: 0,
+                left: 0,
+                display: "block",
+                textAlign: "right",
+                "&:hover": {
+                  transform: "translateX(2px) translateY(-2px)",
+                },
+              }}
+            >
+              ↗
+            </span>
+          ) : (
+            ""
+          )}
         </ThemeLink>
       </Link>
     </>
