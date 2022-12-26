@@ -28,11 +28,15 @@ const Layout = ({ children, isHomePage = false }: Props) => (
       px={3}
     >
       <Box
-        css={`
+        css={
+          isHomePage
+            ? `
           display: flex;
           flex-direction: column;
           flex: 1;
-        `}
+        `
+            : null
+        }
         px={2}
       >
         {children}
