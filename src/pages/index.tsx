@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 
 import Layout from "components/layout";
+import Navigation from "components/navigation";
 import { Box } from "theme-ui";
 import { useIsClientDarkMode } from "hooks";
 
@@ -16,7 +17,7 @@ const Placeholder = () => {
         display: flex;
         height: 100%;
         width: 100%;
-        max-height: 800px;
+        max-height: 640px;
         border-radius: 16px;
       `}
       sx={{
@@ -36,6 +37,7 @@ const Index = () => (
     <Head>
       <title>Andrew Ho</title>
     </Head>
+    <Navigation />
     <BubbleArt />
   </Layout>
 );

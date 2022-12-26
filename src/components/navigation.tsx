@@ -1,35 +1,5 @@
-import Link, { LinkProps } from "next/link";
-import { Flex, NavLink, NavLinkProps, Text } from "theme-ui";
-
-const StyledNavLink = ({
-  href,
-  children,
-  sx,
-  ...rest
-}: LinkProps & NavLinkProps) => {
-  // Must add passHref to Link
-  // https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag
-  return (
-    <Link href={href} passHref>
-      <NavLink
-        {...rest}
-        sx={{
-          color: "muted",
-          "&:hover": {
-            color: "muted",
-            textDecoration: "underline",
-          },
-          "&:focus": {
-            color: "muted",
-          },
-          ...sx,
-        }}
-      >
-        {children}
-      </NavLink>
-    </Link>
-  );
-};
+import { Flex, Text } from "theme-ui";
+import NavLink from "components/navLink";
 
 const Navigation = () => (
   <Flex
@@ -39,7 +9,7 @@ const Navigation = () => (
       flexWrap: "wrap",
       color: "text",
     }}
-    mt={2}
+    mt={[5, 6]}
     mb={5}
   >
     <Text
@@ -57,29 +27,16 @@ const Navigation = () => (
         alignItems: "center",
       }}
     >
-      <StyledNavLink
-        href="/about"
-        mr={3}
-        sx={{
-          fontWeight: "body",
-          color: "gray11",
-        }}
-      >
+      <NavLink href="/about" mr={3}>
         About
-      </StyledNavLink>
-      {/* <StyledNavLink
+      </NavLink>
+      {/* <NavLink
         href="/notes"
         mr={3}
-        sx={{ fontWeight: "body", color: "gray11" }}
       >
         Notes
-      </StyledNavLink> */}
-      <StyledNavLink
-        href="/projects"
-        sx={{ fontWeight: "body", color: "gray11" }}
-      >
-        Projects
-      </StyledNavLink>
+      </NavLink> */}
+      <NavLink href="/projects">Projects</NavLink>
     </Flex>
   </Flex>
 );
