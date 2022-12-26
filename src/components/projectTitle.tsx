@@ -1,15 +1,11 @@
-import { Themed, Box, useThemeUI } from "theme-ui";
-import { keyframes } from "@emotion/react";
-
-const fadeIn = keyframes({ from: { opacity: 0.25 }, to: { opacity: 1 } });
+import { Box, useThemeUI } from "theme-ui";
 
 const ProjectTitle = ({
   name,
   year,
-  isActive = false,
 }: {
   name: string;
-  year: string;
+  year: number;
   isActive?: boolean;
 }) => {
   const { theme }: { theme: any } = useThemeUI();
@@ -21,25 +17,21 @@ const ProjectTitle = ({
         mb: theme.styles.h2.mb,
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
       }}
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Themed.h2 sx={{ my: 0, mr: "16px" }}>{name}</Themed.h2>
-        {isActive && (
-          <Box
-            title="Actively developed"
-            sx={{
-              display: "inline-block",
-              bg: "orange9",
-              color: "white",
-              borderRadius: "100%",
-              fontSize: 0,
-              width: "8px",
-              height: "8px",
-              animation: `${fadeIn} 2s ease-out infinite alternate`,
-            }}
-          />
-        )}
+        <h2
+          sx={{
+            my: 0,
+            mr: 3,
+            fontSize: [3, 4],
+            fontWeight: "heading",
+            letterSpacing: "-0.033em",
+          }}
+        >
+          {name}
+        </h2>
       </Box>
       <span sx={{ fontFamily: "monospace", color: "gray11", fontSize: [1, 2] }}>
         {year}

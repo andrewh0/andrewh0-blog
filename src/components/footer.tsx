@@ -1,3 +1,4 @@
+import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 import Link, { LinkProps } from "next/link";
 import { Flex, Link as ThemeLink, LinkProps as ThemeLinkProps } from "theme-ui";
 
@@ -23,20 +24,56 @@ const StyledLink = ({
         <ThemeLink
           {...isExternalProps}
           sx={{
+            transition: "color 150ms ease-in-out",
             color: "muted",
+            [MEDIA_QUERY_DESKTOP_HOVER]: {
+              "&:hover": {
+                textDecoration: "none",
+                color: "text",
+              },
+            },
+            "&:active": {
+              color: "text",
+            },
+            "&:focus": {
+              color: "text",
+            },
+            position: "relative",
+            mr: "1.25em",
           }}
           {...rest}
         >
           {children}
+          {isExternal ? (
+            <span
+              sx={{
+                position: "absolute",
+                transition: "transform 150ms ease-in-out",
+                width: "calc(100% + 1em)",
+                top: 0,
+                left: 0,
+                display: "block",
+                textAlign: "right",
+                [MEDIA_QUERY_DESKTOP_HOVER]: {
+                  "&:hover": {
+                    transform: "translateX(2px) translateY(-2px)",
+                  },
+                },
+              }}
+            >
+              ↗
+            </span>
+          ) : (
+            ""
+          )}
         </ThemeLink>
       </Link>
-      {isExternal ? <span sx={{ color: "muted" }}> ↗</span> : ""}
     </>
   );
 };
 
 const Footer = () => (
-  <Flex as="footer" mt={5} mb={2} sx={{ flexWrap: "wrap", fontSize: 0 }}>
+  <Flex as="footer" mt={5} mb={3} px={2} sx={{ flexWrap: "wrap", fontSize: 0 }}>
     <span sx={{ mr: 3 }}>
       <StyledLink
         href="mailto:hello@andrewho.me"

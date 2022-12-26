@@ -3,6 +3,7 @@ import MDX from "@mdx-js/runtime";
 
 import Layout from "components/layout";
 import { listPosts, showPost } from "lib/notion";
+import SubpageNavigation from "components/subpageNavigation";
 
 export const getStaticProps = async () => {
   const posts = await listPosts();
@@ -24,6 +25,7 @@ const Blog = ({ posts, postContents }: any) => {
       <Head>
         <title>Andrew Ho</title>
       </Head>
+      <SubpageNavigation previousPagePath="/notes" previousPageLabel="Notes" />
       <MDX>{postContents[0]}</MDX>
     </Layout>
   );

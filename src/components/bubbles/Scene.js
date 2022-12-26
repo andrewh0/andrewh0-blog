@@ -10,25 +10,15 @@ import { Suspense, useEffect, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { AdaptiveDpr } from "@react-three/drei";
 import { A11yUserPreferences } from "@react-three/a11y";
+import { Physics } from "@react-three/rapier";
 import { Box } from "theme-ui";
-import styled from "@emotion/styled";
 
+import { useIsClientDarkMode } from "lib/hooks";
 import BallGroup from "./BallGroup";
 import Pointer from "./Pointer";
 import Effects from "./Effects";
 import Lights from "./Lights";
-import WrappedPhysics from "./WrappedPhysics";
 import WrappedEnvironment from "./WrappedEnvironment";
-
-const StyledCanvas = styled(Canvas)`
-  border-radius: 16px;
-  background-color: #4ba2cb;
-
-  @media (prefers-color-scheme: dark) {
-    box-shadow: none;
-    background-color: #201c31;
-  }
-`;
 
 function takeScreenshot(gl) {
   gl.domElement.toBlob(
@@ -56,7 +46,8 @@ export const SceneExposer = ({ onGlChange }) => {
   return null;
 };
 
-const Scene = ({ onCreated, transitionIn }) => {
+const Scene = ({ onCreated, isSceneReady }) => {
+  const isDarkMode = useIsClientDarkMode();
   const [gl, setGl] = useState(null);
   const handleClick = (e) => {
     e.preventDefault();
@@ -71,11 +62,14 @@ const Scene = ({ onCreated, transitionIn }) => {
         height: 100%;
         width: 100%;
         transition: opacity 300ms ease-in-out;
-        opacity: ${transitionIn ? 1 : 0};
+        opacity: ${isSceneReady ? 1 : 0};
       `}
+      sx={{
+        bg: isDarkMode === null ? "none" : "gray2",
+      }}
     >
       <Suspense fallback={null}>
-        <StyledCanvas
+        <Canvas
           shadows
           dpr={1}
           camera={{ position: [0, 0, 15], fov: 35, near: 1, far: 50 }}
@@ -91,13 +85,17 @@ const Scene = ({ onCreated, transitionIn }) => {
             // preserveDrawingBuffer: true,
           }}
           onCreated={onCreated}
+          sx={{
+            // This is needed because rounded corners weren't showing up on mobile.
+            borderRadius: "16px",
+          }}
         >
           <A11yUserPreferences>
             <Lights />
-            <WrappedPhysics gravity={[0, 0, 0]}>
+            <Physics gravity={[0, 0, 0]}>
               <Pointer />
               <BallGroup />
-            </WrappedPhysics>
+            </Physics>
             <WrappedEnvironment />
             {/* This allows the ball depth to be calculated in the right order. */}
             <Effects />
@@ -105,7 +103,7 @@ const Scene = ({ onCreated, transitionIn }) => {
           </A11yUserPreferences>
           <AdaptiveDpr pixelated />
           {/* <SceneExposer onGlChange={(gl) => setGl(gl)} /> */}
-        </StyledCanvas>
+        </Canvas>
       </Suspense>
       {/* <button onClick={handleClick}>Download</button> */}
     </Box>

@@ -2,7 +2,6 @@ import Head from "next/head";
 import Link from "next/link";
 
 import Layout from "components/layout";
-import { getAllNotes } from "lib/api";
 import Note from "types/note";
 
 type Props = {
@@ -31,18 +30,3 @@ const Index = ({ allNotes = [] }: Props) => {
 };
 
 export default Index;
-
-// export const getStaticProps = async () => {
-//   const allNotes = getAllNotes([
-//     "title",
-//     "date",
-//     "slug",
-//     "author",
-//     "coverImage",
-//     "excerpt",
-//   ]);
-
-//   return {
-//     props: { allNotes },
-//   };
-// };

@@ -1,7 +1,6 @@
 import { Box } from "theme-ui";
 import Footer from "components/footer";
 import Meta from "components/meta";
-import Navigation from "components/navigation";
 
 type Props = {
   isHomePage?: boolean;
@@ -26,15 +25,19 @@ const Layout = ({ children, isHomePage = false }: Props) => (
       sx={{
         height: isHomePage ? "100%" : "auto",
       }}
-      p={3}
+      px={3}
     >
-      <Navigation />
       <Box
-        css={`
+        css={
+          isHomePage
+            ? `
           display: flex;
           flex-direction: column;
           flex: 1;
-        `}
+        `
+            : null
+        }
+        px={2}
       >
         {children}
       </Box>
