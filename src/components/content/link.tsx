@@ -1,5 +1,6 @@
 import Link, { LinkProps } from "next/link";
-import { Themed, LinkProps as ThemeLinkProps } from "theme-ui";
+import { LinkProps as ThemeLinkProps } from "theme-ui";
+import { Themed } from "@theme-ui/mdx";
 
 const StyledLink = ({ href, children, sx }: LinkProps & ThemeLinkProps) => {
   // Must add passHref to Link
