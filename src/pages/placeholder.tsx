@@ -4,7 +4,6 @@ import Head from "next/head";
 import PostBody from "components/postBody";
 import PostHeader from "components/postHeader";
 import Layout from "components/layout";
-import { getNoteBySlug, getAllNotes } from "lib/api";
 import PostTitle from "components/postTitle";
 import NoteType from "types/note";
 
