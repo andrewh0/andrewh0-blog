@@ -1,5 +1,6 @@
 import { Box } from "theme-ui";
 import NavLink from "components/navLink";
+import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 
 const SubpageNavigation = ({
   previousPagePath,
@@ -29,8 +30,10 @@ const SubpageNavigation = ({
             top: 0,
             left: 0,
             display: "block",
-            "&:hover": {
-              transform: "translateX(-2px)",
+            [MEDIA_QUERY_DESKTOP_HOVER]: {
+              "&:hover": {
+                transform: "translateX(-2px)",
+              },
             },
           }}
         >

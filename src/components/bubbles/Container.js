@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Box } from "theme-ui";
 import BubbleArt from "components/bubbles/Scene";
-import { useIsClientDarkMode } from "hooks";
+import { useIsClientDarkMode } from "lib/hooks";
 
 /*
 There are two different cases where we'll need a placeholder:

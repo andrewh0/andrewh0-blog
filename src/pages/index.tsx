@@ -4,7 +4,7 @@ import Head from "next/head";
 import Layout from "components/layout";
 import Navigation from "components/navigation";
 import { Box } from "theme-ui";
-import { useIsClientDarkMode } from "hooks";
+import { useIsClientDarkMode } from "lib/hooks";
 
 const Placeholder = () => {
   // Prevent flash in dark mode

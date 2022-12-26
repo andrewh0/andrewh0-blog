@@ -1,3 +1,4 @@
+import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 import Link, { LinkProps } from "next/link";
 import { NavLink, NavLinkProps } from "theme-ui";
 
@@ -18,8 +19,10 @@ const StyledNavLink = ({
           color: "muted",
           fontWeight: "body",
           textDecoration: "none",
-          "&:hover": {
-            color: "text",
+          [MEDIA_QUERY_DESKTOP_HOVER]: {
+            "&:hover": {
+              color: "text",
+            },
           },
           "&:focus": {
             color: "text",

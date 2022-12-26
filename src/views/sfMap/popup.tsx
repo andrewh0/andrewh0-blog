@@ -2,8 +2,7 @@ import { Box, Text } from "theme-ui";
 import { gray } from "@radix-ui/colors";
 import { Record } from "types/sfMap";
 import { shadow } from "views/sfMap";
-
-const MEDIA_QUERY_DESKTOP_HOVER = "@media(hover: hover) and (pointer: fine)";
+import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 
 const LinkButton = ({ ...props }) => {
   return (

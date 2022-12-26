@@ -1,3 +1,4 @@
+import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 import Link, { LinkProps } from "next/link";
 import { Flex, Link as ThemeLink, LinkProps as ThemeLinkProps } from "theme-ui";
 
@@ -25,9 +26,11 @@ const StyledLink = ({
           sx={{
             transition: "color 150ms ease-in-out",
             color: "muted",
-            "&:hover": {
-              textDecoration: "none",
-              color: "text",
+            [MEDIA_QUERY_DESKTOP_HOVER]: {
+              "&:hover": {
+                textDecoration: "none",
+                color: "text",
+              },
             },
             position: "relative",
             mr: "1.25em",
@@ -45,8 +48,10 @@ const StyledLink = ({
                 left: 0,
                 display: "block",
                 textAlign: "right",
-                "&:hover": {
-                  transform: "translateX(2px) translateY(-2px)",
+                [MEDIA_QUERY_DESKTOP_HOVER]: {
+                  "&:hover": {
+                    transform: "translateX(2px) translateY(-2px)",
+                  },
                 },
               }}
             >

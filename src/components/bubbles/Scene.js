@@ -13,7 +13,7 @@ import { A11yUserPreferences } from "@react-three/a11y";
 import { Physics } from "@react-three/rapier";
 import { Box } from "theme-ui";
 
-import { useIsClientDarkMode } from "hooks";
+import { useIsClientDarkMode } from "lib/hooks";
 import BallGroup from "./BallGroup";
 import Pointer from "./Pointer";
 import Effects from "./Effects";

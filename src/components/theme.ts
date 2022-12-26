@@ -19,6 +19,7 @@ import {
   plum,
   plumDark,
 } from "@radix-ui/colors";
+import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 
 // More presets available here: https://theme-ui.com/packages/presets
 
@@ -193,8 +194,10 @@ const theme: Theme = {
     a: {
       color: "link",
       textDecoration: "none",
-      "&:hover": {
-        textDecoration: "underline",
+      [MEDIA_QUERY_DESKTOP_HOVER]: {
+        "&:hover": {
+          textDecoration: "underline",
+        },
       },
     },
     pre: {
