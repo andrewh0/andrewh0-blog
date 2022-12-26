@@ -24,13 +24,17 @@ const StyledLink = ({
           {...isExternalProps}
           sx={{
             color: "muted",
+            "&:hover": {
+              textDecoration: "none",
+              color: "text",
+            },
           }}
           {...rest}
         >
           {children}
+          {isExternal ? <span> ↗</span> : ""}
         </ThemeLink>
       </Link>
-      {isExternal ? <span sx={{ color: "muted" }}> ↗</span> : ""}
     </>
   );
 };
