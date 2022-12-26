@@ -5,7 +5,7 @@ const ProjectTitle = ({
   year,
 }: {
   name: string;
-  year: string;
+  year: number;
   isActive?: boolean;
 }) => {
   const { theme }: { theme: any } = useThemeUI();
