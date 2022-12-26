@@ -32,6 +32,12 @@ const StyledLink = ({
                 color: "text",
               },
             },
+            "&:active": {
+              color: "text",
+            },
+            "&:focus": {
+              color: "text",
+            },
             position: "relative",
             mr: "1.25em",
           }}

@@ -199,6 +199,12 @@ const theme: Theme = {
           textDecoration: "underline",
         },
       },
+      "&:active": {
+        textDecoration: "underline",
+      },
+      "&:focus": {
+        textDecoration: "underline",
+      },
     },
     pre: {
       fontFamily: "monospace",
@@ -263,7 +269,7 @@ const theme: Theme = {
       my: 5,
       mx: "auto",
       borderWidth: "1px",
-      borderColor: gray.gray6,
+      borderColor: "gray6",
       borderStyle: "solid",
       borderTop: "none",
       width: "33.333333%",

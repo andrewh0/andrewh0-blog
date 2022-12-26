@@ -24,6 +24,9 @@ const StyledNavLink = ({
               color: "text",
             },
           },
+          "&:active": {
+            color: "text",
+          },
           "&:focus": {
             color: "text",
           },
