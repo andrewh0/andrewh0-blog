@@ -1,14 +1,10 @@
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/,
-});
-
 /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  pageExtensions: ["ts", "tsx", "js", "jsx"],
   webpack: (config, { isServer }) => {
     // Fixes npm packages (mdx) that depend on `fs` module
     if (!isServer) {
@@ -18,4 +14,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(nextConfig);
+module.exports = nextConfig;

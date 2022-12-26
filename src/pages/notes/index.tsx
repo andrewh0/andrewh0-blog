@@ -2,10 +2,9 @@ import Head from "next/head";
 import Link from "next/link";
 
 import Layout from "components/layout";
-import Note from "types/note";
 
 type Props = {
-  allNotes: Note[];
+  allNotes: any[];
 };
 
 const Index = ({ allNotes = [] }: Props) => {

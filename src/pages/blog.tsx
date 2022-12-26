@@ -1,5 +1,6 @@
 import Head from "next/head";
 import MDX from "@mdx-js/runtime";
+import { useThemedStylesWithMdx } from "@theme-ui/mdx";
 
 import Layout from "components/layout";
 import { listPosts, showPost } from "lib/notion";
@@ -20,13 +21,14 @@ export const getStaticProps = async () => {
 };
 
 const Blog = ({ posts, postContents }: any) => {
+  const componentsWithStyles = useThemedStylesWithMdx(null);
   return (
     <Layout>
       <Head>
         <title>Andrew Ho</title>
       </Head>
       <SubpageNavigation previousPagePath="/notes" previousPageLabel="Notes" />
-      <MDX>{postContents[0]}</MDX>
+      <MDX components={componentsWithStyles}>{postContents[0]}</MDX>
     </Layout>
   );
 };
