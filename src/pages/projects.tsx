@@ -1,4 +1,5 @@
-import { Box, Themed } from "theme-ui";
+import { Box } from "theme-ui";
+import { Themed } from "@theme-ui/mdx";
 import Head from "next/head";
 import Stack from "components/stack";
 import ProjectTitle from "components/projectTitle";
