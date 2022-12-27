@@ -43,9 +43,8 @@ const About = () => (
         <Link href="https://github.com/andrewh0/andrewh0-blog">
           open-source
         </Link>{" "}
-        and so are many of my <Themed.a href="/projects">projects</Themed.a>.
-        Feel free to email me with any questions or reach out elsewhere on the
-        web.
+        and so are many of my <Link href="/projects">projects</Link>. Feel free
+        to email me with any questions or reach out elsewhere on the web.
       </Themed.p>
     </Box>
   </Layout>
