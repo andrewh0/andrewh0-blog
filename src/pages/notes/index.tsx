@@ -25,7 +25,7 @@ const NotesIndex = ({ posts }: any) => {
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="Notes" />
       <ul>
-        {posts.map(({ id, title, publishedAt }: any) => (
+        {posts.map(({ id, slug, title, publishedAt }: any) => (
           <Box
             as="li"
             key={id}
@@ -36,7 +36,7 @@ const NotesIndex = ({ posts }: any) => {
               mb: 3,
             }}
           >
-            <Link href={`/notes/${id}`}>{title}</Link>
+            <Link href={`/notes/${slug}`}>{title}</Link>
             <span
               sx={{
                 fontFamily: "monospace",

@@ -7,17 +7,28 @@ import SubpageNavigation from "components/subpageNavigation";
 import PostBody from "components/postBody";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const id = params?.id;
-  if (id && typeof id === "string") {
-    const postContent = await showPost(id);
+  const slug = params?.slug;
+  if (slug && typeof slug === "string") {
+    const allPostsMetadata = await listPosts();
+
+    const postMetadata = allPostsMetadata.find((p) => p.slug === slug);
+
+    if (!postMetadata) {
+      return {
+        notFound: true,
+      };
+    }
+
+    const postContent = await showPost(postMetadata.id);
+
     return {
-      props: { note: postContent },
+      props: { note: postContent, metadata: postMetadata },
+      revalidate: 60, // seconds
     };
   }
 
   return {
-    props: { note: "" },
-    revalidate: 60, // seconds
+    notFound: true,
   };
 };
 
@@ -28,7 +39,7 @@ export async function getStaticPaths() {
     paths: notes.map((note: any) => {
       return {
         params: {
-          id: note.id,
+          slug: note.slug,
         },
       };
     }),
@@ -36,11 +47,11 @@ export async function getStaticPaths() {
   };
 }
 
-const Note = ({ note }: any) => {
+const Note = ({ note, metadata }: any) => {
   return (
     <Layout>
       <Head>
-        <title>{note.title} &middot; Andrew Ho</title>
+        <title>{metadata.title} &middot; Andrew Ho</title>
       </Head>
       <SubpageNavigation previousPagePath="/notes" previousPageLabel="Notes" />
       <PostBody content={note} />
