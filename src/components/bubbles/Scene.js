@@ -63,6 +63,7 @@ const Scene = ({ onCreated, isSceneReady }) => {
         width: 100%;
         transition: opacity 300ms ease-in-out;
         opacity: ${isSceneReady ? 1 : 0};
+        border-radius: 16px;
       `}
       sx={{
         bg: isDarkMode === null ? "none" : "gray2",

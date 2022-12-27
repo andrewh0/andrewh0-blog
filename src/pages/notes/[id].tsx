@@ -17,6 +17,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: { note: "" },
+    revalidate: 60, // seconds
   };
 };
 

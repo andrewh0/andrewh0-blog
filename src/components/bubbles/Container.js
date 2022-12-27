@@ -39,6 +39,7 @@ const Container = () => {
           touch-action: none;
           height: 100%;
           width: 100%;
+          border-radius: 16px;
 
           transition: opacity 300ms ease-in-out;
           opacity: ${isSceneReady ? 0 : 1};

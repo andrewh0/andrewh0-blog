@@ -12,6 +12,7 @@ export const getStaticProps = async () => {
 
   return {
     props: { posts },
+    revalidate: 60, // seconds
   };
 };
 
@@ -32,6 +33,7 @@ const NotesIndex = ({ posts }: any) => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              mb: 3,
             }}
           >
             <Link href={`/notes/${id}`}>{title}</Link>
