@@ -33,7 +33,7 @@ const About = () => (
       <Themed.p>
         I could not have arrived at where I am today without the support of
         other engineers, teachers, mentors, and the programming community, so my
-        personal website is dedicated to sharing what I&apos;ve learned so
+        personal website is dedicated to sharing what I&apos;ve learned so{" "}
         {/* These non-breaking spaces prevent this from looking like an unordered list on mobile. */}
         far&nbsp;— my knowledge, mistakes, and experiences&nbsp;— to help other
         people build something they&apos;re proud of.
