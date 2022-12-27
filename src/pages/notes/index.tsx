@@ -33,6 +33,7 @@ const NotesIndex = ({ posts }: any) => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              mb: 3,
             }}
           >
             <Link href={`/notes/${id}`}>{title}</Link>
