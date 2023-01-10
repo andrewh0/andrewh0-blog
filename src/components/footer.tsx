@@ -156,7 +156,13 @@ const Footer = () => (
         </StyledLink>
       </LinkContainer>
     </Box>
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: ["flex-start", "space-between"],
+        flexDirection: ["column", "row"],
+      }}
+    >
       <StyledLink href="/pale-blue-dot">
         <i>On a mote of dust suspended in a sunbeam.</i>
       </StyledLink>
