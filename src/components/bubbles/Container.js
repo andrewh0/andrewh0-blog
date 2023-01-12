@@ -22,8 +22,7 @@ const Container = () => {
       css={`
         position: relative;
         display: flex;
-        height: 100%;
-        width: 100%;
+        aspect-ratio: 1 / 1;
         max-height: 640px;
         border-radius: 16px;
         overflow: hidden;
