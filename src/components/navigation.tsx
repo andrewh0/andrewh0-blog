@@ -27,7 +27,12 @@ const Navigation = () => (
         alignItems: "center",
       }}
     >
-      <NavLink href="/about" mr={3}>
+      <NavLink
+        href="/about"
+        sx={{
+          mr: 3,
+        }}
+      >
         About
       </NavLink>
       {/* <NavLink

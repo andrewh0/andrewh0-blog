@@ -27,6 +27,7 @@ html {
   font-family: var(--font-stack-sans);
   line-height: 1.5;
 
+  -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;

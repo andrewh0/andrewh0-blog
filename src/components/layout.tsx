@@ -3,11 +3,10 @@ import Footer from "components/footer";
 import Meta from "components/meta";
 
 type Props = {
-  isHomePage?: boolean;
   children: React.ReactNode;
 };
 
-const Layout = ({ children, isHomePage = false }: Props) => (
+const Layout = ({ children }: Props) => (
   <>
     <Meta />
     <Box
@@ -21,10 +20,8 @@ const Layout = ({ children, isHomePage = false }: Props) => (
         overflow: hidden;
         overscroll-behavior-y: none;
         margin: 0 auto;
+        height: auto;
       `}
-      sx={{
-        height: isHomePage ? "100%" : "auto",
-      }}
       px={3}
     >
       <Box

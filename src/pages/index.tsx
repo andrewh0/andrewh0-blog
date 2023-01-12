@@ -33,7 +33,7 @@ const BubbleArt = dynamic(() => import("components/bubbles/Container"), {
 });
 
 const Index = () => (
-  <Layout isHomePage>
+  <Layout>
     <Head>
       <title>Andrew Ho</title>
     </Head>
