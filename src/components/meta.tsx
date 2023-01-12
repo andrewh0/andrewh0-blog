@@ -47,6 +47,7 @@ const Meta = () => (
     />
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     <meta name="description" content="This is the site description." />
+    <meta name="viewport" content="initial-scale=1, user-scalable=no" />
     {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
   </Head>
 );

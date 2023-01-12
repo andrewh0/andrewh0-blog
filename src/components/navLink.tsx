@@ -1,6 +1,6 @@
 import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 import Link, { LinkProps } from "next/link";
-import { NavLink, NavLinkProps } from "theme-ui";
+import { NavLinkProps } from "theme-ui";
 
 const StyledNavLink = ({
   href,
@@ -12,9 +12,10 @@ const StyledNavLink = ({
   // https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag
   return (
     <Link href={href} passHref>
-      <NavLink
+      <a
         {...rest}
         sx={{
+          display: "inline-block",
           transition: "color 150ms ease-in-out",
           color: "muted",
           fontWeight: "body",
@@ -34,7 +35,7 @@ const StyledNavLink = ({
         }}
       >
         {children}
-      </NavLink>
+      </a>
     </Link>
   );
 };
