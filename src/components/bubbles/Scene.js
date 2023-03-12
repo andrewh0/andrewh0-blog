@@ -59,6 +59,7 @@ const Scene = ({ onCreated, isSceneReady }) => {
         position: absolute;
         user-select: none;
         touch-action: none;
+        cursor: pointer;
         height: 100%;
         width: 100%;
         transition: opacity 300ms ease-in-out;

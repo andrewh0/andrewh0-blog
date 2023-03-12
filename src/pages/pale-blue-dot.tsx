@@ -61,8 +61,8 @@ const PaleBlueDot = () => (
           sx={{
             display: "flex",
             position: "relative",
-            height: "624px",
             mb: 1,
+            aspectRatio: "1 / 1",
           }}
         >
           <Image
