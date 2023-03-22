@@ -17,6 +17,7 @@ const frontend = [
   "Three.js",
   "TypeScript",
   "Gulp",
+  "Vite",
   "Flow",
   "jQuery",
   "React Native",

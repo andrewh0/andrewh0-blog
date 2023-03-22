@@ -16,6 +16,42 @@ const Projects = () => (
     <Box>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="Projects" />
+      <ProjectTitle name="Falling Block Puzzle Game" year={2023} />
+      <Themed.p>
+        <Link href="https://falling-block-puzzle-game.vercel.app/">
+          Website
+        </Link>
+      </Themed.p>
+      <Themed.p>
+        I paired with ChatGPT (GPT-4) on making a clone of one of my favorite
+        childhood games, Tetris! It took some nudging and back and forth, but
+        I&apos;m pretty pleased with how this turned out. I learned a lot about
+        how Tetris is implemented and the subtle (but important!) differences
+        between versions of the game.
+      </Themed.p>
+      <Stack
+        technologies={[
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Vite",
+          "Vercel",
+          "ChatGPT",
+        ]}
+      />
+      <ProjectTitle name="Radiant Diamond" year={2023} />
+      <Themed.p>
+        <Link href="https://radiant-diamond.vercel.app/">Website</Link>
+      </Themed.p>
+      <Themed.p>
+        I saw this{" "}
+        <Link href="https://codesandbox.io/s/diamond-refraction-zqrreo">
+          amazing demo
+        </Link>{" "}
+        of refraction in React Three Fiber and had to try it for myself. Works
+        best in Safari.
+      </Themed.p>
+      <Stack technologies={["React", "React Three Fiber", "Vite", "Vercel"]} />
       <ProjectTitle name="Chinese Flashcard App: Web" year={2022} />
       <Themed.p>
         <Link href="https://chinese-app.vercel.app/">Website</Link>
