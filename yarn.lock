@@ -652,10 +652,10 @@
     "@types/node-fetch" "^2.5.10"
     node-fetch "^2.6.1"
 
-"@radix-ui/colors@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@radix-ui/colors/-/colors-0.1.8.tgz#b08c62536fc462a87632165fb28e9b18f9bd047e"
-  integrity sha512-jwRMXYwC0hUo0mv6wGpuw254Pd9p/R6Td5xsRpOmaWkUHlooNWqVcadgyzlRumMq3xfOTXwJReU0Jv+EIy4Jbw==
+"@radix-ui/colors@^3.0.0-rc.5":
+  version "3.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/@radix-ui/colors/-/colors-3.0.0-rc.5.tgz#4de195b96c047506be58663528f9f83c39d6d477"
+  integrity sha512-SHAmQwvoRFuX1Kqo0ZwOwp/24GQqNMUaS3tWcR5RgDaC1ZpUKQfT+IbdzGm63OVzQhpyA4PRcjimM2UMa9SYTw==
 
 "@radix-ui/popper@0.1.0":
   version "0.1.0"
