@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @import "@radix-ui/colors/blue.css";
+  @import "@radix-ui/colors/crimson.css";
+  @import "@radix-ui/colors/cyan.css";
+  @import "@radix-ui/colors/gray.css";
+  @import "@radix-ui/colors/green.css";
+  @import "@radix-ui/colors/indigo.css";
+  @import "@radix-ui/colors/orange.css";
+  @import "@radix-ui/colors/plum.css";
+  @import "@radix-ui/colors/red.css";
+
+  @import "@radix-ui/colors/blue-dark.css";
+  @import "@radix-ui/colors/crimson-dark.css";
+  @import "@radix-ui/colors/cyan-dark.css";
+  @import "@radix-ui/colors/gray-dark.css";
+  @import "@radix-ui/colors/green-dark.css";
+  @import "@radix-ui/colors/indigo-dark.css";
+  @import "@radix-ui/colors/orange-dark.css";
+  @import "@radix-ui/colors/plum-dark.css";
+  @import "@radix-ui/colors/red-dark.css";
+}
+
 @import url("https://rsms.me/inter/inter.css");
 
 :root {
