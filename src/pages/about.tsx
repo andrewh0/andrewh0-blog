@@ -16,7 +16,7 @@ const About = () => (
     <Box>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="About" />
-      <Image src={dogAndMe} alt="My dog and me" priority />
+      <Image src={dogAndMe} alt="My dog and me" />
       <Themed.p>
         Hi, I&apos;m Andrew. I&apos;m a software engineer based in the San
         Francisco Bay Area.
