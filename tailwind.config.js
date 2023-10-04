@@ -132,7 +132,12 @@ module.exports = {
         12: "var(--red-12)",
       },
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-stack-sans)"],
+        mono: ["var(--font-stack-mono)"],
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };
