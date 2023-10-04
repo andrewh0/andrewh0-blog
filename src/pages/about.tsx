@@ -1,5 +1,3 @@
-import { Box } from "theme-ui";
-import { Themed } from "@theme-ui/mdx";
 import Head from "next/head";
 import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
@@ -8,13 +6,14 @@ import Image from "components/content/image";
 import Heading from "components/content/heading";
 import Link from "components/content/link";
 import Text from "components/content/text";
+import HorizontalRule from "components/content/horizontalRule";
 
 const About = () => (
   <Layout>
     <Head>
       <title>About &middot; Andrew Ho</title>
     </Head>
-    <Box>
+    <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="About" />
       <Image src={dogAndMe} alt="My dog and me" />
@@ -30,7 +29,7 @@ const About = () => (
         <Link href="https://fig.co">Fig</Link>, and{" "}
         <Link href="https://ebay.com">eBay</Link>.
       </Text>
-      <Themed.hr />
+      <HorizontalRule />
       <Text>
         I could not have arrived at where I am today without the support of
         other engineers, teachers, mentors, and the programming community, so my
@@ -47,7 +46,7 @@ const About = () => (
         and so are many of my <Link href="/projects">projects</Link>. Feel free
         to email me with any questions or reach out elsewhere on the web.
       </Text>
-    </Box>
+    </div>
   </Layout>
 );
 
