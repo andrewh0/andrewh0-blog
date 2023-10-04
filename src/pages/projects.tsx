@@ -155,7 +155,7 @@ const Projects = () => (
       <Text>
         I&apos;ve been learning Chinese, but wanted a more efficient way to
         review new vocabulary words. I{" "}
-        <Link href="https://twitter.com/andrewlho_codes/status/1279829618598412288">
+        <Link href="https://x.com/andrewlho_codes/status/1279829618598412288">
           shared a small prototype
         </Link>{" "}
         of what the frontend could look like in SwiftUI, and made some progress
