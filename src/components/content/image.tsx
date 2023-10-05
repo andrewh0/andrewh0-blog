@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/image";
+import Image, { ImageProps } from "next/legacy/image";
 
 const StyledImage = ({ alt, ...props }: ImageProps) => (
   <div className="my-16 flex">
