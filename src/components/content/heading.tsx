@@ -1,7 +1,9 @@
-import { Themed } from "@theme-ui/mdx";
-
 const Heading = ({ title }: { title: string }) => {
-  return <Themed.h1 sx={{ mb: 5 }}>{title}</Themed.h1>;
+  return (
+    <h1 className="mb-16 text-3xl font-medium leading-5 tracking-tight text-gray-12 sm:text-4xl">
+      {title}
+    </h1>
+  );
 };
 
 export default Heading;

@@ -1,4 +1,3 @@
-import { Themed } from "@theme-ui/mdx";
 import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 import Link, { LinkProps } from "next/link";
 import React from "react";
@@ -129,11 +128,11 @@ const Footer = () => (
       </LinkContainer>
       <LinkContainer>
         <StyledLink
-          href="https://twitter.com/andrewlho_codes"
+          href="https://x.com/andrewlho_codes"
           isExternal
-          title="andrewlho_codes on Twitter"
+          title="andrewlho_codes on X"
         >
-          Twitter
+          X
         </StyledLink>
       </LinkContainer>
       <LinkContainer isHidden>
