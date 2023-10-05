@@ -48,10 +48,12 @@ export async function getStaticPaths() {
 }
 
 const Note = ({ note, metadata }: any) => {
+  // Save title to a variable to avoid Next.js warning about multiple elements in <title> as children
+  const title = `${metadata.title} · Andrew Ho`;
   return (
     <Layout>
       <Head>
-        <title>{metadata.title} &middot; Andrew Ho</title>
+        <title>{title}</title>
       </Head>
       <SubpageNavigation previousPagePath="/notes" previousPageLabel="Notes" />
       <PostBody content={note} />
