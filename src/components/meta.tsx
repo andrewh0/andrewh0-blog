@@ -49,7 +49,6 @@ const Meta = () => (
     <meta name="description" content="This is the site description." />
     <meta name="viewport" content="initial-scale=1, user-scalable=no" />
     {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   </Head>
 );
 
