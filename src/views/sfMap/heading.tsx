@@ -50,7 +50,7 @@ const Heading = ({ selectedPlace }: { selectedPlace: Record | null }) => (
         }}
       >
         made by{" "}
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <ThemeLink
             sx={{
               color: gray.gray11,

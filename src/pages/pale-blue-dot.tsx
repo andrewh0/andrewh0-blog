@@ -18,7 +18,7 @@ const MutedLink = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <ThemeLink
         sx={{
           fontSize: 0,
