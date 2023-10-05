@@ -1,7 +1,7 @@
 import { Box, Link as ThemeLink } from "theme-ui";
-import { Themed } from "@theme-ui/mdx";
 import Head from "next/head";
 import Link from "next/link";
+import ContentLink from "components/content/link";
 import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
 import Heading from "components/content/heading";
@@ -125,9 +125,9 @@ const PaleBlueDot = () => (
       </Text>
       <Text className="text-right">
         — Carl Sagan,{" "}
-        <Themed.a href="https://www.planetary.org/worlds/pale-blue-dot">
+        <ContentLink href="https://www.planetary.org/worlds/pale-blue-dot">
           <i>Pale Blue Dot</i>
-        </Themed.a>
+        </ContentLink>
         , 1994
       </Text>
     </Box>

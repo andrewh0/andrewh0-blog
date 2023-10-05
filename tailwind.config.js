@@ -1,5 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  future: {
+    // https://github.com/tailwindlabs/tailwindcss/pull/8394
+    // This should be available in Tailwind 4.0
+    hoverOnlyWhenSupported: true,
+  },
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     colors: {
