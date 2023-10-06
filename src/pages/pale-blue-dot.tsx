@@ -5,7 +5,7 @@ import ContentLink from "components/content/link";
 import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
 import Heading from "components/content/heading";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import paleBlueDot from "../../public/pale-blue-dot.jpg";
 import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 import Text from "components/content/text";
@@ -18,7 +18,7 @@ const MutedLink = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <ThemeLink
         sx={{
           fontSize: 0,

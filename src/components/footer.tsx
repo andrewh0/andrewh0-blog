@@ -24,58 +24,56 @@ const StyledLink = ({
     : {};
   // Must add passHref to Link
   // https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag
-  return (
-    <>
-      <Link href={href} passHref>
-        <ThemeLink
-          {...isExternalProps}
-          sx={{
-            transition: "color 150ms ease-in-out",
-            color: "muted",
-            [MEDIA_QUERY_DESKTOP_HOVER]: {
-              "&:hover": {
-                textDecoration: "none",
-                color: "text",
-              },
-            },
-            "&:active": {
+  return <>
+    <Link href={href} passHref legacyBehavior>
+      <ThemeLink
+        {...isExternalProps}
+        sx={{
+          transition: "color 150ms ease-in-out",
+          color: "muted",
+          [MEDIA_QUERY_DESKTOP_HOVER]: {
+            "&:hover": {
+              textDecoration: "none",
               color: "text",
             },
-            "&:focus": {
-              color: "text",
-            },
-            position: "relative",
-            mr: "1.25em",
-          }}
-          {...rest}
-        >
-          {children}
-          {isExternal ? (
-            <span
-              sx={{
-                position: "absolute",
-                transition: "transform 150ms ease-in-out",
-                width: "calc(100% + 1em)",
-                top: 0,
-                left: 0,
-                display: "block",
-                textAlign: "right",
-                [MEDIA_QUERY_DESKTOP_HOVER]: {
-                  "&:hover": {
-                    transform: "translateX(2px) translateY(-2px)",
-                  },
+          },
+          "&:active": {
+            color: "text",
+          },
+          "&:focus": {
+            color: "text",
+          },
+          position: "relative",
+          mr: "1.25em",
+        }}
+        {...rest}
+      >
+        {children}
+        {isExternal ? (
+          <span
+            sx={{
+              position: "absolute",
+              transition: "transform 150ms ease-in-out",
+              width: "calc(100% + 1em)",
+              top: 0,
+              left: 0,
+              display: "block",
+              textAlign: "right",
+              [MEDIA_QUERY_DESKTOP_HOVER]: {
+                "&:hover": {
+                  transform: "translateX(2px) translateY(-2px)",
                 },
-              }}
-            >
-              ↗
-            </span>
-          ) : (
-            ""
-          )}
-        </ThemeLink>
-      </Link>
-    </>
-  );
+              },
+            }}
+          >
+            ↗
+          </span>
+        ) : (
+          ""
+        )}
+      </ThemeLink>
+    </Link>
+  </>;
 };
 
 const LinkContainer = ({
