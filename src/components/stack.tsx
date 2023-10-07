@@ -1,5 +1,4 @@
 import Lozenge from "./lozenge";
-import { Flex } from "theme-ui";
 
 const frontend = [
   "HTML",
@@ -52,13 +51,13 @@ function getColor(technology: string) {
 }
 
 const Stack = ({ technologies }: { technologies: string[] }) => (
-  <Flex sx={{ mb: 3, flexWrap: "wrap" }}>
+  <div className="mb-4 flex flex-wrap">
     {technologies.map((technology) => (
       <Lozenge key={technology} color={getColor(technology)}>
         {technology}
       </Lozenge>
     ))}
-  </Flex>
+  </div>
 );
 
 export default Stack;
