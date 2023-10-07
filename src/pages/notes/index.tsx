@@ -4,7 +4,6 @@ import Layout from "components/layout";
 import { listPosts } from "lib/notion";
 import SubpageNavigation from "components/subpageNavigation";
 import Heading from "components/content/heading";
-import { Box } from "theme-ui";
 import Link from "components/content/link";
 
 export const getStaticProps = async () => {
@@ -26,27 +25,12 @@ const NotesIndex = ({ posts }: any) => {
       <Heading title="Notes" />
       <ul>
         {posts.map(({ id, slug, title, publishedAt }: any) => (
-          <Box
-            as="li"
-            key={id}
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              mb: 3,
-            }}
-          >
+          <li key={id} className="mb-4 flex items-center justify-between">
             <Link href={`/notes/${slug}`}>{title}</Link>
-            <span
-              sx={{
-                fontFamily: "monospace",
-                color: "gray11",
-                fontSize: 1,
-              }}
-            >
+            <span className="font-mono text-sm text-gray-11">
               {publishedAt}
             </span>
-          </Box>
+          </li>
         ))}
       </ul>
     </Layout>
