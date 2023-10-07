@@ -1,5 +1,3 @@
-import { Box, useThemeUI } from "theme-ui";
-
 const ProjectTitle = ({
   name,
   year,
@@ -8,35 +6,17 @@ const ProjectTitle = ({
   year: number;
   isActive?: boolean;
 }) => {
-  const { theme }: { theme: any } = useThemeUI();
-
   return (
-    <Box
-      sx={{
-        mt: theme.styles.h2.mt,
-        mb: theme.styles.h2.mb,
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <Box sx={{ display: "flex", alignItems: "center" }}>
-        <h2
-          sx={{
-            my: 0,
-            mr: 3,
-            fontSize: [3, 4],
-            fontWeight: "heading",
-            letterSpacing: "-0.033em",
-          }}
-        >
+    <div className="mb-4 mt-16 flex items-baseline justify-between">
+      <div className="flex items-center">
+        <h2 className="my-0 mr-4 text-xl font-medium tracking-tight sm:text-2xl">
           {name}
         </h2>
-      </Box>
-      <span sx={{ fontFamily: "monospace", color: "gray11", fontSize: [1, 2] }}>
+      </div>
+      <span className="font-mono text-sm text-gray-11 sm:text-base">
         {year}
       </span>
-    </Box>
+    </div>
   );
 };
 
