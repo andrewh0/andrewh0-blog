@@ -1,68 +1,22 @@
-import { Box, Text, Link as ThemeLink } from "theme-ui";
 import Link from "next/link";
-import { gray } from "@radix-ui/colors";
 import { Record } from "types/sfMap";
 import { Popup } from "views/sfMap";
 
 const Heading = ({ selectedPlace }: { selectedPlace: Record | null }) => (
-  <Box
-    sx={{
-      position: "absolute",
-      top: 0,
-      zIndex: 9,
-      padding: [3, 4],
-      height: "100%",
-      width: "100%",
-      pointerEvents: "none",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: ["space-between", "flex-start"],
-    }}
-  >
-    <Box>
-      <Text
-        as="h1"
-        sx={{
-          display: "block",
-          color: gray.gray12,
-          fontFamily: "heading",
-          lineHeight: "heading",
-          fontWeight: "heading",
-          fontSize: [3, 4],
-          letterSpacing: [0, "-0.03em"],
-          mb: 1,
-          pointerEvents: "auto",
-        }}
-      >
+  <div className="pointer-events-none absolute top-0 z-10 flex h-full w-full flex-col justify-between p-3 sm:justify-start sm:p-8">
+    <div>
+      <h1 className="pointer-events-auto mb-1 block text-xl font-medium leading-5 tracking-normal text-gray-12 sm:text-2xl sm:tracking-tight">
         San Francisco Food and Fun
-      </Text>
-      <Text
-        as="p"
-        sx={{
-          color: gray.gray11,
-          fontFamily: "body",
-          lineHeight: "heading",
-          fontWeight: 500,
-          fontSize: [2, 3],
-          letterSpacing: [0, "-0.03em"],
-          mb: [3, 4],
-          pointerEvents: "auto",
-        }}
-      >
+      </h1>
+      <p className="pointer-events-auto mb-4 text-base font-medium leading-5 tracking-normal text-gray-11 sm:mb-8 sm:text-xl sm:tracking-tight">
         made by{" "}
-        <Link href="/" passHref legacyBehavior>
-          <ThemeLink
-            sx={{
-              color: gray.gray11,
-            }}
-          >
-            Andrew
-          </ThemeLink>
+        <Link href="/" className="text-gray-11 hover:underline">
+          Andrew
         </Link>
-      </Text>
-    </Box>
+      </p>
+    </div>
     {selectedPlace && <Popup selectedPlace={selectedPlace} />}
-  </Box>
+  </div>
 );
 
 export default Heading;
