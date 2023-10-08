@@ -142,6 +142,15 @@ module.exports = {
         sans: ["var(--font-stack-sans)"],
         mono: ["var(--font-stack-mono)"],
       },
+      minHeight: {
+        screen: ["100vh", "100dvh"],
+      },
+      maxHeight: {
+        screen: ["100vh", "100dvh"],
+      },
+      height: {
+        screen: ["100vh", "100dvh"],
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

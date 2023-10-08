@@ -95,7 +95,17 @@ const theme: Theme = {
     monospace:
       'SFMono-Regular, Menlo, Monaco, Consolas, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace',
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 40, 64, 96],
+  fontSizes: [
+    12, // 0 xs
+    14, // 1 sm
+    16, // 2 base
+    20, // 3 xl
+    24, // 4 2xl
+    32, // 5 3xl
+    40, // 6 4xl
+    64, // 7 6xl
+    96, // 8 8xl
+  ],
   fontWeights: {
     body: 400,
     heading: 500,
