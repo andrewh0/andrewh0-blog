@@ -1,44 +1,21 @@
-import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 import Link, { LinkProps } from "next/link";
-import { NavLinkProps } from "theme-ui";
+import classNames from "classnames";
+import { AnchorHTMLAttributes } from "react";
 
 const StyledNavLink = ({
   href,
   children,
-  sx,
-  ...rest
-}: LinkProps & NavLinkProps) => {
-  // Must add passHref to Link
-  // https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag
-  return (
-    (<Link
-      href={href}
-      passHref
-      {...rest}
-      sx={{
-        display: "inline-block",
-        transition: "color 150ms ease-in-out",
-        color: "muted",
-        fontWeight: "body",
-        textDecoration: "none",
-        [MEDIA_QUERY_DESKTOP_HOVER]: {
-          "&:hover": {
-            color: "text",
-          },
-        },
-        "&:active": {
-          color: "text",
-        },
-        "&:focus": {
-          color: "text",
-        },
-        ...sx,
-      }}>
-
-      {children}
-
-    </Link>)
-  );
-};
+  className,
+}: LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>) => (
+  <Link
+    href={href}
+    className={classNames(
+      "inline-block text-gray-11 no-underline transition hover:text-gray-12 focus:text-gray-12 active:text-gray-12",
+      className,
+    )}
+  >
+    {children}
+  </Link>
+);
 
 export default StyledNavLink;
