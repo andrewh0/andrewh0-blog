@@ -1,14 +1,13 @@
-import { Box, Link as ThemeLink } from "theme-ui";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/legacy/image";
+
 import ContentLink from "components/content/link";
 import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
 import Heading from "components/content/heading";
-import Image from "next/legacy/image";
-import paleBlueDot from "../../public/pale-blue-dot.jpg";
-import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 import Text from "components/content/text";
+import paleBlueDot from "../../public/pale-blue-dot.jpg";
 
 const MutedLink = ({
   href,
@@ -16,56 +15,26 @@ const MutedLink = ({
 }: {
   href: string;
   children: React.ReactNode;
-}) => {
-  return (
-    <Link href={href} passHref legacyBehavior>
-      <ThemeLink
-        sx={{
-          fontSize: 0,
-          transition: "color 150ms ease-in-out",
-          color: "muted",
-          [MEDIA_QUERY_DESKTOP_HOVER]: {
-            "&:hover": {
-              textDecoration: "none",
-              color: "text",
-            },
-          },
-          "&:active": {
-            color: "text",
-          },
-          "&:focus": {
-            color: "text",
-          },
-        }}
-      >
-        {children}
-      </ThemeLink>
-    </Link>
-  );
-};
+}) => (
+  <Link
+    href={href}
+    className="text-sm text-gray-11 transition hover:text-gray-12 hover:no-underline focus:text-gray-12 active:text-gray-12"
+  >
+    {children}
+  </Link>
+);
 
 const PaleBlueDot = () => (
   <Layout>
     <Head>
       <title>A Pale Blue Dot &middot; Carl Sagan</title>
     </Head>
-    <Box>
+    <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="A Pale Blue Dot" />
       {/* TODO: Extend <StyledImage /> to use height, position: relative, and layout props */}
-      <Box
-        sx={{
-          my: 5,
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            position: "relative",
-            mb: 1,
-            aspectRatio: "1 / 1",
-          }}
-        >
+      <div className="my-16">
+        <div className="relative mb-1 flex aspect-square">
           <Image
             style={{
               borderRadius: "16px",
@@ -75,11 +44,11 @@ const PaleBlueDot = () => (
             layout="fill"
             src={paleBlueDot}
           />
-        </Box>
+        </div>
         <MutedLink href="https://www.jpl.nasa.gov/images/pia00452-solar-system-portrait-earth-as-pale-blue-dot">
           NASA / JPL
         </MutedLink>
-      </Box>
+      </div>
       <Text>
         Look again at that dot. That&apos;s here. That&apos;s home. That&apos;s
         us. On it everyone you love, everyone you know, everyone you ever heard
@@ -130,7 +99,7 @@ const PaleBlueDot = () => (
         </ContentLink>
         , 1994
       </Text>
-    </Box>
+    </div>
   </Layout>
 );
 

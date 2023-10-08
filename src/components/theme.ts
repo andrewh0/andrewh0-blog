@@ -78,7 +78,17 @@ const theme: Theme = {
   config: {
     useColorSchemeMediaQuery: "system",
   },
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  space: [
+    0, // 0
+    4, // 1 tw-1
+    8, // 2 tw-2
+    16, // 3 tw-4
+    32, // 4 tw-8
+    64, // 5 tw-16
+    128, // 6 tw-32
+    256, // 7 tw-64
+    512, // 8 tw-[32rem]
+  ],
   fonts: {
     body: '"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
     heading: "inherit",
