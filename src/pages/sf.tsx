@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import { Box } from "theme-ui";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import Map, { GeolocateControl, NavigationControl } from "react-map-gl";
@@ -22,7 +21,7 @@ async function listPlaces(offset?: string) {
       headers: {
         Authorization: `Bearer ${AIRTABLE_API_KEY}`,
       },
-    }
+    },
   );
   const { records, offset: nextOffset } = await res.json();
   return { records, nextOffset };
@@ -66,24 +65,15 @@ const SfMapPage = ({ data }: { data: Record[] }) => {
           />
         );
       }),
-    [data, selectedPlace]
+    [data, selectedPlace],
   );
 
   return (
-    <Box
-      sx={{
-        height: "100%",
-      }}
-    >
+    <div className="h-full">
       <Head>
         <title>SF Map &middot; Andrew Ho</title>
       </Head>
-      <Box
-        sx={{
-          height: "100%",
-          display: "relative",
-        }}
-      >
+      <div className="relative h-full">
         <Heading selectedPlace={selectedPlace} />
         <Map
           initialViewState={mapInitialViewState}
@@ -96,8 +86,8 @@ const SfMapPage = ({ data }: { data: Record[] }) => {
           <NavigationControl showCompass={false} position="bottom-right" />
           {pins}
         </Map>
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 
