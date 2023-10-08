@@ -1,6 +1,6 @@
 import { useState } from "react";
+import classNames from "classnames";
 
-import { Box } from "theme-ui";
 import BubbleArt from "components/bubbles/Scene";
 import { useIsClientDarkMode } from "lib/hooks";
 
@@ -18,36 +18,16 @@ const Container = () => {
   };
 
   return (
-    <Box
-      css={`
-        position: relative;
-        display: flex;
-        aspect-ratio: 1 / 1;
-        max-height: 640px;
-        border-radius: 16px;
-        overflow: hidden;
-      `}
-    >
+    <div className="relative flex aspect-square max-h-[640px] overflow-hidden rounded-2xl">
       <BubbleArt onCreated={handleCreated} isSceneReady={isSceneReady} />
-      <Box
-        css={`
-          pointer-events: none;
-
-          position: absolute;
-          user-select: none;
-          touch-action: none;
-          height: 100%;
-          width: 100%;
-          border-radius: 16px;
-
-          transition: opacity 300ms ease-in-out;
-          opacity: ${isSceneReady ? 0 : 1};
-        `}
-        sx={{
-          bg: isDarkMode === null ? "none" : "gray2",
-        }}
+      <div
+        className={classNames(
+          "pointer-events-none absolute h-full w-full touch-none select-none rounded-2xl transition-opacity duration-300 ease-in-out",
+          isSceneReady ? "opacity-0" : "opacity-100",
+          isDarkMode === null ? "bg-none" : "bg-gray-2",
+        )}
       />
-    </Box>
+    </div>
   );
 };
 
