@@ -1,6 +1,4 @@
-import { Box } from "theme-ui";
-import { blue, yellow } from "@radix-ui/colors";
-import { shadow } from "views/sfMap";
+import classNames from "classnames";
 import { PlaceType } from "types/sfMap";
 
 const pinMap = {
@@ -24,29 +22,19 @@ const Pin = ({
 }) => {
   const emoji = pinMap[type] || pinMap["other"];
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        cursor: "pointer",
-        fontSize: "12px",
-        borderRadius: "100%",
-        background: isSelected ? `${blue.blue4}` : "white",
-        padding: "2px",
-        width: "24px",
-        height: "24px",
-        boxShadow: shadow,
-        border: isSelected
-          ? `2px solid ${blue.blue7}`
+    <div
+      className={classNames(
+        "flex h-6 w-6 cursor-pointer flex-col items-center justify-center rounded-full p-0.5 text-xs shadow",
+        isSelected ? "bg-blue-4" : "bg-gray-1",
+        isSelected
+          ? "border-2 border-blue-7"
           : isStarred
-          ? `2px solid ${yellow.yellow7}`
-          : "none",
-      }}
+          ? "border-2 border-yellow-7"
+          : "border-none",
+      )}
     >
       {emoji}
-    </Box>
+    </div>
   );
 };
 

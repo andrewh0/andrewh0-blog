@@ -136,6 +136,20 @@ module.exports = {
         11: "var(--red-11)",
         12: "var(--red-12)",
       },
+      yellow: {
+        1: "var(--yellow-1)",
+        2: "var(--yellow-2)",
+        3: "var(--yellow-3)",
+        4: "var(--yellow-4)",
+        5: "var(--yellow-5)",
+        6: "var(--yellow-6)",
+        7: "var(--yellow-7)",
+        8: "var(--yellow-8)",
+        9: "var(--yellow-9)",
+        10: "var(--yellow-10)",
+        11: "var(--yellow-11)",
+        12: "var(--yellow-12)",
+      },
     },
     extend: {
       fontFamily: {

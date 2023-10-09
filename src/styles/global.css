@@ -12,6 +12,7 @@
   @import "@radix-ui/colors/orange.css";
   @import "@radix-ui/colors/plum.css";
   @import "@radix-ui/colors/red.css";
+  @import "@radix-ui/colors/yellow.css";
 
   @import "@radix-ui/colors/blue-dark.css";
   @import "@radix-ui/colors/crimson-dark.css";
@@ -22,6 +23,7 @@
   @import "@radix-ui/colors/orange-dark.css";
   @import "@radix-ui/colors/plum-dark.css";
   @import "@radix-ui/colors/red-dark.css";
+  @import "@radix-ui/colors/yellow-dark.css";
 }
 
 :root {
