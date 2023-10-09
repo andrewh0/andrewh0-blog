@@ -6,6 +6,6 @@ Built from [blog-starter](https://github.com/vercel/next.js/tree/canary/examples
 
 - React
 - Next.js
-- Theme UI
+- Tailwind CSS
 - React Three Fiber
 - TypeScript

@@ -7,8 +7,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@emotion/react": "^11.8.2",
-    "@emotion/styled": "^11.8.1",
     "@mdx-js/runtime": "^1.6.22",
     "@notionhq/client": "^2.2.3",
     "@radix-ui/colors": "^3.0.0",
@@ -29,7 +27,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-map-gl": "^7.0.19",
-    "theme-ui": "^0.15.4",
     "three": "0.150.0",
     "typescript": "^4.2.4"
   },
