@@ -7,7 +7,11 @@ import "../styles/global.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NextThemesProvider attribute="class">
+    <NextThemesProvider
+      attribute="class"
+      // @ts-ignore
+      forcedTheme={Component.theme || null}
+    >
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>

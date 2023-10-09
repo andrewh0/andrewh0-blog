@@ -91,4 +91,6 @@ const SfMapPage = ({ data }: { data: Record[] }) => {
   );
 };
 
+SfMapPage.theme = "light";
+
 export default SfMapPage;
