@@ -18,7 +18,7 @@ const StyledLink = ({
   return (
     <Link
       href={href}
-      className="relative mr-3 text-gray-11 transition hover:text-gray-12 hover:no-underline focus:text-gray-12 active:text-gray-12"
+      className="relative text-gray-11 transition hover:text-gray-12 hover:no-underline focus:text-gray-12 active:text-gray-12"
       {...isExternalProps}
       {...rest}
     >
@@ -36,7 +36,7 @@ const StyledLink = ({
 
 const Footer = () => (
   <footer className="mb-4 mt-32 flex flex-col gap-y-2 px-2 text-xs">
-    <div className="flex flex-wrap gap-x-4 gap-y-1">
+    <div className="flex flex-wrap gap-x-8 gap-y-1">
       <StyledLink
         href="mailto:hello@andrewho.me"
         isExternal
@@ -78,9 +78,9 @@ const Footer = () => (
       <StyledLink href="/pale-blue-dot">
         <i>On a mote of dust suspended in a sunbeam.</i>
       </StyledLink>
-      <span className="text-gray-11">
+      <StyledLink href="/sf">
         San Francisco, {new Date().getFullYear()}
-      </span>
+      </StyledLink>
     </div>
   </footer>
 );
