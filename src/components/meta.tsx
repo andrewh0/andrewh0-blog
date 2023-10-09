@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { gray, grayDark } from "@radix-ui/colors";
+import { gray, grayDark, grayDarkP3, grayP3 } from "@radix-ui/colors";
 
 const Meta = () => (
   <Head>
@@ -31,17 +31,31 @@ const Meta = () => (
     <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
     <meta
       name="theme-color"
-      content={gray.gray1 ?? "white"}
-      media="(prefers-color-scheme: light)"
+      content={gray.gray1 ?? "blue"}
+      media="(prefers-color-scheme: light) and (color-gamut: srgb)"
       // Needed so that next/head doesn't delete one of these "theme-color" declarations
       key="theme-color-light"
     />
     <meta
       name="theme-color"
-      content={grayDark.gray1 ?? "black"}
-      media="(prefers-color-scheme: dark)"
+      content={grayDark.gray1 ?? "green"}
+      media="(prefers-color-scheme: dark) and (color-gamut: srgb)"
       // Needed so that next/head doesn't delete one of these "theme-color" declarations
       key="theme-color-dark"
+    />
+    <meta
+      name="theme-color"
+      content={grayP3.gray1 ?? "red"}
+      media="(prefers-color-scheme: light) and (color-gamut: p3)"
+      // Needed so that next/head doesn't delete one of these "theme-color" declarations
+      key="theme-color-light-p3"
+    />
+    <meta
+      name="theme-color"
+      content={grayDarkP3.gray1 ?? "yellow"}
+      media="(prefers-color-scheme: dark) and (color-gamut: p3)"
+      // Needed so that next/head doesn't delete one of these "theme-color" declarations
+      key="theme-color-dark-p3"
     />
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     <meta
