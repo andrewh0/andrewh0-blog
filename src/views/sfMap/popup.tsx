@@ -1,59 +1,17 @@
-import { Box, Text } from "theme-ui";
-import { gray } from "@radix-ui/colors";
+import { AnchorHTMLAttributes } from "react";
 import { Record } from "types/sfMap";
-import { shadow } from "views/sfMap";
-import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 
-const LinkButton = ({ ...props }) => {
-  return (
-    <a
-      {...props}
-      sx={{
-        bg: gray.gray6,
-        [MEDIA_QUERY_DESKTOP_HOVER]: {
-          "&:hover": {
-            bg: gray.gray5,
-          },
-        },
-        color: gray.gray12,
-        textDecoration: "none",
-        fontWeight: "bold",
-        fontSize: 2,
-        border: 0,
-        borderRadius: 4,
-        m: 0,
-        px: 3,
-        py: 2,
-        display: "inline-block",
-        textAlign: "center",
-      }}
-    />
-  );
-};
+const LinkButton = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => (
+  <a
+    className="inline-block flex-1 rounded bg-gray-6 px-4 py-2 text-center font-bold text-gray-12 hover:bg-gray-5"
+    {...props}
+  />
+);
 
 const Popup = ({ selectedPlace }: { selectedPlace: Record }) => (
-  <Box
-    sx={{
-      width: ["100%", "320px"],
-      bg: "white",
-      p: 3,
-      borderRadius: "16px",
-      boxShadow: shadow,
-      pointerEvents: "auto",
-    }}
-  >
-    <Box mb={3}>
-      <Text
-        as="p"
-        sx={{
-          color: gray.gray12,
-          fontFamily: "heading",
-          lineHeight: "heading",
-          fontWeight: "heading",
-          fontSize: 3,
-          letterSpacing: [0, "-0.03em"],
-        }}
-      >
+  <div className="pointer-events-auto w-full rounded-2xl bg-gray-1 p-4 shadow sm:w-[320px]">
+    <div className="mb-4">
+      <p className="text-xl font-medium leading-5 tracking-normal text-gray-12 sm:tracking-tight">
         {selectedPlace.fields.name}
         {selectedPlace.fields.starred ? (
           <>
@@ -63,57 +21,28 @@ const Popup = ({ selectedPlace }: { selectedPlace: Record }) => (
         ) : (
           ""
         )}
-      </Text>
-      <Text
-        as="p"
-        sx={{
-          color: gray.gray11,
-          fontFamily: "body",
-          lineHeight: "body",
-          fontWeight: "body",
-          fontSize: 2,
-        }}
-      >
+      </p>
+      <p className="leading-6 text-gray-11">
         {selectedPlace.fields.type}
         {selectedPlace.fields.price ? ` · ${selectedPlace.fields.price}` : ""}
-      </Text>
-    </Box>
-    <Box>
-      <Text
-        as="p"
-        sx={{
-          display: "block",
-          color: gray.gray12,
-          fontFamily: "heading",
-          lineHeight: "heading",
-          fontWeight: "heading",
-          fontSize: 2,
-          mb: 1,
-        }}
-      >
-        Open in…
-      </Text>
-      <Box
-        sx={{
-          display: "flex",
-          gap: 2,
-        }}
-      >
+      </p>
+    </div>
+    <div>
+      <p className="mb-1 block font-medium leading-5 text-gray-12">Open in…</p>
+      <div className="flex gap-2">
         <LinkButton
           href={`https://google.com/maps/search/?api=1&query=${selectedPlace.fields.name}, San Francisco`}
-          sx={{ flex: 1 }}
         >
           Google Maps
         </LinkButton>
         <LinkButton
           href={`https://maps.apple.com/?sll=${selectedPlace.fields.lat},${selectedPlace.fields.lon}&q=${selectedPlace.fields.name}`}
-          sx={{ flex: 1 }}
         >
           Apple Maps
         </LinkButton>
-      </Box>
-    </Box>
-  </Box>
+      </div>
+    </div>
+  </div>
 );
 
 export default Popup;
