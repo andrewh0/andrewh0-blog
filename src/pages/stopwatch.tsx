@@ -4,7 +4,6 @@ import {
   SyntheticEvent,
   KeyboardEvent as ReactKeyboardEvent,
 } from "react";
-import { Box, Text } from "theme-ui";
 import Head from "next/head";
 import Button from "components/button";
 
@@ -68,7 +67,7 @@ function getTimeElapsedParts(ms: number): TimeElapsedParts {
 
 function formatTimeElapsed(
   { hours, minutes, seconds, hundredthSeconds, largestUnit }: TimeElapsedParts,
-  isCompact: boolean
+  isCompact: boolean,
 ) {
   if (isCompact) {
     return `${largestUnit === "hours" ? `${hours}:` : ""}${minutes}:${seconds}`;
@@ -183,70 +182,25 @@ const StopwatchPage = () => {
   };
 
   return (
-    <Box
-      css={`
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        // https://twitter.com/jensimmons/status/1499576041857290244
-        min-height: 100dvh;
-        overflow: hidden;
-        overscroll-behavior-y: none;
-        margin: 0 auto;
-      `}
-      sx={{
-        height: "100%",
-      }}
-      p={3}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          p: 4,
-          height: "100%",
-        }}
-      >
+    <div className="mx-auto my-0 flex h-full min-h-screen flex-col overflow-hidden overscroll-none p-4">
+      <div className="flex h-full flex-col items-center justify-center p-8">
         <Head>
           <title>{formatTimeElapsed(timeElapsedParts, true)} | Stopwatch</title>
         </Head>
-        <Box
-          sx={{
-            mb: 3,
-          }}
-        >
-          <Box
-            sx={{
-              cursor: "pointer",
-              userSelect: "none",
-            }}
+        <div className="mb-8">
+          <div
+            className="cursor-pointer select-none"
             onClick={handleStartStopClick}
           >
-            <Text
-              sx={{
-                fontFamily: "body",
-                fontSize: [7, 8],
-                display: "block",
-                letterSpacing: "-0.03em",
-              }}
-              css={`
-                font-feature-settings: "tnum";
-              `}
-            >
+            <p className='block text-6xl tracking-tight [font-feature-settings:"tnum"] sm:text-8xl'>
               {formatTimeElapsed(timeElapsedParts, false)}
-            </Text>
-          </Box>
-        </Box>
-        <Box mb={4}>
+            </p>
+          </div>
+        </div>
+        <div className="mb-8 space-x-8">
           <Button
             type="button"
             variant={isRunning ? "danger" : "success"}
-            sx={{
-              width: "128px",
-              mr: 4,
-            }}
             onClick={handleStartStopClick}
             onKeyDown={handleStartStopKeyDown}
           >
@@ -254,31 +208,21 @@ const StopwatchPage = () => {
           </Button>
           <Button
             type="button"
-            sx={{
-              width: "128px",
-            }}
             disabled={isRunning || !elapsedMs}
             onClick={handleReset}
             onKeyDown={handleResetKeyDown}
           >
             Reset
           </Button>
-        </Box>
-        <Box>
-          <Text
-            sx={{
-              fontSize: 1,
-              color: "muted",
-              display: "block",
-              textAlign: "center",
-            }}
-          >
+        </div>
+        <div>
+          <p className="block text-center text-sm text-gray-11">
             <b>[Space]</b> or <b>[Enter]</b> to start/stop. <b>[Esc]</b> to
             reset.
-          </Text>
-        </Box>
-      </Box>
-    </Box>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 

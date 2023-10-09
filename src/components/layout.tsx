@@ -1,4 +1,3 @@
-import { Box } from "theme-ui";
 import Footer from "components/footer";
 import Meta from "components/meta";
 
@@ -9,33 +8,10 @@ type Props = {
 const Layout = ({ children }: Props) => (
   <>
     <Meta />
-    <Box
-      css={`
-        display: flex;
-        flex-direction: column;
-        max-width: 672px;
-        min-height: 100vh;
-        // https://twitter.com/jensimmons/status/1499576041857290244
-        min-height: 100dvh;
-        overflow: hidden;
-        overscroll-behavior-y: none;
-        margin: 0 auto;
-        height: auto;
-      `}
-      px={3}
-    >
-      <Box
-        css={`
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-        `}
-        px={2}
-      >
-        {children}
-      </Box>
+    <div className="mx-auto my-0 flex h-auto min-h-screen max-w-[672px] flex-col overflow-hidden overscroll-y-none px-4">
+      <div className="flex flex-1 flex-col px-2">{children}</div>
       <Footer />
-    </Box>
+    </div>
   </>
 );
 

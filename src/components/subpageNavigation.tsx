@@ -1,6 +1,4 @@
-import { Box } from "theme-ui";
 import NavLink from "components/navLink";
-import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
 
 const SubpageNavigation = ({
   previousPagePath,
@@ -9,40 +7,16 @@ const SubpageNavigation = ({
   previousPagePath?: string;
   previousPageLabel?: string;
 }) => (
-  <Box
-    sx={{
-      mt: [4, 5],
-      mb: [4, 5],
-    }}
-  >
+  <div className="mb-8 mt-8 sm:mb-16 sm:mt-16">
     {previousPagePath ? (
-      <NavLink
-        href={previousPagePath}
-        sx={{
-          position: "relative",
-        }}
-      >
-        <span
-          sx={{
-            position: "absolute",
-            transition: "transform 150ms ease-in-out",
-            width: "100%",
-            top: 0,
-            left: 0,
-            display: "block",
-            [MEDIA_QUERY_DESKTOP_HOVER]: {
-              "&:hover": {
-                transform: "translateX(-2px)",
-              },
-            },
-          }}
-        >
+      <NavLink href={previousPagePath} className="relative">
+        <span className="absolute left-0 top-0 block w-full transition-transform hover:-translate-x-0.5">
           ←
         </span>
-        <span sx={{ ml: "1.25em" }}>{previousPageLabel}</span>
+        <span className="ml-5">{previousPageLabel}</span>
       </NavLink>
     ) : null}
-  </Box>
+  </div>
 );
 
 export default SubpageNavigation;

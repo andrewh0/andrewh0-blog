@@ -1,4 +1,3 @@
-import { Box } from "theme-ui";
 import Head from "next/head";
 import Stack from "components/stack";
 import ProjectTitle from "components/projectTitle";
@@ -13,7 +12,7 @@ const Projects = () => (
     <Head>
       <title>Projects &middot; Andrew Ho</title>
     </Head>
-    <Box>
+    <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="Projects" />
       <ProjectTitle name="Falling Block Puzzle Game" year={2023} />
@@ -286,7 +285,7 @@ const Projects = () => (
         from classical music theory.
       </Text>
       <Stack technologies={["JavaScript", "Max MSP"]} />
-    </Box>
+    </div>
   </Layout>
 );
 

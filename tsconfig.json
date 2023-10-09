@@ -14,7 +14,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "jsxImportSource": "theme-ui",
     "baseUrl": "./src"
   },
   "exclude": ["node_modules"],

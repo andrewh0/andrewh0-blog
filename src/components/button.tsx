@@ -1,76 +1,27 @@
-import { MEDIA_QUERY_DESKTOP_HOVER } from "lib/constants";
-import { ThemeUICSSObject } from "theme-ui";
+import { ButtonHTMLAttributes } from "react";
+import classNames from "classnames";
 
-const variants: { [s: string]: ThemeUICSSObject } = {
-  default: {
-    color: "text",
-    bg: "gray6",
-    [MEDIA_QUERY_DESKTOP_HOVER]: {
-      "&:hover": {
-        bg: "gray5",
-      },
-    },
-    "&:disabled": {
-      color: "muted",
-      bg: "gray4",
-      cursor: "not-allowed",
-    },
-  },
-  success: {
-    color: "green12",
-    bg: "green6",
-    [MEDIA_QUERY_DESKTOP_HOVER]: {
-      "&:hover": {
-        bg: "green5",
-      },
-    },
-    "&:disabled": {
-      color: "green11",
-      bg: "green4",
-      cursor: "not-allowed",
-    },
-  },
-  danger: {
-    color: "red12",
-    bg: "red6",
-    [MEDIA_QUERY_DESKTOP_HOVER]: {
-      "&:hover": {
-        bg: "red5",
-      },
-    },
-    "&:disabled": {
-      color: "red11",
-      bg: "red4",
-      cursor: "not-allowed",
-    },
-  },
+type ButtonProps = {
+  variant?: keyof typeof variants;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+const variants = {
+  default:
+    "text-gray-12 bg-gray-6 hover:bg-gray-5 disabled:text-gray-11 disabled:cursor-not-allowed disabled:bg-gray-4",
+  success:
+    "text-green-12 bg-green-6 hover:bg-green-5 disabled:text-green-11 disabled:cursor-not-allowed disabled:bg-green-4",
+  danger:
+    "text-red-12 bg-red-6 hover:bg-red-5 disabled:text-red-11 disabled:cursor-not-allowed disabled:bg-red-4",
 };
 
-// https://theme-ui.com/recipes/button/#button
-const Button = ({ variant = "default", ...props }) => {
+const Button = ({ variant = "default", ...props }: ButtonProps) => {
   return (
     <button
+      className={classNames(
+        "inline-block w-32 cursor-pointer select-none rounded px-1 py-4 text-center text-xl font-bold",
+        variants[variant],
+      )}
       {...props}
-      sx={{
-        appearance: "none",
-        display: "inline-block",
-        textAlign: "center",
-        lineHeight: "inherit",
-        textDecoration: "none",
-        fontSize: 3,
-        fontWeight: "bold",
-        cursor: "pointer",
-        m: 0,
-        px: 4,
-        py: 3,
-        border: 0,
-        borderRadius: 4,
-        userSelect: "none",
-        // Theme UI docs recommend using a variant prop (as with the following), but I prefer
-        // colocating the variant with the button definition.
-        // variant: `buttons.${variant}`,
-        ...variants[variant],
-      }}
     />
   );
 };

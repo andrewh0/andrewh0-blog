@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import classNames from "classnames";
 
 import Layout from "components/layout";
 import Navigation from "components/navigation";
-import { Box } from "theme-ui";
 import { useIsClientDarkMode } from "lib/hooks";
 
 const Placeholder = () => {
@@ -11,18 +11,14 @@ const Placeholder = () => {
   const isDarkMode = useIsClientDarkMode();
 
   return (
-    <Box
-      css={`
-        position: relative;
-        display: flex;
-        height: 100%;
-        width: 100%;
-        max-height: 640px;
-        border-radius: 16px;
-      `}
-      sx={{
-        bg: isDarkMode === null ? "none" : "gray2",
-      }}
+    <div
+      className={classNames(
+        "relative flex h-full max-h-[640px] w-full rounded-2xl",
+        {
+          "bg-none": isDarkMode === null,
+          "bg-gray-2": isDarkMode !== null,
+        },
+      )}
     />
   );
 };

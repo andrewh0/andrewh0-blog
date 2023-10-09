@@ -11,7 +11,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { AdaptiveDpr } from "@react-three/drei";
 import { A11yUserPreferences } from "@react-three/a11y";
 import { Physics } from "@react-three/rapier";
-import { Box } from "theme-ui";
+import classNames from "classnames";
 
 import { useIsClientDarkMode } from "lib/hooks";
 import BallGroup from "./BallGroup";
@@ -30,7 +30,7 @@ function takeScreenshot(gl) {
       anchorEl.click();
     },
     "image/jpg",
-    1.0
+    1.0,
   );
 }
 
@@ -54,21 +54,12 @@ const Scene = ({ onCreated, isSceneReady }) => {
     takeScreenshot(gl);
   };
   return (
-    <Box
-      css={`
-        position: absolute;
-        user-select: none;
-        touch-action: none;
-        cursor: pointer;
-        height: 100%;
-        width: 100%;
-        transition: opacity 300ms ease-in-out;
-        opacity: ${isSceneReady ? 1 : 0};
-        border-radius: 16px;
-      `}
-      sx={{
-        bg: isDarkMode === null ? "none" : "gray2",
-      }}
+    <div
+      className={classNames(
+        "absolute h-full w-full cursor-pointer touch-none select-none rounded-2xl transition-opacity duration-300 ease-in-out",
+        isSceneReady ? "opacity-100" : "opacity-0",
+        isDarkMode === null ? "bg-none" : "bg-gray-2",
+      )}
     >
       <Suspense fallback={null}>
         <Canvas
@@ -87,10 +78,8 @@ const Scene = ({ onCreated, isSceneReady }) => {
             // preserveDrawingBuffer: true,
           }}
           onCreated={onCreated}
-          sx={{
-            // This is needed because rounded corners weren't showing up on mobile.
-            borderRadius: "16px",
-          }}
+          // rounded-2xl is needed because rounded corners weren't showing up on mobile.
+          className="rounded-2xl"
         >
           <A11yUserPreferences>
             <Lights />
@@ -108,7 +97,7 @@ const Scene = ({ onCreated, isSceneReady }) => {
         </Canvas>
       </Suspense>
       {/* <button onClick={handleClick}>Download</button> */}
-    </Box>
+    </div>
   );
 };
 

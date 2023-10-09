@@ -1,49 +1,13 @@
-import { Flex, Text } from "theme-ui";
 import NavLink from "components/navLink";
 
 const Navigation = () => (
-  <Flex
-    as="nav"
-    sx={{
-      justifyContent: "space-between",
-      flexWrap: "wrap",
-      color: "text",
-    }}
-    mt={[5, 6]}
-    mb={5}
-  >
-    <Text
-      sx={{
-        fontSize: 3,
-        fontWeight: 500,
-        letterSpacing: "-0.03em",
-      }}
-    >
-      Andrew Ho
-    </Text>
-    <Flex
-      sx={{
-        color: "text",
-        alignItems: "center",
-      }}
-    >
-      <NavLink
-        href="/about"
-        sx={{
-          mr: 3,
-        }}
-      >
-        About
-      </NavLink>
-      {/* <NavLink
-        href="/notes"
-        mr={3}
-      >
-        Notes
-      </NavLink> */}
+  <nav className="mb-16 mt-16 flex flex-wrap justify-between align-baseline text-gray-12 sm:mt-32">
+    <p className="text-xl font-medium tracking-tight">Andrew Ho</p>
+    <div className="flex items-center space-x-4 text-gray-12">
+      <NavLink href="/about">About</NavLink>
       <NavLink href="/projects">Projects</NavLink>
-    </Flex>
-  </Flex>
+    </div>
+  </nav>
 );
 
 export default Navigation;

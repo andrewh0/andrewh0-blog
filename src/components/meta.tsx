@@ -1,5 +1,4 @@
 import Head from "next/head";
-import theme from "components/theme";
 
 const Meta = () => (
   <Head>
@@ -31,16 +30,14 @@ const Meta = () => (
     <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
     <meta
       name="theme-color"
-      content={(theme?.colors?.background as string | undefined) ?? "white"}
+      content="white"
       media="(prefers-color-scheme: light)"
       // Needed so that next/head doesn't delete one of these "theme-color" declarations
       key="theme-color-light"
     />
     <meta
       name="theme-color"
-      content={
-        (theme?.colors?.modes?.dark.background as string | undefined) ?? "black"
-      }
+      content="black"
       media="(prefers-color-scheme: dark)"
       // Needed so that next/head doesn't delete one of these "theme-color" declarations
       key="theme-color-dark"
