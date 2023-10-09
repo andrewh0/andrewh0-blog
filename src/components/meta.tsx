@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { gray, grayDark } from "@radix-ui/colors";
 
 const Meta = () => (
   <Head>
@@ -30,14 +31,14 @@ const Meta = () => (
     <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
     <meta
       name="theme-color"
-      content={"var(--gray-1)" ?? "white"}
+      content={gray.gray1 ?? "white"}
       media="(prefers-color-scheme: light)"
       // Needed so that next/head doesn't delete one of these "theme-color" declarations
       key="theme-color-light"
     />
     <meta
       name="theme-color"
-      content={"var(--gray-1)" ?? "black"}
+      content={grayDark.gray1 ?? "black"}
       media="(prefers-color-scheme: dark)"
       // Needed so that next/head doesn't delete one of these "theme-color" declarations
       key="theme-color-dark"
