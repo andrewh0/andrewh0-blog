@@ -32,6 +32,7 @@ const CustomMarker = ({
       longitude={record.fields.lon}
       latitude={record.fields.lat}
       anchor="bottom"
+      // @ts-ignore
       onClick={handleClick}
       style={{
         zIndex: isSelected ? 2 : record.fields.starred ? 1 : "auto",
