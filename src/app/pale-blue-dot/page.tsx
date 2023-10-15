@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import ContentImage from "components/content/image";
 import ContentLink from "components/content/link";
@@ -26,9 +27,6 @@ const MutedLink = ({
 
 const PaleBlueDot = () => (
   <Layout>
-    {/* TODO <Head>
-      <title>A Pale Blue Dot &middot; Carl Sagan</title>
-    </Head> */}
     <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="A Pale Blue Dot" />
@@ -96,5 +94,9 @@ const PaleBlueDot = () => (
     </div>
   </Layout>
 );
+
+export const metadata: Metadata = {
+  title: "A Pale Blue Dot · Carl Sagan",
+};
 
 export default PaleBlueDot;

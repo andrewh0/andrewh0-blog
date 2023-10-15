@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     "Andrew Ho is a software engineer based in the San Francisco Bay Area.",
   viewport: {
     userScalable: false,
+    initialScale: 1,
   },
 };
 

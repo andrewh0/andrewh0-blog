@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Record } from "types/sfMap";
 import SanFranciscoMap from "./map";
@@ -38,14 +39,13 @@ const SfMapPage = async () => {
 
   return (
     <div className="h-full">
-      {/* TODO <Head>
-        <title>SF Map &middot; Andrew Ho</title>
-      </Head> */}
       <SanFranciscoMap data={data} />
     </div>
   );
 };
 
-SfMapPage.theme = "light";
+export const metadata: Metadata = {
+  title: "San Francisco · Andrew Ho",
+};
 
 export default SfMapPage;

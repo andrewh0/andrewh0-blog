@@ -31,9 +31,6 @@ const BubbleArt = dynamic(() => import("components/bubbles/Container"), {
 
 const Home = () => (
   <Layout>
-    {/* TODO <Head>
-      <title>Andrew Ho</title>
-    </Head> */}
     <Navigation />
     <BubbleArt />
   </Layout>

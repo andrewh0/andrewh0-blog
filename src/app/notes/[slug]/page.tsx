@@ -5,9 +5,21 @@ import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
 import PostBody from "components/postBody";
 
+type Params = {
+  slug: string;
+};
+
 export async function generateStaticParams() {
   const notes = await listPosts();
   return notes.map((note: any) => ({ slug: note.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Params }) {
+  const { metadata } = await getNote(params.slug);
+
+  return {
+    title: `${metadata.title} · Andrew Ho`,
+  };
 }
 
 const getNote = async (slug: string) => {
@@ -22,22 +34,13 @@ const getNote = async (slug: string) => {
   const postContent = await showPost(postMetadata.id);
 
   return { note: postContent, metadata: postMetadata };
-  // }
 };
 
-const Note = async ({ params }: any) => {
-  // TODO
-  // Save title to a variable to avoid Next.js warning about multiple elements in <title> as children
-  // const title = `${metadata.title} · Andrew Ho`;
-
-  const { note, metadata } = await getNote(params.slug);
+const Note = async ({ params }: { params: Params }) => {
+  const { note } = await getNote(params.slug);
 
   return (
     <Layout>
-      {/* TODO */}
-      {/* <Head>
-        <title>{title}</title>
-      </Head> */}
       <SubpageNavigation previousPagePath="/notes" previousPageLabel="Notes" />
       <PostBody content={note} />
     </Layout>

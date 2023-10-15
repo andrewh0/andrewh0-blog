@@ -1,5 +1,6 @@
-import Layout from "components/layout";
+import { Metadata } from "next";
 import { listPosts } from "lib/notion";
+import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
 import Heading from "components/content/heading";
 import Link from "components/content/link";
@@ -9,9 +10,6 @@ const NotesIndex = async () => {
 
   return (
     <Layout>
-      {/* TODO <Head>
-        <title>Notes &middot; Andrew Ho</title>
-      </Head> */}
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="Notes" />
       <ul>
@@ -29,5 +27,9 @@ const NotesIndex = async () => {
 };
 
 export const revalidate = 60; // seconds
+
+export const metadata: Metadata = {
+  title: "Notes · Andrew Ho",
+};
 
 export default NotesIndex;

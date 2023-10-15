@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Stack from "components/stack";
 import ProjectTitle from "components/projectTitle";
 import Layout from "components/layout";
@@ -8,9 +9,6 @@ import Text from "components/content/text";
 
 const Projects = () => (
   <Layout>
-    {/* TODO <Head>
-      <title>Projects &middot; Andrew Ho</title>
-    </Head> */}
     <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="Projects" />
@@ -287,5 +285,9 @@ const Projects = () => (
     </div>
   </Layout>
 );
+
+export const metadata: Metadata = {
+  title: "Notes · Andrew Ho",
+};
 
 export default Projects;

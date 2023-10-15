@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
 import ContentImage from "components/content/image";
@@ -10,9 +11,6 @@ import dogAndMe from "../../../public/andrew-dog.jpg";
 
 const About = () => (
   <Layout>
-    {/* TODO <Head>
-      <title>About &middot; Andrew Ho</title>
-    </Head> */}
     <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="About" />
@@ -53,5 +51,9 @@ const About = () => (
     </div>
   </Layout>
 );
+
+export const metadata: Metadata = {
+  title: "About · Andrew Ho",
+};
 
 export default About;
