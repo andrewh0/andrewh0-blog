@@ -6,14 +6,13 @@ const StyledLink = ({
   ...props
 }: LinkProps & { children: React.ReactNode }) => {
   return (
-    (<Link
+    <Link
       href={href}
       {...props}
-      className="text-blue-11 hover:underline focus:underline active:underline">
-
+      className="text-blue-11 hover:underline focus:underline active:underline"
+    >
       {children}
-
-    </Link>)
+    </Link>
   );
 };
 
