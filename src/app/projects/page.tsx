@@ -287,7 +287,7 @@ const Projects = () => (
 );
 
 export const metadata: Metadata = {
-  title: "Notes · Andrew Ho",
+  title: "Projects · Andrew Ho",
 };
 
 export default Projects;
