@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import ContentImage from "components/content/image";
 import ContentLink from "components/content/link";

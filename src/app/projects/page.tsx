@@ -1,5 +1,3 @@
-"use client";
-
 import Stack from "components/stack";
 import ProjectTitle from "components/projectTitle";
 import Layout from "components/layout";
