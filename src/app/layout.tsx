@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { Providers } from "./providers";
 import "../styles/global.css";
 
-// TODO: Verify rendered HTML matches previous
 export const metadata: Metadata = {
   title: "Andrew Ho",
   description:
