@@ -1,14 +1,15 @@
-import Head from "next/head";
+import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/legacy/image";
-
+import ContentImage from "components/content/image";
 import ContentLink from "components/content/link";
 import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
 import Heading from "components/content/heading";
 import Text from "components/content/text";
-import paleBlueDot from "../../public/pale-blue-dot.jpg";
 
+import paleBlueDot from "../../../public/pale-blue-dot.jpg";
+
+// TODO Create link variants
 const MutedLink = ({
   href,
   children,
@@ -26,29 +27,20 @@ const MutedLink = ({
 
 const PaleBlueDot = () => (
   <Layout>
-    <Head>
-      <title>A Pale Blue Dot &middot; Carl Sagan</title>
-    </Head>
     <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="A Pale Blue Dot" />
-      {/* TODO: Extend <StyledImage /> to use height, position: relative, and layout props */}
-      <div className="my-16">
-        <div className="relative mb-1 flex aspect-square">
-          <Image
-            style={{
-              borderRadius: "16px",
-            }}
-            alt="Earth from 4 billion miles away"
-            title="Earth from 4 billion miles away"
-            layout="fill"
-            src={paleBlueDot}
-          />
-        </div>
-        <MutedLink href="https://www.jpl.nasa.gov/images/pia00452-solar-system-portrait-earth-as-pale-blue-dot">
-          NASA / JPL
-        </MutedLink>
-      </div>
+      <ContentImage
+        alt="Earth from 4 billion miles away"
+        title="Earth from 4 billion miles away"
+        src={paleBlueDot}
+        className="aspect-square"
+        caption={
+          <MutedLink href="https://www.jpl.nasa.gov/images/pia00452-solar-system-portrait-earth-as-pale-blue-dot">
+            NASA / JPL
+          </MutedLink>
+        }
+      />
       <Text>
         Look again at that dot. That&apos;s here. That&apos;s home. That&apos;s
         us. On it everyone you love, everyone you know, everyone you ever heard
@@ -102,5 +94,9 @@ const PaleBlueDot = () => (
     </div>
   </Layout>
 );
+
+export const metadata: Metadata = {
+  title: "A Pale Blue Dot · Carl Sagan",
+};
 
 export default PaleBlueDot;

@@ -1,5 +1,6 @@
+"use client";
+
 import dynamic from "next/dynamic";
-import Head from "next/head";
 import classNames from "classnames";
 
 import Layout from "components/layout";
@@ -28,14 +29,11 @@ const BubbleArt = dynamic(() => import("components/bubbles/Container"), {
   loading: Placeholder,
 });
 
-const Index = () => (
+const Home = () => (
   <Layout>
-    <Head>
-      <title>Andrew Ho</title>
-    </Head>
     <Navigation />
     <BubbleArt />
   </Layout>
 );
 
-export default Index;
+export default Home;

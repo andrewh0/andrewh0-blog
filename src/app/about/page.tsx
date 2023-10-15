@@ -1,22 +1,24 @@
-import Head from "next/head";
+import { Metadata } from "next";
 import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
-import dogAndMe from "../../public/andrew-dog.jpg";
-import Image from "components/content/image";
+import ContentImage from "components/content/image";
 import Heading from "components/content/heading";
 import Link from "components/content/link";
 import Text from "components/content/text";
 import HorizontalRule from "components/content/horizontalRule";
 
+import dogAndMe from "../../../public/andrew-dog.jpg";
+
 const About = () => (
   <Layout>
-    <Head>
-      <title>About &middot; Andrew Ho</title>
-    </Head>
     <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="About" />
-      <Image src={dogAndMe} alt="My dog and me" />
+      <ContentImage
+        src={dogAndMe}
+        alt="My dog and me"
+        className="aspect-square"
+      />
       <Text>
         Hi, I&apos;m Andrew. I&apos;m a software engineer based in the San
         Francisco Bay Area.
@@ -49,5 +51,9 @@ const About = () => (
     </div>
   </Layout>
 );
+
+export const metadata: Metadata = {
+  title: "About · Andrew Ho",
+};
 
 export default About;

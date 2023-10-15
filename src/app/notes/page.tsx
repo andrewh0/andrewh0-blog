@@ -1,26 +1,15 @@
-import Head from "next/head";
-
-import Layout from "components/layout";
+import { Metadata } from "next";
 import { listPosts } from "lib/notion";
+import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
 import Heading from "components/content/heading";
 import Link from "components/content/link";
 
-export const getStaticProps = async () => {
+const NotesIndex = async () => {
   const posts = await listPosts();
 
-  return {
-    props: { posts },
-    revalidate: 60, // seconds
-  };
-};
-
-const NotesIndex = ({ posts }: any) => {
   return (
     <Layout>
-      <Head>
-        <title>Notes &middot; Andrew Ho</title>
-      </Head>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="Notes" />
       <ul>
@@ -35,6 +24,12 @@ const NotesIndex = ({ posts }: any) => {
       </ul>
     </Layout>
   );
+};
+
+export const revalidate = 60; // seconds
+
+export const metadata: Metadata = {
+  title: "Notes · Andrew Ho",
 };
 
 export default NotesIndex;

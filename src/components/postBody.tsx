@@ -1,4 +1,6 @@
-import MDX from "@mdx-js/runtime";
+import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 
 type Props = {
   content: string;
@@ -6,7 +8,9 @@ type Props = {
 
 const PostBody = ({ content }: Props) => (
   <div className="prose dark:prose-invert">
-    <MDX>{content}</MDX>
+    <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+      {content}
+    </Markdown>
   </div>
 );
 

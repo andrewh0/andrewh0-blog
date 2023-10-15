@@ -1,13 +1,30 @@
 // https://samuelkraft.com/blog/building-a-notion-blog-with-public-api
 
-import { Client, isFullPage } from "@notionhq/client";
-import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
+import { Client } from "@notionhq/client";
+import {
+  QueryDatabaseResponse,
+  DatabaseObjectResponse,
+  PartialDatabaseObjectResponse,
+  PageObjectResponse,
+  PartialPageObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 import { NotionToMarkdown } from "notion-to-md";
 
 const NOTION_BLOG_DB_ID = process.env.NOTION_BLOG_DB_ID ?? "";
 const notion = new Client({ auth: process.env.NOTION_API_KEY ?? "" });
 
 const n2m = new NotionToMarkdown({ notionClient: notion });
+
+// Type guard based on https://github.com/makenotion/notion-sdk-js/blob/241fcf1df946f1c91540a582bea4c47768110bdf/src/helpers.ts#L100-L104
+function isFullPage(
+  response:
+    | DatabaseObjectResponse
+    | PartialDatabaseObjectResponse
+    | PageObjectResponse
+    | PartialPageObjectResponse,
+): response is PageObjectResponse {
+  return "url" in response;
+}
 
 const listPosts = async () => {
   const posts: QueryDatabaseResponse = await notion.databases.query({
