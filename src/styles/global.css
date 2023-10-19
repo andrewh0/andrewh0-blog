@@ -32,8 +32,9 @@
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
-  --font-stack-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Ubuntu Mono",
-    "Liberation Mono", "Courier New", Courier, monospace;
+  --font-stack-mono: var(--font-plex-mono), SFMono-Regular, Menlo, Monaco,
+    Consolas, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier,
+    monospace;
 }
 
 @supports (font-variation-settings: normal) {

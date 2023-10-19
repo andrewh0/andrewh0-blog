@@ -1,4 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+
+// From https://github.com/tailwindlabs/tailwindcss-typography/blob/a86e6015694c3435ff6cef84f3dd61b81adf26e1/src/styles.js#L3C1-L18C1
+const round = (num) =>
+  num
+    .toFixed(7)
+    .replace(/(\.[0-9]+?)0+$/, "$1")
+    .replace(/\.0$/, "");
+const rem = (px) => `${round(px / 16)}rem`;
+const em = (px, base) => `${round(px / base)}em`;
+
 module.exports = {
   future: {
     // https://github.com/tailwindlabs/tailwindcss/pull/8394
@@ -165,6 +175,54 @@ module.exports = {
       height: {
         screen: ["100vh", "100dvh"],
       },
+      typography: (theme) => ({
+        custom: {
+          css: {
+            "--tw-prose-body": theme("colors.gray.12"),
+            "--tw-prose-headings": theme("colors.gray.12"),
+            "--tw-prose-lead": theme("colors.gray.12"),
+            "--tw-prose-links": theme("colors.blue.11"),
+            "--tw-prose-bold": theme("colors.gray.12"),
+            "--tw-prose-counters": theme("colors.gray.12"),
+            "--tw-prose-bullets": theme("colors.gray.12"),
+            "--tw-prose-hr": theme("colors.gray.6"),
+            "--tw-prose-quotes": theme("colors.gray.12"),
+            "--tw-prose-quote-borders": theme("colors.gray.6"),
+            "--tw-prose-captions": theme("colors.gray.11"),
+            "--tw-prose-code": theme("colors.crimson.11"),
+            "--tw-prose-pre-code": theme("colors.gray.12"),
+            "--tw-prose-pre-bg": theme("colors.gray.3"),
+            "--tw-prose-th-borders": theme("colors.gray.12"),
+            "--tw-prose-td-borders": theme("colors.gray.6"),
+          },
+        },
+        DEFAULT: {
+          css: {
+            code: {
+              padding: `${rem(3)} ${rem(6)}`,
+            },
+            "code::before": {
+              content: "",
+            },
+            "code::after": {
+              content: "",
+            },
+            details: {
+              marginTop: em(20, 16),
+              marginBottom: em(20, 16),
+            },
+            blockquote: {
+              border: "none",
+            },
+            "blockquote p:first-of-type::before": {
+              content: "",
+            },
+            "blockquote p:last-of-type::after": {
+              content: "",
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [require("@tailwindcss/typography")],

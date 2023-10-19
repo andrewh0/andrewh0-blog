@@ -1,6 +1,15 @@
 import { Metadata } from "next";
+import { IBM_Plex_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "../styles/global.css";
+
+// Inter isn't imported like this because the left and right arrows aren't
+// included in the subset.
+const plexMono = IBM_Plex_Mono({
+  weight: ["400", "500"],
+  subsets: ["latin"],
+  variable: "--font-plex-mono",
+});
 
 export const metadata: Metadata = {
   title: "Andrew Ho",
@@ -18,8 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={plexMono.variable}>
       <head>
+        <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </head>
       <body>
