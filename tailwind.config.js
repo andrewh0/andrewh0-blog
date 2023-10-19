@@ -199,7 +199,7 @@ module.exports = {
         DEFAULT: {
           css: {
             code: {
-              padding: `${rem(6)} ${rem(4)}`,
+              padding: `${rem(3)} ${rem(6)}`,
             },
             "code::before": {
               content: "",

@@ -3,6 +3,8 @@ import { IBM_Plex_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "../styles/global.css";
 
+// Inter isn't imported like this because the left and right arrows aren't
+// included in the subset.
 const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
   subsets: ["latin"],
