@@ -15,10 +15,11 @@ export const metadata: Metadata = {
   title: "Andrew Ho",
   description:
     "Andrew Ho is a software engineer based in the San Francisco Bay Area.",
-  viewport: {
-    userScalable: false,
-    initialScale: 1,
-  },
+};
+
+export const viewport = {
+  userScalable: false,
+  initialScale: 1,
 };
 
 export default function RootLayout({
