@@ -9,13 +9,11 @@ const ProjectTitle = ({
   return (
     <div className="mb-4 mt-16 flex items-baseline justify-between">
       <div className="flex items-center">
-        <h2 className="my-0 mr-4 text-xl font-medium tracking-tight sm:text-2xl">
+        <h2 className="my-0 mr-4 text-xl font-semibold tracking-tight">
           {name}
         </h2>
       </div>
-      <span className="font-mono text-sm text-gray-11 sm:text-base">
-        {year}
-      </span>
+      <span className="font-mono text-sm text-gray-11">{year}</span>
     </div>
   );
 };
