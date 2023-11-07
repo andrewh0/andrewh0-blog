@@ -24,16 +24,26 @@ const blockquoteClasses = classNames(
   "prose-blockquote:not-italic prose-blockquote:relative prose-blockquote:text-gray-11 prose-blockquote:font-normal before:prose-blockquote:absolute before:prose-blockquote:left-0 before:prose-blockquote:w-1 before:prose-blockquote:h-full before:prose-blockquote:rounded before:prose-blockquote:bg-gray-7",
 );
 
+const headerClasses = classNames(
+  "prose-h1:font-semibold prose-h1:tracking-tight prose-h1:text-2xl",
+  "prose-h2:font-semibold prose-h2:tracking-tight prose-h2:text-xl",
+  "prose-h3:font-semibold prose-h3:tracking-tight prose-h3:text-lg",
+);
+
+const paragraphClasses = classNames("prose-p:leading-6");
+
 const PostBody = ({ content }: Props) => (
   <div
     className={classNames(
-      "prose-custom prose max-w-none",
+      "prose prose-custom max-w-none",
       codeClasses,
       preClasses,
       imageClasses,
       horizontalRuleClasses,
       linkClasses,
       blockquoteClasses,
+      headerClasses,
+      paragraphClasses,
     )}
   >
     <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>

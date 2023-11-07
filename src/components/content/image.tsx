@@ -12,7 +12,7 @@ const ContentImage = ({
   caption,
   ...props
 }: ContentImageProps) => (
-  <div className="my-16">
+  <div className="my-8">
     <Image
       className={classNames("rounded-2xl", caption ? "mb-1" : "", className)}
       alt={alt}
