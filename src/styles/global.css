@@ -94,3 +94,7 @@ body,
 canvas {
   touch-action: none;
 }
+
+.dark {
+  background-color: #000000;
+}
