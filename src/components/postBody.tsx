@@ -8,7 +8,7 @@ type Props = {
 };
 
 const codeClasses =
-  "prose-code:rounded prose-code:bg-gray-3 prose-code:font-medium prose-code:[font-size:87.5%]";
+  "prose-code:rounded prose-code:bg-gray-3 prose-code:font-medium prose-code:[font-size:85%]";
 
 const preClasses = "prose-pre:rounded-2xl";
 
