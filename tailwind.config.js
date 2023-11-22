@@ -199,7 +199,9 @@ module.exports = {
         DEFAULT: {
           css: {
             code: {
-              padding: `${rem(1)} ${rem(3)}`,
+              padding: `${rem(3)} ${rem(5)}`,
+              // Keep space at the end when line wraps.
+              "white-space-collapse": "preserve"
             },
             "code::before": {
               content: "",
