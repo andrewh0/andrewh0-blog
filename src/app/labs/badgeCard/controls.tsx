@@ -1,5 +1,4 @@
 import Button from "components/button";
-import Text from "components/content/text";
 
 const Controls = ({
   onCountChange,
@@ -10,9 +9,9 @@ const Controls = ({
 }) => {
   return (
     <div>
-      <h3 className="text-md mb-2 font-bold">Controls</h3>
-      <div className="flex space-x-5">
-        <div className="space-x-1">
+      <h3 className="text-md mb-3 font-bold">Controls</h3>
+      <div className="flex flex-col space-y-3 sm:flex-row sm:space-x-5 sm:space-y-0">
+        <div className="space-y-1 sm:space-x-1 sm:space-y-0">
           <Button
             size="sm"
             onClick={() => {
@@ -32,7 +31,7 @@ const Controls = ({
             -1,000
           </Button>
         </div>
-        <div className="space-x-1">
+        <div className="space-y-1 sm:space-x-1 sm:space-y-0">
           <Button
             size="sm"
             onClick={() => {

@@ -12,17 +12,15 @@ const BadgeCard = () => {
   return (
     <div className="space-y-10 rounded-xl bg-gray-2 p-8 text-gray-12">
       <h2 className="text-lg font-bold">Notification Badge</h2>
-      <div className="p-10">
-        <div className="flex flex-col items-center justify-center space-y-1">
-          <div className="relative h-16 w-16 rounded-xl bg-blue-7">
-            <AnimatePresence>
-              {count > 0 && <Badge count={count} />}
-            </AnimatePresence>
-          </div>
-          <span className="text-center text-xs font-semibold text-gray-11">
-            My App
-          </span>
+      <div className="flex flex-col items-center justify-center space-y-1 p-10">
+        <div className="relative h-16 w-16 rounded-xl bg-blue-7">
+          <AnimatePresence>
+            {count > 0 && <Badge count={count} />}
+          </AnimatePresence>
         </div>
+        <span className="text-center text-xs font-semibold text-gray-11">
+          My App
+        </span>
       </div>
       <Controls count={count} onCountChange={setCount} />
       <Notes />
