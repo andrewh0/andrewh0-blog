@@ -3,6 +3,8 @@ import classNames from "classnames";
 
 type ButtonProps = {
   variant?: keyof typeof variants;
+  size?: "sm" | "default" | "lg";
+  className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const variants = {
@@ -14,12 +16,25 @@ const variants = {
     "text-red-12 bg-red-6 hover:bg-red-5 disabled:text-red-11 disabled:cursor-not-allowed disabled:bg-red-4",
 };
 
-const Button = ({ variant = "default", ...props }: ButtonProps) => {
+const sizes = {
+  sm: "py-1 px-2 text-sm rounded",
+  default: "py-2 px-3 text-base rounded-lg",
+  lg: "py-3 px-4 text-xl rounded-xl",
+};
+
+const Button = ({
+  variant = "default",
+  size = "default",
+  className,
+  ...props
+}: ButtonProps) => {
   return (
     <button
       className={classNames(
-        "inline-block w-32 cursor-pointer select-none rounded px-1 py-4 text-center text-xl font-bold",
+        "inline-block cursor-pointer select-none text-center font-bold",
         variants[variant],
+        sizes[size],
+        className,
       )}
       {...props}
     />

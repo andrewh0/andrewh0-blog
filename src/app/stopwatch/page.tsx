@@ -139,6 +139,7 @@ const StopwatchPage = () => {
         <div className="mb-8 space-x-8">
           <Button
             type="button"
+            size="lg"
             variant={isRunning ? "danger" : "success"}
             onClick={handleStartStopClick}
             onKeyDown={handleStartStopKeyDown}
@@ -147,6 +148,7 @@ const StopwatchPage = () => {
           </Button>
           <Button
             type="button"
+            size="lg"
             disabled={isRunning || !elapsedMs}
             onClick={handleReset}
             onKeyDown={handleResetKeyDown}
