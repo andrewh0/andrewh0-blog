@@ -17,6 +17,7 @@
     "@use-gesture/react": "^10.2.9",
     "classnames": "^2.3.2",
     "date-fns": "2.21.3",
+    "framer-motion": "^11.2.4",
     "lamina": "1.1.23",
     "mapbox-gl": "^2.15.0",
     "next": "^14.2.3",
@@ -27,8 +28,10 @@
     "react-dom": "^18.2.0",
     "react-map-gl": "^7.1.0",
     "react-markdown": "^9.0.0",
+    "react-use-measure": "^2.1.1",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.0",
+    "tailwindcss": "^3.4.3",
     "three": "0.150.0",
     "typescript": "^4.2.4"
   },
@@ -43,7 +46,6 @@
     "eslint-config-next": "^14.0.0",
     "postcss": "^8.4.31",
     "prettier": "3.0.3",
-    "prettier-plugin-tailwindcss": "0.5.4",
-    "tailwindcss": "^3.3.3"
+    "prettier-plugin-tailwindcss": "0.5.4"
   }
 }

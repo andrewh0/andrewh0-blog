@@ -18,6 +18,7 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     colors: {
+      white: "white",
       transparent: "transparent",
       current: "currentColor",
       blue: {
@@ -201,7 +202,7 @@ module.exports = {
             code: {
               padding: `${rem(3)} ${rem(5)}`,
               // Keep space at the end when line wraps.
-              "white-space-collapse": "preserve"
+              "white-space-collapse": "preserve",
             },
             "code::before": {
               content: "",
