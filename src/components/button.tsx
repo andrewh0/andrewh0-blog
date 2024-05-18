@@ -9,16 +9,16 @@ type ButtonProps = {
 
 const variants = {
   default:
-    "text-gray-12 bg-gray-6 hover:bg-gray-5 disabled:text-gray-11 disabled:cursor-not-allowed disabled:bg-gray-4",
+    "text-gray-12 bg-gray-6 hover:bg-gray-5 disabled:text-gray-7 disabled:cursor-not-allowed disabled:bg-gray-4",
   success:
-    "text-green-12 bg-green-6 hover:bg-green-5 disabled:text-green-11 disabled:cursor-not-allowed disabled:bg-green-4",
+    "text-white bg-green-9 hover:bg-green-8 disabled:text-green-7 disabled:cursor-not-allowed disabled:bg-green-4",
   danger:
-    "text-red-12 bg-red-6 hover:bg-red-5 disabled:text-red-11 disabled:cursor-not-allowed disabled:bg-red-4",
+    "text-white bg-red-9 hover:bg-red-8 disabled:text-red-7 disabled:cursor-not-allowed disabled:bg-red-4",
 };
 
 const sizes = {
-  sm: "py-2 px-3 text-sm rounded",
-  default: "py-2 px-3 text-base rounded-lg",
+  sm: "py-2 px-2.5 text-sm rounded-md",
+  default: "py-2 px-3 text-base rounded-md",
   lg: "py-3 px-4 text-xl rounded-xl",
 };
 
@@ -31,7 +31,7 @@ const Button = ({
   return (
     <button
       className={classNames(
-        "inline-block w-full cursor-pointer select-none text-center font-bold sm:w-auto",
+        "inline-block w-full cursor-pointer select-none text-center font-bold shadow sm:w-auto",
         variants[variant],
         sizes[size],
         className,
