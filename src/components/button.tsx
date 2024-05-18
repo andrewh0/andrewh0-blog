@@ -17,7 +17,7 @@ const variants = {
 };
 
 const sizes = {
-  sm: "py-1 px-2 text-sm rounded",
+  sm: "py-2 px-3 text-sm rounded",
   default: "py-2 px-3 text-base rounded-lg",
   lg: "py-3 px-4 text-xl rounded-xl",
 };
@@ -31,7 +31,7 @@ const Button = ({
   return (
     <button
       className={classNames(
-        "inline-block cursor-pointer select-none text-center font-bold",
+        "inline-block w-full cursor-pointer select-none text-center font-bold sm:w-auto",
         variants[variant],
         sizes[size],
         className,
