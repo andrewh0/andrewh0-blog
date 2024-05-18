@@ -1,5 +1,4 @@
 import Button from "components/button";
-import Text from "components/content/text";
 
 const Controls = ({
   onCountChange,
