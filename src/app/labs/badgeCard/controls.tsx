@@ -24,11 +24,11 @@ const Controls = ({
           <Button
             size="sm"
             onClick={() => {
-              onCountChange(Math.max(count - 1000, 0));
+              onCountChange(Math.max(count - 100, 0));
             }}
             disabled={count === 0}
           >
-            -1,000
+            -100
           </Button>
         </div>
         <div className="space-y-1 sm:space-x-1 sm:space-y-0">
@@ -43,10 +43,10 @@ const Controls = ({
           <Button
             size="sm"
             onClick={() => {
-              onCountChange(Math.min(count + 1000));
+              onCountChange(Math.min(count + 100));
             }}
           >
-            +1,000
+            +100
           </Button>
         </div>
         <Button
