@@ -12,6 +12,28 @@ const Projects = () => (
     <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
       <Heading title="Projects" />
+      <ProjectTitle name="Labs" year={2024} />
+      <Text>
+        <Link href="labs">Website</Link> &middot;{" "}
+        <Link href="https://github.com/andrewh0/andrewh0-blog/tree/main/src/app/labs">
+          GitHub
+        </Link>
+      </Text>
+      <Text>
+        Labs is a collection of small UI experiments and concepts. I find that
+        implementing and expanding on UI patterns I&apos;ve seen helps me
+        identify details that weren&apos;t obvious at first glance.
+      </Text>
+      <Stack
+        technologies={[
+          "React",
+          "Tailwind CSS",
+          "Framer Motion",
+          "TypeScript",
+          "Next.js",
+          "Vercel",
+        ]}
+      />
       <ProjectTitle name="Falling Block Puzzle Game" year={2023} />
       <Text>
         <Link href="https://falling-block-puzzle-game.vercel.app/">
@@ -48,26 +70,6 @@ const Projects = () => (
         best in Safari.
       </Text>
       <Stack technologies={["React", "React Three Fiber", "Vite", "Vercel"]} />
-      <ProjectTitle name="Chinese Flashcard App: Web" year={2022} />
-      <Text>
-        <Link href="https://chinese-app.vercel.app/">Website</Link>
-      </Text>
-      <Text>
-        A web version of my mobile flashcard experiments, built with modern web
-        technologies.
-      </Text>
-      <Stack
-        technologies={[
-          "React",
-          "Stitches",
-          "Radix UI",
-          "TypeScript",
-          "Prisma",
-          "Supabase",
-          "Next.js",
-          "Vercel",
-        ]}
-      />
       <ProjectTitle name="Personal Website v3" year={2022} />
       <Text>
         <Link href="/">Website</Link>
@@ -85,7 +87,7 @@ const Projects = () => (
       <Stack
         technologies={[
           "React",
-          "Theme UI",
+          "Tailwind CSS",
           "MDX",
           "React Three Fiber",
           "Three.js",
@@ -175,7 +177,6 @@ const Projects = () => (
       <Stack technologies={["JavaScript", "Chrome Extension"]} />
       <ProjectTitle name="Tech Talks" year={2019} />
       <Text>
-        <Link href="https://watchtechtalks.com">Website</Link> &middot;{" "}
         <Link href="https://github.com/andrewh0/tech-talks">GitHub</Link>
       </Text>{" "}
       <Text>
