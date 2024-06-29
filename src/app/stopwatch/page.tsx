@@ -136,25 +136,27 @@ const StopwatchPage = () => {
             </p>
           </div>
         </div>
-        <div className="mb-8 space-x-8">
-          <Button
-            type="button"
-            size="lg"
-            variant={isRunning ? "danger" : "success"}
-            onClick={handleStartStopClick}
-            onKeyDown={handleStartStopKeyDown}
-          >
-            {isRunning ? "Stop" : "Start"}
-          </Button>
-          <Button
-            type="button"
-            size="lg"
-            disabled={isRunning || !elapsedMs}
-            onClick={handleReset}
-            onKeyDown={handleResetKeyDown}
-          >
-            Reset
-          </Button>
+        <div className="mb-8 flex w-full max-w-[200px] justify-center">
+          <div className="w-full space-y-2 sm:space-x-4">
+            <Button
+              type="button"
+              size="lg"
+              variant={isRunning ? "danger" : "success"}
+              onClick={handleStartStopClick}
+              onKeyDown={handleStartStopKeyDown}
+            >
+              {isRunning ? "Stop" : "Start"}
+            </Button>
+            <Button
+              type="button"
+              size="lg"
+              disabled={isRunning || !elapsedMs}
+              onClick={handleReset}
+              onKeyDown={handleResetKeyDown}
+            >
+              Reset
+            </Button>
+          </div>
         </div>
         <div>
           <p className="block text-center text-sm text-gray-11">
