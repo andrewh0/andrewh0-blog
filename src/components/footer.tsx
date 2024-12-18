@@ -52,6 +52,13 @@ const Footer = () => (
         GitHub
       </StyledLink>
       <StyledLink
+        href="https://bsky.app/profile/andrewho.me"
+        isExternal
+        title="andrewho.me on Bluesky"
+      >
+        Bluesky
+      </StyledLink>
+      <StyledLink
         href="https://x.com/andrewlho_codes"
         isExternal
         title="andrewlho_codes on X"
