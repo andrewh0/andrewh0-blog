@@ -9,3 +9,10 @@ Built from [blog-starter](https://github.com/vercel/next.js/tree/canary/examples
 - Tailwind CSS
 - React Three Fiber
 - TypeScript
+
+## Run Locally
+
+```
+yarn install
+yarn dev
+```
