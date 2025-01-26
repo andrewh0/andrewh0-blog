@@ -31,7 +31,7 @@ const Button = ({
   return (
     <button
       className={classNames(
-        "inline-block w-full cursor-pointer select-none text-center font-bold shadow sm:w-auto",
+        "inline-block w-full cursor-pointer select-none text-center font-bold shadow-sm sm:w-auto",
         variants[variant],
         sizes[size],
         className,

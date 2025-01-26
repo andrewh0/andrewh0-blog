@@ -26,7 +26,7 @@ const Badge = ({ count }: { count: number }) => {
         },
         opacity: { duration: 0.15 },
       }}
-      className="absolute -right-2.5 top-0.5 z-0 flex h-4 -translate-y-1/2 select-none items-center justify-start overflow-hidden rounded-full bg-red-9 py-2.5 shadow drop-shadow"
+      className="absolute -right-2.5 top-0.5 z-0 flex h-4 -translate-y-1/2 select-none items-center justify-start overflow-hidden rounded-full bg-red-9 py-2.5 shadow-sm drop-shadow-sm"
     >
       <span
         ref={ref}

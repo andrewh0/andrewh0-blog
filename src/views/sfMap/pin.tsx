@@ -24,7 +24,7 @@ const Pin = ({
   return (
     <div
       className={classNames(
-        "flex h-6 w-6 cursor-pointer flex-col items-center justify-center rounded-full p-0.5 text-xs shadow",
+        "flex h-6 w-6 cursor-pointer flex-col items-center justify-center rounded-full p-0.5 text-xs shadow-sm",
         isSelected ? "bg-blue-4" : "bg-gray-1",
         isSelected
           ? "border-2 border-blue-7"
