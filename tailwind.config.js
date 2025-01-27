@@ -10,11 +10,6 @@ const rem = (px) => `${round(px / 16)}rem`;
 const em = (px, base) => `${round(px / base)}em`;
 
 module.exports = {
-  future: {
-    // https://github.com/tailwindlabs/tailwindcss/pull/8394
-    // This should be available in Tailwind 4.0
-    hoverOnlyWhenSupported: true,
-  },
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     colors: {
