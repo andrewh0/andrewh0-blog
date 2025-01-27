@@ -3,13 +3,13 @@ import { Record } from "types/sfMap";
 
 const LinkButton = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => (
   <a
-    className="inline-block flex-1 rounded bg-gray-6 px-4 py-2 text-center font-bold text-gray-12 hover:bg-gray-5"
+    className="inline-block flex-1 rounded-sm bg-gray-6 px-4 py-2 text-center font-bold text-gray-12 hover:bg-gray-5"
     {...props}
   />
 );
 
 const Popup = ({ selectedPlace }: { selectedPlace: Record }) => (
-  <div className="pointer-events-auto w-full rounded-2xl bg-gray-1 p-4 shadow sm:w-[320px]">
+  <div className="pointer-events-auto w-full rounded-2xl bg-gray-1 p-4 shadow-sm sm:w-[320px]">
     <div className="mb-4">
       <p className="text-xl font-semibold leading-5 tracking-normal text-gray-12 sm:tracking-tight">
         {selectedPlace.fields.name}

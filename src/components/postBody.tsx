@@ -8,7 +8,7 @@ type Props = {
 };
 
 const codeClasses =
-  "prose-code:rounded prose-code:bg-gray-3 prose-code:font-medium prose-code:[font-size:85%]";
+  "prose-code:rounded-sm prose-code:bg-gray-3 prose-code:font-medium prose-code:[font-size:85%]";
 
 const preClasses = "prose-pre:rounded-2xl";
 
@@ -18,10 +18,10 @@ const horizontalRuleClasses =
   "prose-hr:mx-auto prose-hr:my-16 prose-hr:w-1/3 prose-hr:border prose-hr:border-t-0 prose-hr:border-gray-6";
 
 const linkClasses =
-  "prose-a:no-underline hover:prose-a:underline focus:prose-a:underline active:prose-a:underline";
+  "prose-a:no-underline prose-a:hover:underline prose-a:focus:underline prose-a:active:underline";
 
 const blockquoteClasses = classNames(
-  "prose-blockquote:not-italic prose-blockquote:relative prose-blockquote:text-gray-11 prose-blockquote:font-normal before:prose-blockquote:absolute before:prose-blockquote:left-0 before:prose-blockquote:w-1 before:prose-blockquote:h-full before:prose-blockquote:rounded before:prose-blockquote:bg-gray-7",
+  "prose-blockquote:not-italic prose-blockquote:relative prose-blockquote:text-gray-11 prose-blockquote:font-normal prose-blockquote:before:absolute prose-blockquote:before:left-0 prose-blockquote:before:w-1 prose-blockquote:before:h-full prose-blockquote:before:rounded-sm prose-blockquote:before:bg-gray-7",
 );
 
 const headerClasses = classNames(
