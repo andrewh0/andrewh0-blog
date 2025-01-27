@@ -22,7 +22,7 @@
     "framer-motion": "^11.2.4",
     "lamina": "1.1.23",
     "mapbox-gl": "^2.15.0",
-    "next": "^14.2.10",
+    "next": "^14.2.21",
     "next-themes": "^0.2.1",
     "notion-to-md": "^2.5.5",
     "postprocessing": "6.33.2",
