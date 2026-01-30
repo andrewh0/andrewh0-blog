@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "./providers";
+import { generateWebSiteSchema } from "lib/jsonLd";
 import "../styles/global.css";
 
 export const metadata: Metadata = {
@@ -19,11 +20,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const webSiteSchema = generateWebSiteSchema();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+        />
       </head>
       <body>
         <Providers>{children}</Providers>

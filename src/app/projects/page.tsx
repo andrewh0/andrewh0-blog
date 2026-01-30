@@ -6,8 +6,109 @@ import SubpageNavigation from "components/subpageNavigation";
 import Heading from "components/content/heading";
 import Link from "components/content/link";
 import Text from "components/content/text";
+import { generateProjectsSchema } from "lib/jsonLd";
 
-const Projects = () => (
+const projectsData = [
+  {
+    name: "Labs",
+    year: 2024,
+    description:
+      "A collection of small UI experiments and concepts to identify design details that aren't obvious at first glance.",
+    url: "https://andrewho.me/labs",
+  },
+  {
+    name: "Falling Block Puzzle Game",
+    year: 2023,
+    description:
+      "A Tetris clone built in collaboration with ChatGPT (GPT-4), exploring AI-assisted game development.",
+    url: "https://falling-block-puzzle-game.vercel.app/",
+  },
+  {
+    name: "Radiant Diamond",
+    year: 2023,
+    description:
+      "A 3D refraction demo built with React Three Fiber, showcasing realistic light behavior through a diamond.",
+    url: "https://radiant-diamond.vercel.app/",
+  },
+  {
+    name: "Personal Website v3",
+    year: 2022,
+    description:
+      "The third major iteration of this website, featuring a blog, interactive experiments, and a new technology stack.",
+    url: "https://andrewho.me",
+  },
+  {
+    name: "Custom Discord Bot",
+    year: 2022,
+    description:
+      "A custom Discord bot for a private server, built with Discord's Message Command and Slash Command APIs.",
+  },
+  {
+    name: "Digestif",
+    year: 2020,
+    description:
+      "A tool that surfaces the most-liked Tweets from followed accounts, originally hosted on a Raspberry Pi.",
+  },
+  {
+    name: "OK.css",
+    year: 2020,
+    description:
+      "A classless CSS framework that adds sensible styling defaults to web pages.",
+    url: "https://okcss.netlify.app/",
+  },
+  {
+    name: "Chinese Flashcard App",
+    year: 2020,
+    description:
+      "A vocabulary learning app prototype built with React Native and SwiftUI, featuring spaced-repetition algorithms.",
+  },
+  {
+    name: "YouTube Silence Skipper",
+    year: 2019,
+    description:
+      "A Chrome extension that automatically shortens silences in YouTube videos by adjusting playback rate.",
+    url: "https://github.com/andrewh0/youtube-skip-silence",
+  },
+  {
+    name: "Tech Talks",
+    year: 2019,
+    description:
+      "A platform to discover and watch conference talks about web development, featuring thousands of talks from JavaScript conferences.",
+    url: "https://github.com/andrewh0/tech-talks",
+  },
+  {
+    name: "Raspberry Pi Kiosk",
+    year: 2017,
+    description:
+      "A Raspberry Pi connected to a display showing current time, news, stocks, and weather.",
+    url: "https://github.com/andrewh0/kiosk",
+  },
+  {
+    name: "Aurora",
+    year: 2017,
+    description:
+      "A web-based synthesizer playable with computer keyboard and MIDI, inspired by professional software synths.",
+    url: "https://aurora-synth.vercel.app",
+  },
+  {
+    name: "Wi-Fi LED Lamp",
+    year: 2015,
+    description:
+      "A browser-controlled lighting solution using Spark Core, IKEA lamp, and Neopixel light strip.",
+    url: "https://vimeo.com/113175895",
+  },
+  {
+    name: "Algorithmic Music Generator",
+    year: 2012,
+    description:
+      "A program that generates music based on user input and rules from classical music theory.",
+  },
+];
+
+const Projects = () => {
+  const projectsSchema = generateProjectsSchema(projectsData);
+
+  return (
   <Layout>
     <div>
       <SubpageNavigation previousPagePath="/" previousPageLabel="Home" />
@@ -283,9 +384,14 @@ const Projects = () => (
         from classical music theory.
       </Text>
       <Stack technologies={["JavaScript", "Max MSP"]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsSchema) }}
+      />
     </div>
   </Layout>
-);
+  );
+};
 
 export const metadata: Metadata = {
   title: "Projects · Andrew Ho",
