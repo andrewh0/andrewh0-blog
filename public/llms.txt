@@ -1,0 +1,72 @@
+# andrewho.me
+
+> Personal website of Andrew Ho, a software engineer based in the San Francisco Bay Area.
+
+This is Andrew Ho's personal website, portfolio, and blog. The site is built with Next.js and hosted on Vercel.
+
+## About Andrew
+
+Andrew Ho is a software engineer currently working at Owner, building software for local restaurants. Previously, he worked at NexHealth, Landed, Fig, and eBay.
+
+He is passionate about sharing knowledge, mistakes, and experiences to help others build things they're proud of. His website and many of his projects are open-source.
+
+## Site Structure
+
+- `/` - Home page with interactive 3D visualization
+- `/about` - Bio, career history, and personal philosophy
+- `/projects` - Portfolio of 14+ software projects (2012-2024)
+- `/notes` - Blog posts on software engineering topics
+- `/labs` - UI experiments and interactive components
+- `/sf` - Interactive map of San Francisco restaurants
+- `/stopwatch` - A functional stopwatch application
+
+## Key Content
+
+### Projects (selected)
+- Labs: UI experiments and design pattern exploration
+- Falling Block Puzzle Game: Tetris clone built with ChatGPT
+- Radiant Diamond: 3D refraction demo with React Three Fiber
+- OK.css: Classless CSS framework
+- Aurora: Web-based synthesizer with MIDI support
+- YouTube Silence Skipper: Chrome extension for skipping video silences
+
+### Blog Topics
+Posts cover web development, software engineering practices, and technical learnings. Content is fetched from Notion.
+
+## Technical Stack
+
+- Framework: Next.js 14 with App Router
+- Styling: Tailwind CSS 4, Radix UI Colors
+- 3D Graphics: React Three Fiber, Three.js
+- Maps: Mapbox GL
+- Content: Notion API (blog), Airtable (SF restaurants)
+- Deployment: Vercel
+
+## Contact
+
+- Email: hello@andrewho.me
+- GitHub: github.com/andrewh0
+- Bluesky: bsky.app/profile/andrewho.me
+- X/Twitter: x.com/andrewlho_codes
+- Mastodon: mastodon.social/@andrewh0
+- LinkedIn: linkedin.com/in/andrewh0
+
+## For AI Agents
+
+This site provides structured data via JSON-LD on relevant pages:
+- WebSite schema on all pages (root layout)
+- Person schema on /about
+- BlogPosting schema on /notes/[slug]
+- ItemList with CreativeWork on /projects
+
+The source code is available at: github.com/andrewh0/andrewh0-blog
+
+## Preferences
+
+Andrew is open to collaboration on interesting projects, especially those involving:
+- Creative web experiences
+- Developer tools
+- Music and audio technology
+- Data visualization
+
+For professional inquiries, email is preferred.

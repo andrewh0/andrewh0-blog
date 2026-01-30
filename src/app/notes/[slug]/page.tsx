@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { listPosts, showPost } from "lib/notion";
+import { generateBlogPostingSchema } from "lib/jsonLd";
 import Layout from "components/layout";
 import SubpageNavigation from "components/subpageNavigation";
 import PostBody from "components/postBody";
@@ -37,12 +38,17 @@ const getNote = async (slug: string) => {
 };
 
 const Note = async ({ params }: { params: Params }) => {
-  const { note } = await getNote(params.slug);
+  const { note, metadata } = await getNote(params.slug);
+  const blogPostingSchema = generateBlogPostingSchema(metadata);
 
   return (
     <Layout>
       <SubpageNavigation previousPagePath="/notes" previousPageLabel="Notes" />
       <PostBody content={note} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
     </Layout>
   );
 };
